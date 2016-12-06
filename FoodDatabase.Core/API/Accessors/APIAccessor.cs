@@ -26,6 +26,20 @@ namespace FoodDatabase.Core.API.Accessors
             req.Method = RestRequest.Methods.Get;
             return await client.Execute(req);
         }
+
+        /// <summary>
+        /// Will return detailed information about a single item.
+        /// </summary>
+        public async Task<string> GetDetails(string itemID)
+        {
+            RestRequest req = new RestRequest("item/id_id.xml");
+            req.AddGetParam("apikey", _token);
+            req.AddGetParam("lang", "de");
+            req.AddGetParam("id", itemID);
+
+            req.Method = RestRequest.Methods.Get;
+            return await client.Execute(req);
+        }
     }
 }
 

@@ -166,7 +166,7 @@ namespace FoodDatatase.Core.API.Requests
             }
             else if (req.HasPostParams)
             {
-                string url = String.Concat(_base, req.RequestURL);
+                string url = string.Concat(_base, req.RequestURL);
                 if (req.HasGetParams) url = generateGETURL(req);
 
                 var content = new FormUrlEncodedContent(req.PostParams);
@@ -176,8 +176,9 @@ namespace FoodDatatase.Core.API.Requests
             else
             {
                 string url = generateGETURL(req);
-                HttpResponseMessage res = _client.GetAsync(url).Result;
-                return res.Content.ReadAsStringAsync().Result;
+
+                var response = await _client.GetByteArrayAsync(url);
+                return Encoding.GetEncoding("ISO-8859-1").GetString(response, 0, response.Length);
             }
         }
 

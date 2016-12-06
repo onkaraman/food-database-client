@@ -32,6 +32,7 @@
     <Compile Include="API\Requests\RestService.cs" />
     <Compile Include="API\Accessors\APIAccessor.cs" />
     <Compile Include="Patterns\LazyStatic.cs" />
+    <Compile Include="API\Parsers\APIParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -61,6 +62,7 @@
     <Folder Include="API\Requests\" />
     <Folder Include="API\Accessors\" />
     <Folder Include="Patterns\" />
+    <Folder Include="API\Parsers\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ProjectExtensions>
