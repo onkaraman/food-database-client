@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace FoodDatabase.Core.API.Models
 {
@@ -10,19 +11,21 @@ namespace FoodDatabase.Core.API.Models
     {
         public string id { get; set; }
         public string markedfordeletion { get; set; }
-        // Per hand
         public string thumbsrc { get; set; }
-        // Per hand
         public string thumbsrclarge { get; set; }
         public string foodrank { get; set; }
         public string ratings_num { get; set; }
         public string ratings_avg_perc { get; set; }
         public string producerid { get; set; }
         public string groupid { get; set; }
-        // Per hand
         public string productcode_ean { get; set; }
         public string datasource { get; set; }
-        public Data data { get; set; }
-        public List<Serving> servings { get; set; }
+
+        [XmlElement("data")]
+        public Data Data { get; set; }
+
+        [XmlArray("servings")]
+        [XmlArrayItem("serving")]
+        public List<Serving> Servings { get; set; }
     }
 }

@@ -1,7 +1,9 @@
-﻿using System;
-using System.Xml.Linq;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Xml;
+using System.Xml.Serialization;
+using FoodDatabase.Core.API.Models;
 using FoodDatabase.Core.Patterns;
-using Newtonsoft.Json;
 
 namespace FoodDatabase.Core.API.Parsers
 {
@@ -16,7 +18,9 @@ namespace FoodDatabase.Core.API.Parsers
         /// </summary>
         public void ParseSearch(string xml)
         {
-            string json = JsonConvert.SerializeXNode(XDocument.Parse(xml));
+            XmlSerializer serializer = new XmlSerializer(typeof(Result), new XmlRootAttribute("result"));
+            StringReader stringReader = new StringReader(xml);
+            var result = (Result)serializer.Deserialize(stringReader);
         }
     }
 }

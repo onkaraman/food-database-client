@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Xml.Serialization;
+
 namespace FoodDatabase.Core.API.Models
 {
     /// <summary>
@@ -7,9 +9,7 @@ namespace FoodDatabase.Core.API.Models
     public class Data
     {
         public string amount { get; set; }
-        // Per hand
         public string amount_measuring_system { get; set; }
-        // Per hand
         public string aggregate_state { get; set; }
         public string kj { get; set; }
         public string kcal { get; set; }
