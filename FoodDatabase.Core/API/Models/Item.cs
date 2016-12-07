@@ -24,8 +24,16 @@ namespace FoodDatabase.Core.API.Models
         [XmlElement("data")]
         public Data Data { get; set; }
 
+        [XmlElement("description")]
+        public Description Description { get; set; }
+
         [XmlArray("servings")]
         [XmlArrayItem("serving")]
         public List<Serving> Servings { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("#{0} {1} from {2}", id, Description.name, Description.producer);
+        }
     }
 }

@@ -37,6 +37,7 @@
     <Compile Include="API\Models\Data.cs" />
     <Compile Include="API\Models\Serving.cs" />
     <Compile Include="API\Models\Result.cs" />
+    <Compile Include="API\Models\Description.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
