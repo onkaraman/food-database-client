@@ -46,6 +46,22 @@ namespace FoodDatabase.Core.API.Accessors
         }
 
         /// <summary>
+        /// Will get the Diary of the passed date.
+        /// </summary>
+        /// <returns>The diary day.</returns>
+        public async Task<string> GetDiary(string user, string pass, DateTime date)
+        {
+            string url = string.Format("diary/get_day_{0}.xml", date.ToString("dd_MM_yyyy"));
+            RestRequest req = new RestRequest(url);
+            req.AddBasicAuth(user, pass);
+            req.AddGetParam("apikey", _token);
+            req.AddGetParam("lang", "de");
+
+            req.Method = RestRequest.Methods.Get;
+            return await client.Execute(req);
+        }
+
+        /// <summary>
         /// Will add a food item to the diary.
         /// </summary>
         /// <param name="itemID">ID of the food to add.</param>

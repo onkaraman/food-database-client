@@ -2,7 +2,7 @@
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
-using FoodDatabase.Core.API.Models;
+using FoodDatabase.Core.API.Models.Item;
 using FoodDatabase.Core.Patterns;
 
 namespace FoodDatabase.Core.API.Parsers

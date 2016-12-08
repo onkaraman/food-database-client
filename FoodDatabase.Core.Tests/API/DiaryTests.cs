@@ -1,6 +1,6 @@
 ﻿using System;
 using FoodDatabase.Core.API.Accessors;
-using FoodDatabase.Core.API.Models;
+using FoodDatabase.Core.API.Models.Item;
 using FoodDatabase.Core.API.Parsers;
 using NUnit.Framework;
 
@@ -9,6 +9,12 @@ namespace FoodDatabase.Core.Tests.API
     [TestFixture]
     public class DiaryTests
     {
+        [Test]
+        public async void GetTodaysDiary()
+        {
+            string response = await APIAccessor.Static.GetDiary("QuadrigaKing", "jonny0011", DateTime.Today);
+        }
+
         [Test]
         public async void AddFoodCustomServing()
         {

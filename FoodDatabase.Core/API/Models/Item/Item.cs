@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace FoodDatabase.Core.API.Models
+namespace FoodDatabase.Core.API.Models.Item
 {
     /// <summary>
     /// This class represents a food item of the API.

@@ -1,6 +1,5 @@
-﻿using System;
-using FoodDatabase.Core.API.Accessors;
-using FoodDatabase.Core.API.Models;
+﻿using FoodDatabase.Core.API.Accessors;
+using FoodDatabase.Core.API.Models.Item;
 using FoodDatabase.Core.API.Parsers;
 using NUnit.Framework;
 

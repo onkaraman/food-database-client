@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Xml.Serialization;
 
-namespace FoodDatabase.Core.API.Models
+namespace FoodDatabase.Core.API.Models.Item
 {
     /// <summary>
     /// The serving option of an item.
