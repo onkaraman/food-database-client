@@ -16,11 +16,11 @@ namespace FoodDatabase.Core.API.Parsers
         /// and return a list of item models. The XML will be parsed
         /// to json in order to enable easier handling.
         /// </summary>
-        public void ParseSearch(string xml)
+        public Result ParseSearch(string xml)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(Result), new XmlRootAttribute("result"));
             StringReader stringReader = new StringReader(xml);
-            var result = (Result)serializer.Deserialize(stringReader);
+            return (Result)serializer.Deserialize(stringReader);
         }
     }
 }

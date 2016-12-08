@@ -8,6 +8,28 @@ namespace FoodDatabase.Core.API.Models
     /// </summary>
     public class Data
     {
+        /// <summary>
+        /// Will return true if this food item is measured in grams.
+        /// </summary>
+        public bool IsGramMeasurement
+        {
+            get
+            {
+                return amount_measuring_system.ToLower().Contains("gram");    
+            }
+        }
+
+        /// <summary>
+        /// Will return true if this food item is measured in millilitre.
+        /// </summary>
+        public bool IsMLMeasurement
+        {
+            get
+            {
+                return amount_measuring_system.ToLower().Contains("ml");
+            }
+        }
+
         public string amount { get; set; }
         public string amount_measuring_system { get; set; }
         public string aggregate_state { get; set; }
