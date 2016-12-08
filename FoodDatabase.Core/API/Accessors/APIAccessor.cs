@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using FoodDatabase.Core.Patterns;
 using FoodDatatase.Core.API.Requests;
 
@@ -41,6 +42,29 @@ namespace FoodDatabase.Core.API.Accessors
             req.AddGetParam("id", itemID);
 
             req.Method = RestRequest.Methods.Get;
+            return await client.Execute(req);
+        }
+
+        /// <summary>
+        /// Will add a food item to the diary.
+        /// </summary>
+        /// <param name="itemID">ID of the food to add.</param>
+        /// <param name="customServing">Custom weight of this food.</param>
+        /// <param name="servingID">Preset serving for this food..</param>
+        public async Task<string> AddItemToDiary(string user, string pass, string itemID,
+                                 int customServing=0, string servingID=null)
+        {
+            RestRequest req = new RestRequest("diary/add_item.xml");
+            req.AddBasicAuth(user, pass);
+            req.AddGetParam("apikey", _token);
+            req.AddPostParam("item_id", itemID);
+
+            if (customServing > 0) req.AddPostParam("custom_serving", customServing.ToString());
+            else if (servingID != null) req.AddPostParam("serving_id", servingID);
+            else if (customServing == 0 && servingID == null) 
+                throw new Exception("No serving specified.");
+
+            req.Method = RestRequest.Methods.Post;
             return await client.Execute(req);
         }
     }

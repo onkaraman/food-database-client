@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -33,10 +34,23 @@ namespace FoodDatatase.Core.API.Requests
                 return _hasGetParams;
             }
         }
+
+        public bool HasBasicAuth 
+        {
+            get 
+            {
+                return _username != null && _password != null;    
+            }
+        }
+
         private string _requestURL;
         public string RequestURL { get { return _requestURL; } }
         private string _json;
         public string JsonBody { get { return _json; } }
+        private string _username, _password;
+        public string Username { get { return _username; } }
+        public string Password { get { return _password; } }
+        public string AuthString { get { return string.Format("{0}:{1}", _username, _password); } }
 
         private List<KeyValuePair<string, string>> _pairs 
             = new List<KeyValuePair<string,string>>();
@@ -120,6 +134,15 @@ namespace FoodDatatase.Core.API.Requests
             Method = Methods.Post;
         }
 
+        /// <summary>
+        /// Will add a basic authentication to this REST request.
+        /// </summary>
+        public void AddBasicAuth(string username, string password)
+        {
+            _username = username;
+            _password = password;
+        }
+
     }
        
     /// <summary>
@@ -143,9 +166,16 @@ namespace FoodDatatase.Core.API.Requests
         /// </summary>
         public async Task<string> Execute(RestRequest req)
         {
+            if (req.HasBasicAuth)
+            {
+                var byteArray = Encoding.UTF8.GetBytes(req.AuthString);
+                _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", 
+                                                                Convert.ToBase64String(byteArray));
+            }
+
             if (req.JsonBody != null)
             {
-                string url = String.Concat(_base, req.RequestURL);
+                string url = string.Concat(_base, req.RequestURL);
                 if (req.HasGetParams) url = generateGETURL(req);
 
                 _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -164,7 +194,7 @@ namespace FoodDatatase.Core.API.Requests
 
                 return await res.Content.ReadAsStringAsync();
             }
-            else if (req.HasPostParams)
+            if (req.HasPostParams)
             {
                 string url = string.Concat(_base, req.RequestURL);
                 if (req.HasGetParams) url = generateGETURL(req);
@@ -185,7 +215,7 @@ namespace FoodDatatase.Core.API.Requests
         private string generateGETURL(RestRequest req)
         {
             req.ApplyGetParams();
-            return String.Concat(_base, req.RequestURL);
+            return string.Concat(_base, req.RequestURL);
         }
     }
 }
