@@ -15,13 +15,16 @@ namespace FoodDatabase.Core.API.Accessors
 
         /// <summary>
         /// This method will start an api search with the given query.
+        /// The start from parameter can be passed to continue from this id + the 10 next
+        /// items.
         /// </summary>
-        public async Task<string> Search(string query)
+        public async Task<string> Search(string query, string startFrom=null)
         {
             RestRequest req = new RestRequest("search/item.xml");
             req.AddGetParam("apikey", _token);
             req.AddGetParam("lang", "de");
             req.AddGetParam("q", query);
+            if (startFrom != null) req.AddGetParam("startfrom", startFrom);
 
             req.Method = RestRequest.Methods.Get;
             return await client.Execute(req);
