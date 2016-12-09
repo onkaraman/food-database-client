@@ -13,6 +13,7 @@ namespace FoodDatabase.Core.Tests.API
         public async void GetTodaysDiary()
         {
             string response = await APIAccessor.Static.GetDiary("QuadrigaKing", "jonny0011", DateTime.Today);
+            Result result = APIParser.Static.Parse(response);
         }
 
         [Test]
@@ -26,7 +27,7 @@ namespace FoodDatabase.Core.Tests.API
         public async void AddFoodServing()
         {
             string response = await APIAccessor.Static.Search("Banane");
-            Result result = APIParser.Static.ParseSearch(response);
+            Result result = APIParser.Static.Parse(response);
 
             response = await APIAccessor.Static.AddItemToDiary("QuadrigaKing", "jonny0011", "1", 0, 
                                                                result.Items[0].Servings[0].serving_id);

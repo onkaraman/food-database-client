@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using FoodDatabase.Core.API.Models.Diary;
 
 namespace FoodDatabase.Core.API.Models.Item
 {
@@ -10,5 +11,8 @@ namespace FoodDatabase.Core.API.Models.Item
         [XmlArray("items")]
         [XmlArrayItem("item")]
         public List<Item> Items { get; set; }
+
+        [XmlElement("diaryelement")]
+        public List<DiaryElement> DiaryElements { get; set; }
     }
 }

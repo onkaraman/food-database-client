@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Xml;
+﻿using System.IO;
 using System.Xml.Serialization;
 using FoodDatabase.Core.API.Models.Item;
 using FoodDatabase.Core.Patterns;
@@ -16,7 +14,7 @@ namespace FoodDatabase.Core.API.Parsers
         /// and return a list of item models. The XML will be parsed
         /// to json in order to enable easier handling.
         /// </summary>
-        public Result ParseSearch(string xml)
+        public Result Parse(string xml)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(Result), new XmlRootAttribute("result"));
             StringReader stringReader = new StringReader(xml);

@@ -39,6 +39,8 @@
     <Compile Include="API\Models\Item\Item.cs" />
     <Compile Include="API\Models\Item\Result.cs" />
     <Compile Include="API\Models\Item\Serving.cs" />
+    <Compile Include="API\Models\Diary\DiaryShortItem.cs" />
+    <Compile Include="API\Models\Diary\DiaryElement.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -71,6 +73,7 @@
     <Folder Include="API\Parsers\" />
     <Folder Include="API\Models\" />
     <Folder Include="API\Models\Item\" />
+    <Folder Include="API\Models\Diary\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ProjectExtensions>

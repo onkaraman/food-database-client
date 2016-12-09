@@ -30,6 +30,8 @@ namespace FoodDatabase.Core.API.Models.Item
             }
         }
 
+        public string diary_serving_amount { get; set; }
+        public string diary_serving_name { get; set; }
         public string amount { get; set; }
         public string amount_measuring_system { get; set; }
         public string aggregate_state { get; set; }

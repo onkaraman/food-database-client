@@ -12,7 +12,7 @@ namespace FoodDatabase.Core.Tests.API
         public async void ResultCount()
         {
             string response = await APIAccessor.Static.Search("Banane");
-            Result result = APIParser.Static.ParseSearch(response);
+            Result result = APIParser.Static.Parse(response);
             Assert.IsTrue(result.Items.Count > 5);
         }
 
@@ -20,7 +20,7 @@ namespace FoodDatabase.Core.Tests.API
         public async void ResultContainsData()
         {
             string response = await APIAccessor.Static.Search("Banane");
-            Result result = APIParser.Static.ParseSearch(response);
+            Result result = APIParser.Static.Parse(response);
 
             Assert.IsTrue(result.Items[0].Data.amount.Length > 0);
             Assert.IsTrue(result.Items[0].Data.kcal.Length > 0);
@@ -31,7 +31,7 @@ namespace FoodDatabase.Core.Tests.API
         public async void ResultContainsDescription()
         {
             string response = await APIAccessor.Static.Search("Banane");
-            Result result = APIParser.Static.ParseSearch(response);
+            Result result = APIParser.Static.Parse(response);
 
             Assert.IsTrue(result.Items[0].Description.name.Length > 0);
             Assert.IsTrue(result.Items[0].Description.producer.Length > 0);
@@ -42,7 +42,7 @@ namespace FoodDatabase.Core.Tests.API
         public async void ResultHasServings()
         {
             string response = await APIAccessor.Static.Search("Banane");
-            Result result = APIParser.Static.ParseSearch(response);
+            Result result = APIParser.Static.Parse(response);
 
             Assert.IsTrue(result.Items[0].Servings.Count > 0);
         }
