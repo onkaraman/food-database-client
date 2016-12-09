@@ -49,7 +49,7 @@ namespace FoodDatabase.Core.API.Accessors
         /// Will get the Diary of the passed date.
         /// </summary>
         /// <returns>The diary day.</returns>
-        public async Task<string> GetDiary(string user, string pass, DateTime date)
+        public async Task<string> DiaryGet(string user, string pass, DateTime date)
         {
             string url = string.Format("diary/get_day_{0}.xml", date.ToString("dd_MM_yyyy"));
             RestRequest req = new RestRequest(url);
@@ -67,7 +67,7 @@ namespace FoodDatabase.Core.API.Accessors
         /// <param name="itemID">ID of the food to add.</param>
         /// <param name="customServing">Custom weight of this food.</param>
         /// <param name="servingID">Preset serving for this food..</param>
-        public async Task<string> AddItemToDiary(string user, string pass, string itemID,
+        public async Task<string> DiaryAddItem(string user, string pass, string itemID,
                                  int customServing=0, string servingID=null)
         {
             RestRequest req = new RestRequest("diary/add_item.xml");
@@ -79,6 +79,22 @@ namespace FoodDatabase.Core.API.Accessors
             else if (servingID != null) req.AddPostParam("serving_id", servingID);
             else if (customServing == 0 && servingID == null) 
                 throw new Exception("No serving specified.");
+
+            req.Method = RestRequest.Methods.Post;
+            return await client.Execute(req);
+        }
+    
+        /// <summary>
+        /// Will remove an item from the diary.
+        /// </summary>
+        public async Task<string> DiaryRemove(string user, string pass, string diaryItemID)
+        {
+            string url = string.Format("diary/delete_{0}.xml", diaryItemID);
+
+            RestRequest req = new RestRequest(url);
+            req.AddBasicAuth(user, pass);
+            req.AddGetParam("apikey", _token);
+            req.AddPostParam("uid", diaryItemID);
 
             req.Method = RestRequest.Methods.Post;
             return await client.Execute(req);
