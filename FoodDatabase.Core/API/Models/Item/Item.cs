@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Xml.Serialization;
+using FoodDatabase.Core.API.Models.Abstracts;
 
 namespace FoodDatabase.Core.API.Models.Item
 {
     /// <summary>
     /// This class represents a food item of the API.
     /// </summary>
-    public class Item
+    public class Item : APIModel
     {
-        public string id { get; set; }
         public string markedfordeletion { get; set; }
         public string thumbsrc { get; set; }
         public string thumbsrclarge { get; set; }

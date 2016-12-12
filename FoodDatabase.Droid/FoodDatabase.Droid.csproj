@@ -54,8 +54,10 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\MainEditText.cs" />
-    <Compile Include="Views\MainTextView.cs" />
+    <Compile Include="Views\Widgets\MainEditText.cs" />
+    <Compile Include="Views\Widgets\MainTextView.cs" />
+    <Compile Include="Views\Adapters\GeneralAdapter.cs" />
+    <Compile Include="Views\Adapters\GeneralViewHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -98,6 +100,8 @@
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
     <Folder Include="Views\" />
+    <Folder Include="Views\Widgets\" />
+    <Folder Include="Views\Adapters\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FoodDatabase.Core\FoodDatabase.Core.csproj">

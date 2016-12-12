@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Xml.Serialization;
+using FoodDatabase.Core.API.Models.Abstracts;
 using FoodDatabase.Core.API.Models.Item;
 
 namespace FoodDatabase.Core.API.Models.Diary
@@ -7,9 +8,13 @@ namespace FoodDatabase.Core.API.Models.Diary
     /// <summary>
     /// Contains data for a diary item.
     /// </summary>
-    public class DiaryShortItem
+    public class DiaryShortItem : APIModel
     {
-        public string itemid { get; set; }
+        public string itemid
+        {
+            get { return id.ToString(); }
+            set { id = int.Parse(value); }
+        }
 
         [XmlElement("data")]
         public Data Data { get; set; }

@@ -3,7 +3,7 @@ using Android.App;
 using Android.Content;
 using Android.Util;
 
-namespace FoodDatabase.Droid.Views
+namespace FoodDatabase.Droid.Views.Widgets
 {
     public class MainEditText : EditText
     {

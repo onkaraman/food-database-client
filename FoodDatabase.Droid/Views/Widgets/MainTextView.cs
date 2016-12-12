@@ -3,7 +3,7 @@ using Android.Content;
 using Android.Graphics;
 using Android.Util;
 
-namespace JokeBox.UI.Views
+namespace FoodDatabase.Droid.Views.Widgets
 {
     public class MainTextView : TextView
     {
