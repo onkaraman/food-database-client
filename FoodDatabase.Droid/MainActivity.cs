@@ -4,23 +4,39 @@ using Android.OS;
 
 namespace FoodDatabase.Droid
 {
-    [Activity(Label = "FoodDatabase.Droid", MainLauncher = true, Icon = "@mipmap/icon")]
+    /// <summary>
+    /// The  main activity contains the search funtionality and access to settings
+    /// and user diary.
+    /// </summary>
+    [Activity(Label = "Food Database",
+          MainLauncher = true,
+          Icon = "@drawable/icon",
+          ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class MainActivity : Activity
     {
-        int count = 1;
-
+        
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
+            setupViews();
+            assignEvents();
+        }
 
-            // Get our button from the layout resource,
-            // and attach an event to it
-            Button button = FindViewById<Button>(Resource.Id.myButton);
+        /// <summary>
+        /// Will connect the fields to the views of the layout.
+        /// </summary>
+        private void setupViews()
+        {
+            
+        }
 
-            button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+        /// <summary>
+        /// Will assign events to the views of the layout.
+        /// </summary>
+        private void assignEvents()
+        {
+            
         }
     }
 }
