@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:minWidth="25px"
-    android:minHeight="25px" />
+    android:minHeight="25px">
+    <EditText
+        android:id="@+id/MainEditText"
+        android:layout_height="@dimen/buttonHeight"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_marginTop="@dimen/headerTopMargin"
+        android:layout_centerHorizontal="true"
+        style="@style/MainEditText"
+        android:hint="Search" />
+    <ListView
+        android:id="@+id/MainListView" />
+</RelativeLayout>

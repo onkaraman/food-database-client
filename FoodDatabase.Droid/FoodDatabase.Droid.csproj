@@ -54,6 +54,8 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\MainEditText.cs" />
+    <Compile Include="Views\MainTextView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -67,30 +69,35 @@
     <AndroidResource Include="Resources\drawable\add.png" />
     <AndroidResource Include="Resources\drawable\AreonLogo.png" />
     <AndroidResource Include="Resources\drawable\barcode.png" />
-    <AndroidResource Include="Resources\drawable\barcode_ab.png" />
     <AndroidResource Include="Resources\drawable\cancel.png" />
     <AndroidResource Include="Resources\drawable\check.png" />
     <AndroidResource Include="Resources\drawable\DefaultDiary.jpg" />
     <AndroidResource Include="Resources\drawable\delete.png" />
     <AndroidResource Include="Resources\drawable\edit.png" />
     <AndroidResource Include="Resources\drawable\favs.png" />
-    <AndroidResource Include="Resources\drawable\favs_blank.png" />
+    <AndroidResource Include="Resources\drawable\favsblank.png" />
     <AndroidResource Include="Resources\drawable\favStar.png" />
     <AndroidResource Include="Resources\drawable\finger.png" />
     <AndroidResource Include="Resources\drawable\Loader.jpg" />
     <AndroidResource Include="Resources\drawable\icon.png" />
-    <AndroidResource Include="Resources\drawable\minus.png" />
-    <AndroidResource Include="Resources\drawable\pro.png" />
+    <AndroidResource Include="Resources\drawable\removefav.png" />
+    <AndroidResource Include="Resources\drawable\calendaricon.png" />
     <AndroidResource Include="Resources\drawable\sampleThumbnail.jpg" />
     <AndroidResource Include="Resources\drawable\search.png" />
-    <AndroidResource Include="Resources\drawable\star Grey.png" />
+    <AndroidResource Include="Resources\drawable\stargrey.png" />
     <AndroidResource Include="Resources\drawable\sync.png" />
     <AndroidResource Include="Resources\values\colors.xml" />
     <AndroidResource Include="Resources\values\dimens.xml" />
     <AndroidResource Include="Resources\values\styles.xml" />
+    <AndroidResource Include="Resources\drawable\EditTextBackground.xml" />
+    <AndroidResource Include="Resources\drawable\MainButtonDisabled.xml" />
+    <AndroidResource Include="Resources\drawable\MainButtonNormal.xml" />
+    <AndroidResource Include="Resources\drawable\MainButtonPressed.xml" />
+    <AndroidResource Include="Resources\drawable\MainButtonSelector.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
+    <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FoodDatabase.Core\FoodDatabase.Core.csproj">

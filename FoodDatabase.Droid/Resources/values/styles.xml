@@ -1,33 +1,31 @@
 <resources>
 	<style name="MainTheme" parent="Theme.AppCompat.Light.NoActionBar">
 		<item name="colorAccent">@color/blue</item>
-	        <item name="colorPrimary">@color/blue</item>
-	        <item name="colorPrimaryDark">@color/grey</item>
+	        <item name="colorPrimary">@color/white</item>
+	        <item name="colorPrimaryDark">@color/darkgrey</item>
 		<item name="android:colorBackground">@color/white</item>
-		<item name="android:windowBackground">?android:attr/white</item>
-		<item name="android:textColorPrimary">@color/black</item>
+		<item name="android:textColorPrimary">@color/blue</item>
 	</style>
 
 	<style name="MainEditText" parent="@android:style/Widget.EditText">
-		<item name="android:layout_width">@dimen/textboxWidth</item>
-		<item name="android:layout_height">@dimen/textboxHeight</item>
 		<item name="android:layout_gravity">center</item>
-		<item name="android:paddingLeft">@dimen/textboxPaddingLeft</item>
-		<item name="android:paddingRight">@dimen/textboxPaddingLeft</item>
-		<item name="android:textSize">14sp</item>
+		<item name="android:paddingLeft">@dimen/paddingLeft</item>
+		<item name="android:textSize">18sp</item>
 		<item name="android:singleLine">true</item>
-		<item name="android:textColor">@color/hummusGrayBG</item>
-		<item name="android:background">@drawable/HummusEditTextBackground</item>
+		<item name="android:gravity">center_vertical</item>
+		<item name="android:textColor">@color/black</item>
+		<item name="android:textColorHint">@color/darkgrey</item>
+		<item name="android:background">@drawable/EditTextBackground</item>
 	</style>
 
 	<style name="MainButton" parent="Widget.AppCompat.Button">
 		<item name="android:textStyle">normal</item>
 		<item name="android:textColor">@color/white</item>
-		<item name="android:layout_width">@dimen/textboxWidth</item>
+		<item name="android:layout_width">@dimen/buttonWidth</item>
 		<item name="android:height">@dimen/buttonHeight</item>
 		<item name="android:layout_gravity">center</item>
 		<item name="android:textSize">15sp</item>
 		<item name="android:textAllCaps">false</item>
-		<item name="android:background">@drawable/HummusButtonSelector</item>
+		<item name="android:background">@drawable/MainButtonSelector</item>
 	</style>
 </resources>

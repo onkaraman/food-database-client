@@ -1,17 +1,8 @@
 <resources>
-	<dimen name="pageOuterDistance">20sp</dimen>
-	<dimen name="textboxWidth">300sp</dimen>
-	<dimen name="textboxHeight">40sp</dimen>
-	<dimen name="buttonHeight">35sp</dimen>
-	<dimen name="textboxPaddingLeft">20sp</dimen>
-	<dimen name="textboxPaddingTop">9sp</dimen>
-	<dimen name="mainTabMargin">60sp</dimen>
-	<dimen name="mainTabHeight">25sp</dimen>
-	<dimen name="mainTabWidth">25sp</dimen>
-	<dimen name="standardFontHeight">23sp</dimen>
-	<dimen name="standardFontSize">15sp</dimen>
-	<dimen name="standardHeaderHeight">25sp</dimen>
-	<dimen name="standardHeaderSize">17sp</dimen>
-	<dimen name="headerMarginTop">20dp</dimen>
-	<dimen name="tabsPortraitHeight">100sp</dimen>
+	<dimen name="buttonHeight">45dp</dimen>
+	<dimen name="buttonWidth">330dp</dimen>
+	<dimen name="fontSize">15sp</dimen>
+	<dimen name="titleSize">20sp</dimen>
+	<dimen name="headerTopMargin">70dp</dimen>
+	<dimen name="paddingLeft">12dp</dimen>
 </resources>
