@@ -1184,6 +1184,12 @@ namespace FoodDatabase.Droid
 			// aapt resource value: 0x7f070004
 			public const int abc_text_size_title_material_toolbar = 2131165188;
 			
+			// aapt resource value: 0x7f07004d
+			public const int bodyTextSize = 2131165261;
+			
+			// aapt resource value: 0x7f07004e
+			public const int bodyTitleSize = 2131165262;
+			
 			// aapt resource value: 0x7f07004b
 			public const int buttonHeight = 2131165259;
 			
@@ -1196,11 +1202,8 @@ namespace FoodDatabase.Droid
 			// aapt resource value: 0x7f070044
 			public const int disabled_alpha_material_light = 2131165252;
 			
-			// aapt resource value: 0x7f07004d
-			public const int fontSize = 2131165261;
-			
-			// aapt resource value: 0x7f07004f
-			public const int headerTopMargin = 2131165263;
+			// aapt resource value: 0x7f070050
+			public const int headerTopMargin = 2131165264;
 			
 			// aapt resource value: 0x7f070045
 			public const int highlight_alpha_material_colored = 2131165253;
@@ -1220,11 +1223,11 @@ namespace FoodDatabase.Droid
 			// aapt resource value: 0x7f07004a
 			public const int notification_subtext_size = 2131165258;
 			
-			// aapt resource value: 0x7f070050
-			public const int paddingLeft = 2131165264;
+			// aapt resource value: 0x7f070051
+			public const int paddingLeft = 2131165265;
 			
-			// aapt resource value: 0x7f07004e
-			public const int titleSize = 2131165262;
+			// aapt resource value: 0x7f07004f
+			public const int titleSize = 2131165263;
 			
 			static Dimension()
 			{
@@ -1542,6 +1545,12 @@ namespace FoodDatabase.Droid
 			
 			// aapt resource value: 0x7f0b0051
 			public const int MainListView = 2131427409;
+			
+			// aapt resource value: 0x7f0b0060
+			public const int SearchItemName = 2131427424;
+			
+			// aapt resource value: 0x7f0b005f
+			public const int SearchItemThumbnail = 2131427423;
 			
 			// aapt resource value: 0x7f0b0052
 			public const int action0 = 2131427410;
@@ -1966,16 +1975,19 @@ namespace FoodDatabase.Droid
 			public const int notification_template_part_time = 2130903073;
 			
 			// aapt resource value: 0x7f030022
-			public const int select_dialog_item_material = 2130903074;
+			public const int SearchItem = 2130903074;
 			
 			// aapt resource value: 0x7f030023
-			public const int select_dialog_multichoice_material = 2130903075;
+			public const int select_dialog_item_material = 2130903075;
 			
 			// aapt resource value: 0x7f030024
-			public const int select_dialog_singlechoice_material = 2130903076;
+			public const int select_dialog_multichoice_material = 2130903076;
 			
 			// aapt resource value: 0x7f030025
-			public const int support_simple_spinner_dropdown_item = 2130903077;
+			public const int select_dialog_singlechoice_material = 2130903077;
+			
+			// aapt resource value: 0x7f030026
+			public const int support_simple_spinner_dropdown_item = 2130903078;
 			
 			static Layout()
 			{

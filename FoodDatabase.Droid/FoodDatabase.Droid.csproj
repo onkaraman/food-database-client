@@ -58,6 +58,9 @@
     <Compile Include="Views\Widgets\MainTextView.cs" />
     <Compile Include="Views\Adapters\GeneralAdapter.cs" />
     <Compile Include="Views\Adapters\GeneralViewHolder.cs" />
+    <Compile Include="Views\Adapters\Concretes\SearchItemAdapter.cs" />
+    <Compile Include="Views\ViewHolders\ViewHolder.cs" />
+    <Compile Include="Views\ViewHolders\Concretes\SearchItemViewHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -96,12 +99,16 @@
     <AndroidResource Include="Resources\drawable\MainButtonNormal.xml" />
     <AndroidResource Include="Resources\drawable\MainButtonPressed.xml" />
     <AndroidResource Include="Resources\drawable\MainButtonSelector.xml" />
+    <AndroidResource Include="Resources\layout\SearchItem.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
     <Folder Include="Views\" />
     <Folder Include="Views\Widgets\" />
     <Folder Include="Views\Adapters\" />
+    <Folder Include="Views\Adapters\Concretes\" />
+    <Folder Include="Views\ViewHolders\" />
+    <Folder Include="Views\ViewHolders\Concretes\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FoodDatabase.Core\FoodDatabase.Core.csproj">
