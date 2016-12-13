@@ -31,7 +31,7 @@ namespace FoodDatabase.Droid
             SetContentView(Resource.Layout.Main);
             setupViews();
             assignEvents();
-            search("");
+            search("Pizza");
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace FoodDatabase.Droid
         {
             ThreadPool.QueueUserWorkItem(async o =>
             {
-                string response = await APIAccessor.Static.Search("Banane");
+                string response = await APIAccessor.Static.Search(query);
                 var result = APIParser.Static.Parse(response);
 
                 RunOnUiThread(() =>

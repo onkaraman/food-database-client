@@ -36,10 +36,10 @@ namespace FoodDatabase.Views.ViewHolders.Concretes
             Name.Text = shortenName(searchItem.Description.name, 30);
             Producer.Text = shortenName(searchItem.Description.producer, 30);
             Kcal.Text = string.Format("{0}", searchItem.Data.kcal);
-            Proteins.Text = string.Format("{0} g", searchItem.Data.protein_gram);
-            Carbohydrates.Text = string.Format("{0} g", searchItem.Data.kh_gram);
-            Sugar.Text = string.Format("{0} g", searchItem.Data.sugar_gram);
-            Fat.Text = string.Format("{0} g", searchItem.Data.fat_gram);
+            Proteins.Text = string.Format("{0}g", searchItem.Data.protein_gram);
+            Carbohydrates.Text = string.Format("{0}g", searchItem.Data.kh_gram);
+            Sugar.Text = string.Format("{0}g", searchItem.Data.sugar_gram);
+            Fat.Text = string.Format("{0}g", searchItem.Data.fat_gram);
         }
 
         /// <summary>

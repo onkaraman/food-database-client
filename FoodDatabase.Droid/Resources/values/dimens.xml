@@ -6,6 +6,6 @@
 	<dimen name="titleSize">20sp</dimen>
 	<dimen name="headerTopMargin">70dp</dimen>
 	<dimen name="paddingLeft">12dp</dimen>
-	<dimen name="spaceBetweenIcons">12dp</dimen>
-	<dimen name="spaceBetweenIconText">3dp</dimen>
+	<dimen name="spaceBetweenIcons">10dp</dimen>
+	<dimen name="spaceBetweenIconText">2dp</dimen>
 </resources>

@@ -36,13 +36,26 @@ namespace FoodDatabase.Core.API.Models.Item
         public string amount_measuring_system { get; set; }
         public string aggregate_state { get; set; }
         public string kj { get; set; }
-        public string kcal { get; set; }
-        public string fat_gram { get; set; }
-        public string fat_sat_gram { get; set; }
-        public string kh_gram { get; set; }
-        public string sugar_gram { get; set; }
+
+        private int _kcal;
+        public string kcal { get { return _kcal.ToString(); } set { _kcal = ((int) double.Parse(value)); } }
+
+        private int _fat;
+        public string fat_gram { get { return _fat.ToString(); } set { _fat = ((int)double.Parse(value)); } }
+
+        private int _fatSat;
+        public string fat_sat_gram { get { return _fatSat.ToString(); } set { _fatSat = ((int)double.Parse(value)); } }
+
+        private int _kh;
+        public string kh_gram { get { return _kh.ToString(); } set { _kh = ((int)double.Parse(value)); } }
+
+        private int _sugar;
+        public string sugar_gram { get { return _sugar.ToString(); } set { _sugar = ((int)double.Parse(value)); } }
+
+        private int _protein;
+        public string protein_gram { get { return _protein.ToString(); } set { _protein = ((int)double.Parse(value)); } }
+
         public string cholesterol_mg { get; set; }
-        public string protein_gram { get; set; }
         public string df_gram { get; set; }
         public string water_gram { get; set; }
         public string alcohol_gram { get; set; }
