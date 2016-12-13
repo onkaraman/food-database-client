@@ -1,11 +1,12 @@
 ﻿using System;
-using Android.Widget;
 using System.Threading;
-using Android.App;
-using FoodDatabase.Droid.Views.Adapters;
 using Android;
-using FoodDatabase.Droid.Views.Widgets;
+using Android.App;
+using Android.Widget;
 using FoodDatabase.Core.API.Models.Item;
+using FoodDatabase.Droid.Views.Adapters;
+using FoodDatabase.Droid.Views.Widgets;
+using UniversalImageLoader.Core;
 
 namespace FoodDatabase.Views.ViewHolders.Concretes
 {
@@ -15,13 +16,13 @@ namespace FoodDatabase.Views.ViewHolders.Concretes
     public class SearchItemViewHolder : GeneralViewHolder
     {
         public ImageView Thumbnail { get; set; }
-        public MainTextView SaleMinutes { get; set; }
         public MainTextView Name { get; set; }
-        public ImageView LocationIcon { get; set; }
-        public ImageView MealIcon { get; set; }
-        public MainTextView LocationLabel { get; set; }
-        public MainTextView AmountLabel { get; set; }
-        public MainTextView PriceLabel { get; set; }
+        public MainTextView Producer { get; set; }
+        public MainTextView Kcal { get; set; }
+        public MainTextView Proteins { get; set; }
+        public MainTextView Carbohydrates { get; set; }
+        public MainTextView Sugar { get; set; }
+        public MainTextView Fat { get; set; }
 
         /// <summary>
         /// Will apply the passed meal data to the UI elements.
@@ -30,23 +31,15 @@ namespace FoodDatabase.Views.ViewHolders.Concretes
         public void ApplyData(Item searchItem, Activity a)
         {
             ThreadPool.QueueUserWorkItem(o => loadThumbnail(searchItem, a));
-            SaleMinutes.Text = searchItem.RemainingSaleMinutes();
             Thumbnail.SetImageResource(Resource.Color.Transparent);
 
-            int cut = 90;
-            if (searchItem.name.Length > cut) Name.Text = searchItem.name.Substring(0, cut).Trim();
-            else Name.Text = searchItem.name.Trim();
-
-            Name.MakeBold();
-
-            LocationLabel.Text = String.Format("{0} / {1}",
-                searchItem.location.city_name, UnitCalculator.Static.CalcDistance(searchItem));
-
-            AmountLabel.Text = String.Format(Localization.Static.Raw(ResourceKeyNames.Static.PortionsLeft), searchItem.amount);
-
-            PriceLabel.Text = String.Format("{0} {1}",
-                String.Format("{0:0.00#}", searchItem.price),
-                Localization.Static.Raw(ResourceKeyNames.Static.CurrencySymbol));
+            Name.Text = shortenName(searchItem.Description.name, 30);
+            Producer.Text = shortenName(searchItem.Description.producer, 30);
+            Kcal.Text = string.Format("{0}", searchItem.Data.kcal);
+            Proteins.Text = string.Format("{0} g", searchItem.Data.protein_gram);
+            Carbohydrates.Text = string.Format("{0} g", searchItem.Data.kh_gram);
+            Sugar.Text = string.Format("{0} g", searchItem.Data.sugar_gram);
+            Fat.Text = string.Format("{0} g", searchItem.Data.fat_gram);
         }
 
         /// <summary>
@@ -59,13 +52,23 @@ namespace FoodDatabase.Views.ViewHolders.Concretes
                 a.RunOnUiThread(() =>
                     {
                         ImageLoader imgLoader = ImageLoader.Instance;
-                        imgLoader.DisplayImage(searchItem.image_url, Thumbnail);
+                        imgLoader.DisplayImage(searchItem.thumbsrc, Thumbnail);
                     });
             }
             catch (Exception ex)
             {
                 //TODO: Reporter here.
             }
+        }
+
+        /// <summary>
+        /// Will return the passed item name in substringed if required.
+        /// </summary>
+        private string shortenName(string name, int cutLength)
+        {
+            if (name.Length > cutLength)
+                return name.Substring(0, cutLength).Trim();
+            return name.Trim();
         }
 
     }

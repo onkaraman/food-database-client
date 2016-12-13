@@ -73,13 +73,17 @@ namespace FoodDatabase.Droid.Views.Adapters
                     holder = setupView();
                     _convertView.Tag = holder;
                 }
+
+                populateHolder(holder);
+                return _convertView;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("GeneralAdapter ex: " + ex.Message);
+                //TODO: Report error.
             }
-            populateHolder(holder);
-			return _convertView;
+
+            return null;
 		}
 
         /// <summary>
