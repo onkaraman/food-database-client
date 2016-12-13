@@ -7,8 +7,120 @@
         android:id="@+id/SearchItemThumbnail"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:src="@drawable/samplethumbnail"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        android:src="@color/button_material_light" />
     <TextView
-        android:id="@+id/SearchItemName" />
+        android:id="@+id/SearchItemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/SearchItemThumbnail"
+        android:layout_alignTop="@+id/SearchItemThumbnail"
+        android:text="Long food item name"
+        android:textSize="@dimen/bodyTitleSize"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/blue"
+        android:textStyle="normal"
+        android:layout_marginTop="5dp" />
+    <TextView
+        android:id="@+id/SearchItemProducer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/SearchItemThumbnail"
+        android:text="Company name"
+        android:textSize="14sp"
+        android:layout_marginLeft="8dp"
+        android:textStyle="normal"
+        android:layout_below="@+id/SearchItemName"
+        android:layout_marginTop="4dp" />
+    <ImageView
+        android:id="@+id/SearchItemKcalIcon"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_alignBottom="@+id/SearchItemThumbnail"
+        android:layout_alignLeft="@+id/SearchItemProducer"
+        android:src="@drawable/kcalicon"
+        android:layout_marginBottom="5dp" />
+    <TextView
+        android:id="@+id/SearchItemKcals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/SearchItemKcalIcon"
+        android:text="123"
+        android:textSize="13dp"
+        android:layout_marginLeft="@dimen/spaceBetweenIconText"
+        android:textStyle="normal"
+        android:layout_alignTop="@+id/SearchItemKcalIcon"
+        android:layout_marginTop="3dp" />
+    <ImageView
+        android:id="@+id/SearchItemProteinIcon"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_alignBottom="@+id/SearchItemKcalIcon"
+        android:src="@drawable/proteinicon"
+        android:layout_toRightOf="@+id/SearchItemKcals"
+        android:layout_marginLeft="@dimen/spaceBetweenIcons" />
+    <TextView
+        android:id="@+id/SearchItemProteins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/SearchItemProteinIcon"
+        android:text="10g"
+        android:textSize="13dp"
+        android:layout_marginLeft="@dimen/spaceBetweenIconText"
+        android:textStyle="normal"
+        android:layout_alignTop="@+id/SearchItemKcals" />
+    <ImageView
+        android:id="@+id/SearchItemCHIcon"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_alignBottom="@+id/SearchItemKcalIcon"
+        android:src="@drawable/carbohydratesicon"
+        android:layout_toRightOf="@+id/SearchItemProteins"
+        android:layout_marginLeft="@dimen/spaceBetweenIcons" />
+    <TextView
+        android:id="@+id/SearchItemCHs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/SearchItemCHIcon"
+        android:text="20g"
+        android:textSize="13dp"
+        android:layout_marginLeft="@dimen/spaceBetweenIconText"
+        android:textStyle="normal"
+        android:layout_alignTop="@+id/SearchItemKcals" />
+    <ImageView
+        android:id="@+id/SearchItemSugarIcon"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_alignBottom="@+id/SearchItemKcalIcon"
+        android:src="@drawable/sugaricon"
+        android:layout_toRightOf="@+id/SearchItemCHs"
+        android:layout_marginLeft="@dimen/spaceBetweenIcons" />
+    <TextView
+        android:id="@+id/SearchItemSugar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/SearchItemSugarIcon"
+        android:text="2g"
+        android:textSize="13dp"
+        android:layout_marginLeft="@dimen/spaceBetweenIconText"
+        android:textStyle="normal"
+        android:layout_alignTop="@+id/SearchItemKcals" />
+    <ImageView
+        android:id="@+id/SearchItemFatIcon"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_alignBottom="@+id/SearchItemKcalIcon"
+        android:src="@drawable/faticon"
+        android:layout_toRightOf="@+id/SearchItemSugar"
+        android:layout_marginLeft="@dimen/spaceBetweenIcons" />
+    <TextView
+        android:id="@+id/SearchItemFat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/SearchItemFatIcon"
+        android:text="2g"
+        android:textSize="13dp"
+        android:layout_marginLeft="@dimen/spaceBetweenIconText"
+        android:textStyle="normal"
+        android:layout_alignTop="@+id/SearchItemKcals" />
 </RelativeLayout>

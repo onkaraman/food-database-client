@@ -71,18 +71,14 @@
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
-    <AndroidResource Include="Resources\drawable\add.png" />
     <AndroidResource Include="Resources\drawable\AreonLogo.png" />
     <AndroidResource Include="Resources\drawable\barcode.png" />
     <AndroidResource Include="Resources\drawable\cancel.png" />
     <AndroidResource Include="Resources\drawable\check.png" />
     <AndroidResource Include="Resources\drawable\DefaultDiary.jpg" />
-    <AndroidResource Include="Resources\drawable\delete.png" />
-    <AndroidResource Include="Resources\drawable\edit.png" />
     <AndroidResource Include="Resources\drawable\favs.png" />
     <AndroidResource Include="Resources\drawable\favsblank.png" />
     <AndroidResource Include="Resources\drawable\favStar.png" />
-    <AndroidResource Include="Resources\drawable\finger.png" />
     <AndroidResource Include="Resources\drawable\Loader.jpg" />
     <AndroidResource Include="Resources\drawable\icon.png" />
     <AndroidResource Include="Resources\drawable\removefav.png" />
@@ -100,6 +96,11 @@
     <AndroidResource Include="Resources\drawable\MainButtonPressed.xml" />
     <AndroidResource Include="Resources\drawable\MainButtonSelector.xml" />
     <AndroidResource Include="Resources\layout\SearchItem.axml" />
+    <AndroidResource Include="Resources\drawable\carbohydratesicon.png" />
+    <AndroidResource Include="Resources\drawable\faticon.png" />
+    <AndroidResource Include="Resources\drawable\kcalicon.png" />
+    <AndroidResource Include="Resources\drawable\proteinicon.png" />
+    <AndroidResource Include="Resources\drawable\sugaricon.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
