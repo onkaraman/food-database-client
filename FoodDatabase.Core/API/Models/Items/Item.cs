@@ -2,7 +2,7 @@
 using System.Xml.Serialization;
 using FoodDatabase.Core.API.Models.Abstracts;
 
-namespace FoodDatabase.Core.API.Models.Item
+namespace FoodDatabase.Core.API.Models.Items
 {
     /// <summary>
     /// This class represents a food item of the API.

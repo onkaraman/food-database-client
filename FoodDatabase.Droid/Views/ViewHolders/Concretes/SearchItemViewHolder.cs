@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Threading;
-using Android;
 using Android.App;
-using Android.Support.V4.Content;
 using Android.Widget;
-using FoodDatabase.Core.API.Models.Item;
+using FoodDatabase.Core.API.Models.Items;
 using FoodDatabase.Droid.Views.Adapters;
 using FoodDatabase.Droid.Views.Widgets;
 using UniversalImageLoader.Core;
@@ -49,14 +47,11 @@ namespace FoodDatabase.Views.ViewHolders.Concretes
         {
             try
             {
-                if (searchItem.thumbsrc.Length > 3)
+                a.RunOnUiThread(() =>
                 {
-                    a.RunOnUiThread(() =>
-                    {
-                        ImageLoader imgLoader = ImageLoader.Instance;
-                        imgLoader.DisplayImage(searchItem.thumbsrc, Thumbnail);
-                    });
-                }
+                    ImageLoader imgLoader = ImageLoader.Instance;
+                    imgLoader.DisplayImage(searchItem.thumbsrc, Thumbnail);
+                });
             }
             catch (Exception ex)
             {

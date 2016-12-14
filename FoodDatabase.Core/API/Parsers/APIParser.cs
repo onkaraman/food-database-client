@@ -1,13 +1,13 @@
 ﻿using System.IO;
 using System.Xml.Serialization;
-using FoodDatabase.Core.API.Models.Item;
+using FoodDatabase.Core.API.Models;
 using FoodDatabase.Core.Patterns;
 
 namespace FoodDatabase.Core.API.Parsers
 {
     public class APIParser : LazyStatic<APIParser>
     {
-        public APIParser(){}
+        public APIParser() { }
 
         /// <summary>
         /// Will take the response of the API for a search

@@ -1,6 +1,6 @@
 ﻿using FoodDatabase.Core.API.Models.Abstracts;
 
-namespace FoodDatabase.Core.API.Models.Item
+namespace FoodDatabase.Core.API.Models.Items
 {
     /// <summary>
     /// The serving option of an item.

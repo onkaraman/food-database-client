@@ -1,5 +1,6 @@
 ﻿using System;
-namespace FoodDatabase.Core.API.Models.Item
+
+namespace FoodDatabase.Core.API.Models.Items
 {
     /// <summary>
     /// Contains the general description of a food item.

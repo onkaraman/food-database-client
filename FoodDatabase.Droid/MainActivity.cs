@@ -1,14 +1,14 @@
-﻿using Android.App;
-using Android.Widget;
-using Android.OS;
-using System;
-using Android.Runtime;
-using UniversalImageLoader.Core;
-using Android.Graphics;
+﻿using System;
 using System.Threading;
+using Android.App;
+using Android.Graphics;
+using Android.OS;
+using Android.Runtime;
+using Android.Widget;
 using FoodDatabase.Core.API.Accessors;
 using FoodDatabase.Core.API.Parsers;
 using FoodDatabase.Droid.Views.Adapters.Concretes;
+using UniversalImageLoader.Core;
 
 namespace FoodDatabase.Droid
 {
@@ -32,7 +32,7 @@ namespace FoodDatabase.Droid
             SetContentView(Resource.Layout.Main);
             setupViews();
             assignEvents();
-            search("Pizza");
+            search("Banane");
         }
 
         /// <summary>
@@ -52,7 +52,18 @@ namespace FoodDatabase.Droid
         /// </summary>
         private void assignEvents()
         {
-            
+            _searchField.KeyPress += searchFieldKeyPress;
+        }
+
+        /// <summary>
+        /// Will handle the user input if he wants to initiate a search.
+        /// </summary>
+        private void searchFieldKeyPress(object sender, Android.Views.View.KeyEventArgs e)
+        {
+            if (e.KeyCode == Android.Views.Keycode.Enter)
+            {
+                search(_searchField.Text);
+            }
         }
 
         /// <summary>
@@ -68,9 +79,9 @@ namespace FoodDatabase.Droid
                 string response = await APIAccessor.Static.Search(query);
                 var result = APIParser.Static.Parse(response);
 
-                for (int i = 0; i <= 5; i+=1)
+                for (int i = 1; i <= 10; i+=1)
                 {
-                    response = await APIAccessor.Static.Search(query, result.Items[result.Items.Count - 1].id.ToString());
+                    response = await APIAccessor.Static.Search(query, (i*10).ToString());
                     result.Items.AddRange(APIParser.Static.Parse(response).Items);
                 }
 
@@ -96,15 +107,17 @@ namespace FoodDatabase.Droid
 
             DisplayImageOptions options = new DisplayImageOptions.Builder()
                 .CacheOnDisk(true)
-                //.CacheInMemory(true)
+                .CacheInMemory(true)
+                .ResetViewBeforeLoading()
                 .ShowImageOnFail(Resource.Color.blue)
+                .ShowImageForEmptyUri(Resource.Drawable.defaultsearchthumbnail)
                 .BitmapConfig(Bitmap.Config.Rgb565)
                 .Build();
 
             var config = new ImageLoaderConfiguration.Builder(ApplicationContext)
                 .DefaultDisplayImageOptions(options)
                 .DiskCacheExtraOptions(300, 300, null)
-                .DiskCacheFileCount(5)
+                .DiskCacheFileCount(10)
                 .Build();
 
             // Initialize ImageLoader with configuration.

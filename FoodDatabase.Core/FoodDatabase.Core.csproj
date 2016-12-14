@@ -34,14 +34,15 @@
     <Compile Include="Patterns\LazyStatic.cs" />
     <Compile Include="API\Parsers\APIParser.cs" />
     <Compile Include="API\Requests\ASCIIEncoding.cs" />
-    <Compile Include="API\Models\Item\Data.cs" />
-    <Compile Include="API\Models\Item\Description.cs" />
-    <Compile Include="API\Models\Item\Item.cs" />
-    <Compile Include="API\Models\Item\Result.cs" />
-    <Compile Include="API\Models\Item\Serving.cs" />
+    <Compile Include="API\Models\Items\Data.cs" />
+    <Compile Include="API\Models\Items\Description.cs" />
+    <Compile Include="API\Models\Items\Item.cs" />
+    <Compile Include="API\Models\Items\Serving.cs" />
     <Compile Include="API\Models\Diary\DiaryShortItem.cs" />
     <Compile Include="API\Models\Diary\DiaryElement.cs" />
     <Compile Include="API\Models\Abstracts\APIModel.cs" />
+    <Compile Include="API\Models\Result.cs" />
+    <Compile Include="API\Models\Stats.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -73,7 +74,7 @@
     <Folder Include="Patterns\" />
     <Folder Include="API\Parsers\" />
     <Folder Include="API\Models\" />
-    <Folder Include="API\Models\Item\" />
+    <Folder Include="API\Models\Items\" />
     <Folder Include="API\Models\Diary\" />
     <Folder Include="API\Models\Abstracts\" />
   </ItemGroup>

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Xml.Serialization;
 
-namespace FoodDatabase.Core.API.Models.Item
+namespace FoodDatabase.Core.API.Models.Items
 {
     /// <summary>
     /// Contains the data of a food item.

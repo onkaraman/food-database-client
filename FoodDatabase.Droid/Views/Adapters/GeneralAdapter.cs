@@ -55,10 +55,9 @@ namespace FoodDatabase.Droid.Views.Adapters
         /// </summary>
         public override View GetView(int position, View convertView, ViewGroup parent)
 		{
-			GeneralViewHolder holder = null;
-
             try
             {
+                GeneralViewHolder holder = null;
     			_convertView = convertView;
     			_parentView = parent;
     			itemPosition = position;
@@ -72,9 +71,8 @@ namespace FoodDatabase.Droid.Views.Adapters
                     _convertView = createView();
                     holder = setupView();
                     _convertView.Tag = holder;
-                    populateHolder(holder);
                 }
-
+                populateHolder(holder);
                 return _convertView;
             }
             catch (Exception ex)
@@ -82,7 +80,6 @@ namespace FoodDatabase.Droid.Views.Adapters
                 Console.WriteLine("GeneralAdapter ex: " + ex.Message);
                 //TODO: Report error.
             }
-
             return null;
 		}
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Xml.Serialization;
 using FoodDatabase.Core.API.Models.Abstracts;
-using FoodDatabase.Core.API.Models.Item;
+using FoodDatabase.Core.API.Models.Items;
 
 namespace FoodDatabase.Core.API.Models.Diary
 {
