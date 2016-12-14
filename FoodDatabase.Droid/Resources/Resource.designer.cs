@@ -1477,64 +1477,67 @@ namespace FoodDatabase.Droid
 			public const int DefaultDiary = 2130837579;
 			
 			// aapt resource value: 0x7f02004c
-			public const int EditTextBackground = 2130837580;
+			public const int defaultsearchthumbnail = 2130837580;
 			
 			// aapt resource value: 0x7f02004d
-			public const int faticon = 2130837581;
+			public const int EditTextBackground = 2130837581;
 			
 			// aapt resource value: 0x7f02004e
-			public const int favs = 2130837582;
+			public const int faticon = 2130837582;
 			
 			// aapt resource value: 0x7f02004f
-			public const int favsblank = 2130837583;
+			public const int favs = 2130837583;
 			
 			// aapt resource value: 0x7f020050
-			public const int favStar = 2130837584;
+			public const int favsblank = 2130837584;
 			
 			// aapt resource value: 0x7f020051
-			public const int icon = 2130837585;
+			public const int favStar = 2130837585;
 			
 			// aapt resource value: 0x7f020052
-			public const int kcalicon = 2130837586;
+			public const int icon = 2130837586;
 			
 			// aapt resource value: 0x7f020053
-			public const int Loader = 2130837587;
+			public const int kcalicon = 2130837587;
 			
 			// aapt resource value: 0x7f020054
-			public const int MainButtonDisabled = 2130837588;
+			public const int Loader = 2130837588;
 			
 			// aapt resource value: 0x7f020055
-			public const int MainButtonNormal = 2130837589;
+			public const int MainButtonDisabled = 2130837589;
 			
 			// aapt resource value: 0x7f020056
-			public const int MainButtonPressed = 2130837590;
+			public const int MainButtonNormal = 2130837590;
 			
 			// aapt resource value: 0x7f020057
-			public const int MainButtonSelector = 2130837591;
-			
-			// aapt resource value: 0x7f02005f
-			public const int notification_template_icon_bg = 2130837599;
+			public const int MainButtonPressed = 2130837591;
 			
 			// aapt resource value: 0x7f020058
-			public const int proteinicon = 2130837592;
+			public const int MainButtonSelector = 2130837592;
+			
+			// aapt resource value: 0x7f020060
+			public const int notification_template_icon_bg = 2130837600;
 			
 			// aapt resource value: 0x7f020059
-			public const int removefav = 2130837593;
+			public const int proteinicon = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int sampleThumbnail = 2130837594;
+			public const int removefav = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int search = 2130837595;
+			public const int sampleThumbnail = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int stargrey = 2130837596;
+			public const int search = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int sugaricon = 2130837597;
+			public const int stargrey = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int sync = 2130837598;
+			public const int sugaricon = 2130837598;
+			
+			// aapt resource value: 0x7f02005f
+			public const int sync = 2130837599;
 			
 			static Drawable()
 			{

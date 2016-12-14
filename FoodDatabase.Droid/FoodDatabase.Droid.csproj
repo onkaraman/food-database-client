@@ -104,6 +104,7 @@
     <AndroidResource Include="Resources\drawable\kcalicon.png" />
     <AndroidResource Include="Resources\drawable\proteinicon.png" />
     <AndroidResource Include="Resources\drawable\sugaricon.png" />
+    <AndroidResource Include="Resources\drawable\defaultsearchthumbnail.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

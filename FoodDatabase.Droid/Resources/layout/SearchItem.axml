@@ -8,7 +8,7 @@
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:scaleType="centerCrop"
-        android:src="@color/button_material_light" />
+        android:src="@drawable/defaultsearchthumbnail" />
     <FoodDatabase.Droid.Views.Widgets.MainTextView
         android:id="@+id/SearchItemName"
         android:layout_width="wrap_content"

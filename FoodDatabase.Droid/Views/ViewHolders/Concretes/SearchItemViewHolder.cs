@@ -2,6 +2,7 @@
 using System.Threading;
 using Android;
 using Android.App;
+using Android.Support.V4.Content;
 using Android.Widget;
 using FoodDatabase.Core.API.Models.Item;
 using FoodDatabase.Droid.Views.Adapters;
@@ -31,7 +32,6 @@ namespace FoodDatabase.Views.ViewHolders.Concretes
         public void ApplyData(Item searchItem, Activity a)
         {
             ThreadPool.QueueUserWorkItem(o => loadThumbnail(searchItem, a));
-            Thumbnail.SetImageResource(Resource.Color.Transparent);
 
             Name.Text = shortenName(searchItem.Description.name, 30);
             Producer.Text = shortenName(searchItem.Description.producer, 30);
@@ -49,11 +49,14 @@ namespace FoodDatabase.Views.ViewHolders.Concretes
         {
             try
             {
-                a.RunOnUiThread(() =>
+                if (searchItem.thumbsrc.Length > 3)
+                {
+                    a.RunOnUiThread(() =>
                     {
                         ImageLoader imgLoader = ImageLoader.Instance;
                         imgLoader.DisplayImage(searchItem.thumbsrc, Thumbnail);
                     });
+                }
             }
             catch (Exception ex)
             {

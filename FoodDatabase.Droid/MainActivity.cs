@@ -87,7 +87,7 @@ namespace FoodDatabase.Droid
             var config = new ImageLoaderConfiguration.Builder(ApplicationContext)
                 .DefaultDisplayImageOptions(options)
                 .DiskCacheExtraOptions(300, 300, null)
-                .DiskCacheFileCount(10)
+                .DiskCacheFileCount(5)
                 .Build();
 
             // Initialize ImageLoader with configuration.
