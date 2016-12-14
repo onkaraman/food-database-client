@@ -24,6 +24,7 @@ namespace FoodDatabase.Droid
     {
         private EditText _searchField;
         private ListView _listView;
+        private ProgressBar _progBar;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -39,8 +40,11 @@ namespace FoodDatabase.Droid
         /// </summary>
         private void setupViews()
         {
+            _progBar = FindViewById<ProgressBar>(Resource.Id.MainProgressBar);
             _searchField = FindViewById<EditText>(Resource.Id.MainEditText);
             _listView = FindViewById<ListView>(Resource.Id.MainListView);
+
+            _progBar.Visibility = Android.Views.ViewStates.Invisible;
         }
 
         /// <summary>
@@ -51,16 +55,29 @@ namespace FoodDatabase.Droid
             
         }
 
+        /// <summary>
+        /// Will start a search for the passed query. Before listing the result,
+        /// the result will be re-searched until more result items are found.
+        /// </summary>
         private void search(string query)
         {
+            _progBar.Visibility = Android.Views.ViewStates.Visible;
+
             ThreadPool.QueueUserWorkItem(async o =>
             {
                 string response = await APIAccessor.Static.Search(query);
                 var result = APIParser.Static.Parse(response);
 
+                for (int i = 0; i <= 5; i+=1)
+                {
+                    response = await APIAccessor.Static.Search(query, result.Items[result.Items.Count - 1].id.ToString());
+                    result.Items.AddRange(APIParser.Static.Parse(response).Items);
+                }
+
                 RunOnUiThread(() =>
                 {
                     _listView.Adapter = new SearchItemAdapter(result.Items, this);
+                    _progBar.Visibility = Android.Views.ViewStates.Invisible;
                 });
             });
         }

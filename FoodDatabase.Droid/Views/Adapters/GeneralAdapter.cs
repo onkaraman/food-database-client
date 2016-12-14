@@ -72,9 +72,9 @@ namespace FoodDatabase.Droid.Views.Adapters
                     _convertView = createView();
                     holder = setupView();
                     _convertView.Tag = holder;
+                    populateHolder(holder);
                 }
 
-                populateHolder(holder);
                 return _convertView;
             }
             catch (Exception ex)
