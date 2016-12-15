@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Xml.Serialization;
+﻿using System.Collections.Generic;
 using FoodDatabase.Core.PlatformHelpers;
 
 namespace FoodDatabase.Core.API.Models.Items
@@ -17,7 +15,7 @@ namespace FoodDatabase.Core.API.Models.Items
         {
             get
             {
-                return amount_measuring_system.ToLower().Contains("gram");    
+                return amount_measuring_system.ToLower().Contains("gram");
             }
         }
 
@@ -41,7 +39,7 @@ namespace FoodDatabase.Core.API.Models.Items
         public string kj { get; set; }
 
         private int _kcal;
-        public string kcal { get { return _kcal.ToString(); } set { _kcal = ((int) double.Parse(value)); } }
+        public string kcal { get { return _kcal.ToString(); } set { _kcal = ((int)double.Parse(value)); } }
 
         private int _fat;
         public string fat_gram { get { return _fat.ToString(); } set { _fat = ((int)double.Parse(value)); } }
