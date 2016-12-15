@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Xml.Serialization;
+using FoodDatabase.Core.PlatformHelpers;
 
 namespace FoodDatabase.Core.API.Models.Items
 {
@@ -32,6 +34,7 @@ namespace FoodDatabase.Core.API.Models.Items
 
         public string diary_serving_amount { get; set; }
         public string diary_serving_name { get; set; }
+
         public string amount { get; set; }
         public string amount_measuring_system { get; set; }
         public string aggregate_state { get; set; }
@@ -80,5 +83,201 @@ namespace FoodDatabase.Core.API.Models.Items
         public string m_kalium_mg { get; set; }
         public string m_phosphor_mg { get; set; }
         public string m_iod_mg { get; set; }
+
+        /// <summary>
+        /// Will return every held data in prepared list form. 
+        /// </summary>
+        public List<ItemDataHolder> SubdataAsList()
+        {
+            List<ItemDataHolder> list = new List<ItemDataHolder>();
+            list.Add(new ItemDataHolder
+            {
+                Name = "Kcal",
+                Value = kcal,
+                Unit = ""
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Proteins",
+                Value = protein_gram,
+                Unit = "g"
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Fat",
+                Value = fat_gram,
+                Unit = "g"
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Fat (saturated)",
+                Value = fat_sat_gram,
+                Unit = "g"
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Carbohydrates",
+                Value = kh_gram,
+                Unit = "g"
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Sugar",
+                Value = sugar_gram,
+                Unit = "g"
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Cholesterol",
+                Value = cholesterol_mg,
+                Unit = "g"
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "DF",
+                Value = df_gram,
+                Unit = "g"
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Water",
+                Value = water_gram,
+                Unit = "ml"
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Alcohol",
+                Value = alcohol_gram,
+                Unit = "ml"
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Vitamine A",
+                Value = v_a_mg,
+                Unit = "mg",
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Vitamine B1",
+                Value = v_b1_mg,
+                Unit = "mg",
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Vitamine B2",
+                Value = v_b2_mg,
+                Unit = "mg",
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Vitamine B6",
+                Value = v_b6_mg,
+                Unit = "mg",
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Vitamine B12",
+                Value = v_b12_mg,
+                Unit = "mg",
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Vitamine C",
+                Value = v_c_mg,
+                Unit = "mg",
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Vitamine D",
+                Value = v_d_mg,
+                Unit = "mg",
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Vitamine E",
+                Value = v_e_mg,
+                Unit = "mg",
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Iron",
+                Value = m_eisen_mg,
+                Unit = "mg",
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Calcium",
+                Value = m_calcium_mg,
+                Unit = "mg",
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Magnesium",
+                Value = m_magnesium_mg,
+                Unit = "mg",
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Salt",
+                Value = m_salt_g,
+                Unit = "mg",
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Zinc",
+                Value = m_zink_mg,
+                Unit = "mg",
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Copper",
+                Value = m_kupfer_mg,
+                Unit = "mg",
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Sulfur",
+                Value = m_schwefel_mg,
+                Unit = "mg",
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Manganese",
+                Value = m_mangan_mg,
+                Unit = "mg",
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Chlorine",
+                Value = m_chlor_mg,
+                Unit = "mg",
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Fluorine",
+                Value = m_fluor_mg,
+                Unit = "mg",
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Potassium",
+                Value = m_kalium_mg,
+                Unit = "mg",
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Phosphor",
+                Value = m_phosphor_mg,
+                Unit = "mg",
+            });
+            list.Add(new ItemDataHolder
+            {
+                Name = "Iodine",
+                Value = m_iod_mg,
+                Unit = "mg",
+            });
+
+            return list;
+        }
     }
 }

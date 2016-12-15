@@ -43,6 +43,7 @@
     <Compile Include="API\Models\Abstracts\APIModel.cs" />
     <Compile Include="API\Models\Result.cs" />
     <Compile Include="API\Models\Stats.cs" />
+    <Compile Include="PlatformHelpers\ItemDataHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -77,6 +78,7 @@
     <Folder Include="API\Models\Items\" />
     <Folder Include="API\Models\Diary\" />
     <Folder Include="API\Models\Abstracts\" />
+    <Folder Include="PlatformHelpers\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ProjectExtensions>

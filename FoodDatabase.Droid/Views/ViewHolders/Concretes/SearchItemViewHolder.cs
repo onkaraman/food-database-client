@@ -31,7 +31,7 @@ namespace FoodDatabase.Views.ViewHolders.Concretes
         {
             ThreadPool.QueueUserWorkItem(o => loadThumbnail(searchItem, a));
 
-            Name.Text = shortenName(searchItem.Description.name, 30);
+            Name.Text = shortenName(searchItem.Description.name, 25);
             Producer.Text = shortenName(searchItem.Description.producer, 30);
             Kcal.Text = string.Format("{0}", searchItem.Data.kcal);
             Proteins.Text = string.Format("{0}g", searchItem.Data.protein_gram);

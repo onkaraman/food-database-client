@@ -32,7 +32,6 @@ namespace FoodDatabase.Droid
             SetContentView(Resource.Layout.Main);
             setupViews();
             assignEvents();
-            search("Banane");
         }
 
         /// <summary>
