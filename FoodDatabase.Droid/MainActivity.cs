@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Threading;
 using Android.App;
+using Android.Content;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
+using Android.Views;
+using Android.Views.InputMethods;
 using Android.Widget;
 using FoodDatabase.Core.API.Accessors;
 using FoodDatabase.Core.API.Models.Items;
@@ -106,7 +109,13 @@ namespace FoodDatabase.Droid
                 RunOnUiThread(() =>
                 {
                     _listView.Adapter = new SearchItemAdapter(result.Items, this);
-                    _progBar.Visibility = Android.Views.ViewStates.Invisible;
+                    _progBar.Visibility = ViewStates.Invisible;
+
+                    if (CurrentFocus != null)
+                    {
+                        InputMethodManager imm = (InputMethodManager)GetSystemService(InputMethodService);
+                        imm.HideSoftInputFromWindow(CurrentFocus.WindowToken, 0);
+                    }
                 });
             });
         }

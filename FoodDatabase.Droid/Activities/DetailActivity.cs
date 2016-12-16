@@ -47,7 +47,7 @@ namespace FoodDatabase.Droid.Activities
             _name.Text = SessionHolder.Static.Item.Description.name;
             _producer.Text = SessionHolder.Static.Item.Description.producer;
             _group.Text = SessionHolder.Static.Item.Description.group;
-            _nutritionTitle.Text = string.Format("Nutritional data for {0} {1}",
+            _nutritionTitle.Text = string.Format("Nutritional data for {0}{1}",
                                                  SessionHolder.Static.Item.Data.amount,
                                                  SessionHolder.Static.Item.Data.GetMeasureUnit());
 
@@ -63,6 +63,10 @@ namespace FoodDatabase.Droid.Activities
             if (SessionHolder.Static.Item.thumbsrclarge.Length > 3)
             {
                 ImageLoader.Instance.DisplayImage(SessionHolder.Static.Item.thumbsrclarge, _thumbnail);
+            }
+            else if (SessionHolder.Static.Item.thumbsrc.Length > 3)
+            {
+                ImageLoader.Instance.DisplayImage(SessionHolder.Static.Item.thumbsrc, _thumbnail);
             }
             else
             {
