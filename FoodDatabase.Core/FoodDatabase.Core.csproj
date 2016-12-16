@@ -44,6 +44,7 @@
     <Compile Include="API\Models\Result.cs" />
     <Compile Include="API\Models\Stats.cs" />
     <Compile Include="PlatformHelpers\ItemDataHolder.cs" />
+    <Compile Include="Sessions\SessionHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -79,6 +80,7 @@
     <Folder Include="API\Models\Diary\" />
     <Folder Include="API\Models\Abstracts\" />
     <Folder Include="PlatformHelpers\" />
+    <Folder Include="Sessions\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ProjectExtensions>

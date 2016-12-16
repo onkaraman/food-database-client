@@ -49,8 +49,7 @@ namespace FoodDatabase.Views.ViewHolders.Concretes
             {
                 a.RunOnUiThread(() =>
                 {
-                    ImageLoader imgLoader = ImageLoader.Instance;
-                    imgLoader.DisplayImage(searchItem.thumbsrc, Thumbnail);
+                    ImageLoader.Instance.DisplayImage(searchItem.thumbsrc, Thumbnail);
                 });
             }
             catch (Exception ex)

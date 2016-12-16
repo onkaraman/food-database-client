@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using Android.App;
 using Android.Graphics;
@@ -6,7 +7,10 @@ using Android.OS;
 using Android.Runtime;
 using Android.Widget;
 using FoodDatabase.Core.API.Accessors;
+using FoodDatabase.Core.API.Models.Items;
 using FoodDatabase.Core.API.Parsers;
+using FoodDatabase.Core.Sessions;
+using FoodDatabase.Droid.Activities;
 using FoodDatabase.Droid.Views.Adapters.Concretes;
 using UniversalImageLoader.Core;
 
@@ -22,6 +26,7 @@ namespace FoodDatabase.Droid
           ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class MainActivity : Activity
     {
+        private List<Item> _items;
         private EditText _searchField;
         private ListView _listView;
         private ProgressBar _progBar;
@@ -52,6 +57,7 @@ namespace FoodDatabase.Droid
         private void assignEvents()
         {
             _searchField.KeyPress += searchFieldKeyPress;
+            _listView.ItemClick += listItemClick;
         }
 
         /// <summary>
@@ -63,6 +69,17 @@ namespace FoodDatabase.Droid
             {
                 search(_searchField.Text);
             }
+        }
+
+        /// <summary>
+        /// Will open the detail activity to show detailed information regarding the
+        /// selected food item.
+        /// </summary>
+        private void listItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            if (e == null) return;
+            SessionHolder.Static.Item = _items[e.Position];
+            StartActivity(typeof(DetailActivity));
         }
 
         /// <summary>
@@ -83,6 +100,8 @@ namespace FoodDatabase.Droid
                     response = await APIAccessor.Static.Search(query, (i*10).ToString());
                     result.Items.AddRange(APIParser.Static.Parse(response).Items);
                 }
+
+                _items = result.Items;
 
                 RunOnUiThread(() =>
                 {

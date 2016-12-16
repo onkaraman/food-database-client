@@ -4,11 +4,70 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ImageView
-        android:id="@+id/DetailThumbnail" />
+        android:id="@+id/DetailThumbnail"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/detaildefault"
+        android:scaleType="centerCrop" />
+    <ImageView
+        android:id="@+id/DetailThumbnailBlur"
+        android:layout_width="match_parent"
+        android:layout_height="7dp"
+        android:src="@color/blue"
+        android:scaleType="centerCrop"
+        android:layout_below="@+id/DetailThumbnail" />
     <TextView
-        android:id="@+id/DetailName" />
+        android:id="@+id/DetailName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Food item title"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/titleSize"
+        android:shadowColor="#ff2f2f2f"
+        android:shadowRadius="4"
+        android:shadowDx="0"
+        android:shadowDy="0" />
     <TextView
-        android:id="@+id/DetailProducer" />
+        android:id="@+id/DetailProducer"
+        android:layout_below="@+id/DetailName"
+        android:layout_alignLeft="@+id/DetailName"
+        android:text="Food Producer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginTop="0dp"
+        android:shadowColor="#ffeaeaea"
+        android:shadowRadius="4" />
     <TextView
-        android:id="@+id/DetailGroup" />
+        android:id="@+id/DetailGroup"
+        android:layout_below="@+id/DetailProducer"
+        android:layout_alignLeft="@+id/DetailProducer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Food group"
+        android:textSize="17dp"
+        android:layout_marginTop="1dp"
+        android:shadowColor="#ffeaeaea"
+        android:shadowRadius="4" />
+    <TextView
+        android:id="@+id/DetailNutritionTitle"
+        android:layout_below="@+id/DetailThumbnailBlur"
+        android:layout_alignLeft="@+id/DetailProducer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nutitional data for 100g"
+        android:textSize="18dp"
+        android:layout_marginTop="15dp"
+        android:shadowColor="#ffeaeaea"
+        android:shadowRadius="2" />
+    <ListView
+        android:id="@+id/DetaiListView"
+        android:layout_below="@+id/DetailNutritionTitle"
+        android:layout_alignLeft="@+id/DetailNutritionTitle"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_marginRight="20dp"
+        android:layout_height="270dp" />
 </RelativeLayout>

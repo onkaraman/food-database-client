@@ -277,5 +277,15 @@ namespace FoodDatabase.Core.API.Models.Items
 
             return list;
         }
+    
+        /// <summary>
+        /// Will return the mesaurement unit of this food item's data.
+        /// </summary>
+        public string GetMeasureUnit()
+        {
+            if (IsMLMeasurement) return "ml";
+            if (IsGramMeasurement) return "g";
+            return "?";
+        }
     }
 }
