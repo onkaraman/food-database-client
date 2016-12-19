@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Renderscripts;
 using Android.Widget;
 using FoodDatabase.Core.Sessions;
+using FoodDatabase.Droid.Views.Adapters.Concretes;
 using UniversalImageLoader.Core;
 
 namespace FoodDatabase.Droid.Activities
@@ -24,12 +25,15 @@ namespace FoodDatabase.Droid.Activities
         private TextView _producer;
         private TextView _group;
         private TextView _nutritionTitle;
+        private ListView _listView;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Detail);
             setupViews();
+            applyData();
+            showNutritionList();
         }
 
         /// <summary>
@@ -43,14 +47,20 @@ namespace FoodDatabase.Droid.Activities
             _producer = FindViewById<TextView>(Resource.Id.DetailProducer);
             _group = FindViewById<TextView>(Resource.Id.DetailGroup);
             _nutritionTitle = FindViewById<TextView>(Resource.Id.DetailNutritionTitle);
+            _listView = FindViewById<ListView>(Resource.Id.DetaiListView);
+        }
 
+        /// <summary>
+        /// Will load the data into the UI controls.
+        /// </summary>
+        private void applyData()
+        {
             _name.Text = SessionHolder.Static.Item.Description.name;
             _producer.Text = SessionHolder.Static.Item.Description.producer;
             _group.Text = SessionHolder.Static.Item.Description.group;
             _nutritionTitle.Text = string.Format("Nutritional data for {0}{1}",
                                                  SessionHolder.Static.Item.Data.amount,
                                                  SessionHolder.Static.Item.Data.GetMeasureUnit());
-
             loadThumbails();
         }
 
@@ -72,26 +82,15 @@ namespace FoodDatabase.Droid.Activities
             {
                 _thumbnail.SetImageResource(Resource.Drawable.detaildefault);
             }
-            //_thumbnailBlurred.SetImageBitmap(createBlurredImage(25, SessionHolder.Static.Item.thumbsrclarge));
         }
-
-        private Bitmap createBlurredImage(int radius, string imageUrl)
+    
+        /// <summary>
+        /// Will show the nutrition list of this item.
+        /// </summary>
+        private void showNutritionList()
         {
-            Bitmap originalBitmap = ImageLoader.Instance.LoadImageSync(imageUrl); 
-            Bitmap blurredBitmap = Bitmap.CreateBitmap(originalBitmap);
-
-            RenderScript rs = RenderScript.Create(this);
-            Allocation input = Allocation.CreateFromBitmap(rs, originalBitmap, Allocation.MipmapControl.MipmapFull, AllocationUsage.Script);
-            Allocation output = Allocation.CreateTyped(rs, input.Type);
-
-            // Load up an instance of the specific script that we want to use.
-            ScriptIntrinsicBlur script = ScriptIntrinsicBlur.Create(rs, Element.U8_4(rs));
-            script.SetInput(input);
-            script.SetRadius(radius);
-            script.ForEach(output);
-            output.CopyTo(blurredBitmap);
-
-            return blurredBitmap;
+            _listView.Adapter = new NutritionItemAdapter(SessionHolder.Static.Item.Data.SubdataAsList(),
+                                                         this);
         }
     }
 }

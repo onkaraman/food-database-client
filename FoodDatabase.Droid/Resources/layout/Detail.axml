@@ -16,19 +16,39 @@
         android:src="@color/blue"
         android:scaleType="centerCrop"
         android:layout_below="@+id/DetailThumbnail" />
+    <RelativeLayout
+        android:layout_alignTop="@+id/DetailName"
+        android:layout_alignLeft="@+id/DetailName"
+        android:layout_alignEnd="@+id/DetailName"
+        android:layout_alignBottom="@+id/DetailName"
+        android:layout_marginLeft="-4dp"
+        android:layout_marginRight="-4dp"
+        android:background="@color/darkgrey"
+        android:alpha="0.3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     <TextView
         android:id="@+id/DetailName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="40dp"
         android:text="Food item title"
         android:textColor="@color/blue"
         android:textSize="@dimen/titleSize"
-        android:shadowColor="#ff2f2f2f"
-        android:shadowRadius="6"
         android:shadowDx="0"
         android:shadowDy="0" />
+    <RelativeLayout
+        android:layout_alignTop="@+id/DetailProducer"
+        android:layout_alignLeft="@+id/DetailProducer"
+        android:layout_alignEnd="@+id/DetailProducer"
+        android:layout_alignBottom="@+id/DetailProducer"
+        android:layout_marginLeft="-4dp"
+        android:layout_marginRight="-4dp"
+        android:background="@color/darkgrey"
+        android:alpha="0.3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     <TextView
         android:id="@+id/DetailProducer"
         android:layout_below="@+id/DetailName"
@@ -37,9 +57,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:layout_marginTop="0dp"
-        android:shadowColor="#ffeaeaea"
-        android:shadowRadius="6" />
+        android:layout_marginTop="3dp" />
+    <RelativeLayout
+        android:layout_alignTop="@+id/DetailGroup"
+        android:layout_alignLeft="@+id/DetailGroup"
+        android:layout_alignEnd="@+id/DetailGroup"
+        android:layout_alignBottom="@+id/DetailGroup"
+        android:layout_marginLeft="-4dp"
+        android:layout_marginRight="-4dp"
+        android:background="@color/darkgrey"
+        android:alpha="0.3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     <TextView
         android:id="@+id/DetailGroup"
         android:layout_below="@+id/DetailProducer"
@@ -48,9 +77,7 @@
         android:layout_height="wrap_content"
         android:text="Food group"
         android:textSize="17dp"
-        android:layout_marginTop="1dp"
-        android:shadowColor="#ffeaeaea"
-        android:shadowRadius="6" />
+        android:layout_marginTop="3dp" />
     <TextView
         android:id="@+id/DetailNutritionTitle"
         android:layout_below="@+id/DetailThumbnailBlur"
@@ -69,5 +96,7 @@
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_marginRight="20dp"
-        android:layout_height="270dp" />
+        android:divider="@null"
+        android:scrollbars="none"
+        android:layout_height="290dp" />
 </RelativeLayout>

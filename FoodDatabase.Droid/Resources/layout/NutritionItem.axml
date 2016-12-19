@@ -8,15 +8,13 @@
         android:text="Nutrion Item Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/bodyTextSize"
-        android:layout_marginTop="4dp"
-        android:layout_marginLeft="4dp" />
+        android:textSize="@dimen/bodyTitleSize" />
     <TextView
-        android:id="@+id/NutritionValue"
+        android:id="@+id/NutritionItemValue"
         android:text="14g"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/bodyTextSize"
+        android:textSize="@dimen/bodyTitleSize"
         android:layout_alignTop="@+id/NutritionItemName"
         android:layout_alignParentRight="true"
         android:layout_marginRight="4dp"

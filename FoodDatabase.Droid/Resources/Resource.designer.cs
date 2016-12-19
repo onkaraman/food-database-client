@@ -1589,7 +1589,7 @@ namespace FoodDatabase.Droid
 			public const int NutritionItemName = 2131427432;
 			
 			// aapt resource value: 0x7f0b0069
-			public const int NutritionValue = 2131427433;
+			public const int NutritionItemValue = 2131427433;
 			
 			// aapt resource value: 0x7f0b0071
 			public const int SearchItemCHIcon = 2131427441;

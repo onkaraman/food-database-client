@@ -1,4 +1,5 @@
 ﻿using System;
+using FoodDatabase.Core.API.Models.Abstracts;
 using FoodDatabase.Core.API.Models.Items;
 
 namespace FoodDatabase.Core.PlatformHelpers
@@ -6,7 +7,7 @@ namespace FoodDatabase.Core.PlatformHelpers
     /// <summary>
     /// This class holds item data for ListView purposes.
     /// </summary>
-    public class ItemDataHolder
+    public class ItemDataHolder : APIModel
     {
         public string Name { get; set; }
         public string Value { get; set; }

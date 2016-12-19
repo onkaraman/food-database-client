@@ -275,6 +275,9 @@ namespace FoodDatabase.Core.API.Models.Items
                 Unit = "mg",
             });
 
+            // Loop through list to apply IDs 
+            for (int i = 0; i < list.Count; i+=1) list[i].id = i;
+
             return list;
         }
     
