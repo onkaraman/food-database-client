@@ -68,6 +68,7 @@
     <Compile Include="Views\ViewHolders\ViewHolder.cs" />
     <Compile Include="Views\ViewHolders\Concretes\SearchItemViewHolder.cs" />
     <Compile Include="Activities\DetailActivity.cs" />
+    <Compile Include="Views\ViewHolders\Concretes\NutritionItemViewHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -110,6 +111,7 @@
     <AndroidResource Include="Resources\drawable\defaultsearchthumbnail.png" />
     <AndroidResource Include="Resources\layout\Detail.axml" />
     <AndroidResource Include="Resources\drawable\detaildefault.png" />
+    <AndroidResource Include="Resources\layout\NutritionItem.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

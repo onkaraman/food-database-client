@@ -1585,44 +1585,50 @@ namespace FoodDatabase.Droid
 			// aapt resource value: 0x7f0b0059
 			public const int MainSearchIcon = 2131427417;
 			
-			// aapt resource value: 0x7f0b006f
-			public const int SearchItemCHIcon = 2131427439;
-			
-			// aapt resource value: 0x7f0b0070
-			public const int SearchItemCHs = 2131427440;
-			
-			// aapt resource value: 0x7f0b0074
-			public const int SearchItemFat = 2131427444;
-			
-			// aapt resource value: 0x7f0b0073
-			public const int SearchItemFatIcon = 2131427443;
-			
-			// aapt resource value: 0x7f0b006b
-			public const int SearchItemKcalIcon = 2131427435;
-			
-			// aapt resource value: 0x7f0b006c
-			public const int SearchItemKcals = 2131427436;
+			// aapt resource value: 0x7f0b0068
+			public const int NutritionItemName = 2131427432;
 			
 			// aapt resource value: 0x7f0b0069
-			public const int SearchItemName = 2131427433;
-			
-			// aapt resource value: 0x7f0b006a
-			public const int SearchItemProducer = 2131427434;
-			
-			// aapt resource value: 0x7f0b006d
-			public const int SearchItemProteinIcon = 2131427437;
-			
-			// aapt resource value: 0x7f0b006e
-			public const int SearchItemProteins = 2131427438;
-			
-			// aapt resource value: 0x7f0b0072
-			public const int SearchItemSugar = 2131427442;
+			public const int NutritionValue = 2131427433;
 			
 			// aapt resource value: 0x7f0b0071
-			public const int SearchItemSugarIcon = 2131427441;
+			public const int SearchItemCHIcon = 2131427441;
 			
-			// aapt resource value: 0x7f0b0068
-			public const int SearchItemThumbnail = 2131427432;
+			// aapt resource value: 0x7f0b0072
+			public const int SearchItemCHs = 2131427442;
+			
+			// aapt resource value: 0x7f0b0076
+			public const int SearchItemFat = 2131427446;
+			
+			// aapt resource value: 0x7f0b0075
+			public const int SearchItemFatIcon = 2131427445;
+			
+			// aapt resource value: 0x7f0b006d
+			public const int SearchItemKcalIcon = 2131427437;
+			
+			// aapt resource value: 0x7f0b006e
+			public const int SearchItemKcals = 2131427438;
+			
+			// aapt resource value: 0x7f0b006b
+			public const int SearchItemName = 2131427435;
+			
+			// aapt resource value: 0x7f0b006c
+			public const int SearchItemProducer = 2131427436;
+			
+			// aapt resource value: 0x7f0b006f
+			public const int SearchItemProteinIcon = 2131427439;
+			
+			// aapt resource value: 0x7f0b0070
+			public const int SearchItemProteins = 2131427440;
+			
+			// aapt resource value: 0x7f0b0074
+			public const int SearchItemSugar = 2131427444;
+			
+			// aapt resource value: 0x7f0b0073
+			public const int SearchItemSugarIcon = 2131427443;
+			
+			// aapt resource value: 0x7f0b006a
+			public const int SearchItemThumbnail = 2131427434;
 			
 			// aapt resource value: 0x7f0b005b
 			public const int action0 = 2131427419;
@@ -2050,19 +2056,22 @@ namespace FoodDatabase.Droid
 			public const int notification_template_part_time = 2130903074;
 			
 			// aapt resource value: 0x7f030023
-			public const int SearchItem = 2130903075;
+			public const int NutritionItem = 2130903075;
 			
 			// aapt resource value: 0x7f030024
-			public const int select_dialog_item_material = 2130903076;
+			public const int SearchItem = 2130903076;
 			
 			// aapt resource value: 0x7f030025
-			public const int select_dialog_multichoice_material = 2130903077;
+			public const int select_dialog_item_material = 2130903077;
 			
 			// aapt resource value: 0x7f030026
-			public const int select_dialog_singlechoice_material = 2130903078;
+			public const int select_dialog_multichoice_material = 2130903078;
 			
 			// aapt resource value: 0x7f030027
-			public const int support_simple_spinner_dropdown_item = 2130903079;
+			public const int select_dialog_singlechoice_material = 2130903079;
+			
+			// aapt resource value: 0x7f030028
+			public const int support_simple_spinner_dropdown_item = 2130903080;
 			
 			static Layout()
 			{

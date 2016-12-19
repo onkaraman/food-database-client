@@ -132,7 +132,7 @@ namespace FoodDatabase.Core.API.Models.Items
             });
             list.Add(new ItemDataHolder
             {
-                Name = "DF",
+                Name = "Diatery Fiber",
                 Value = df_gram,
                 Unit = "g"
             });

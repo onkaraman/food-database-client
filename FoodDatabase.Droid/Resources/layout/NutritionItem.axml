@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="27dp">
+    <TextView
+        android:id="@+id/NutritionItemName"
+        android:text="Nutrion Item Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/bodyTextSize"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp" />
+    <TextView
+        android:id="@+id/NutritionValue"
+        android:text="14g"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/bodyTextSize"
+        android:layout_alignTop="@+id/NutritionItemName"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="4dp"
+        android:textColor="@color/blue" />
+</RelativeLayout>

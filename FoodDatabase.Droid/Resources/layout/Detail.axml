@@ -12,7 +12,7 @@
     <ImageView
         android:id="@+id/DetailThumbnailBlur"
         android:layout_width="match_parent"
-        android:layout_height="7dp"
+        android:layout_height="3dp"
         android:src="@color/blue"
         android:scaleType="centerCrop"
         android:layout_below="@+id/DetailThumbnail" />
@@ -21,12 +21,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="35dp"
         android:text="Food item title"
         android:textColor="@color/blue"
         android:textSize="@dimen/titleSize"
         android:shadowColor="#ff2f2f2f"
-        android:shadowRadius="4"
+        android:shadowRadius="6"
         android:shadowDx="0"
         android:shadowDy="0" />
     <TextView
@@ -39,7 +39,7 @@
         android:textSize="18sp"
         android:layout_marginTop="0dp"
         android:shadowColor="#ffeaeaea"
-        android:shadowRadius="4" />
+        android:shadowRadius="6" />
     <TextView
         android:id="@+id/DetailGroup"
         android:layout_below="@+id/DetailProducer"
@@ -50,7 +50,7 @@
         android:textSize="17dp"
         android:layout_marginTop="1dp"
         android:shadowColor="#ffeaeaea"
-        android:shadowRadius="4" />
+        android:shadowRadius="6" />
     <TextView
         android:id="@+id/DetailNutritionTitle"
         android:layout_below="@+id/DetailThumbnailBlur"
