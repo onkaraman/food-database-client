@@ -19,8 +19,7 @@
         android:textSize="@dimen/bodyTitleSize"
         android:layout_marginLeft="8dp"
         android:textColor="@color/blue"
-        android:textStyle="normal"
-        android:layout_marginTop="1dp" />
+        android:textStyle="normal" />
     <FoodDatabase.Droid.Views.Widgets.MainTextView
         android:id="@+id/SearchItemProducer"
         android:layout_width="wrap_content"
@@ -29,6 +28,7 @@
         android:text="Company name"
         android:textSize="14sp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="-1dp"
         android:textStyle="normal"
         android:layout_below="@+id/SearchItemName" />
     <ImageView
@@ -38,7 +38,7 @@
         android:layout_alignBottom="@+id/SearchItemThumbnail"
         android:layout_alignLeft="@+id/SearchItemProducer"
         android:src="@drawable/kcalicon"
-        android:layout_marginBottom="3dp" />
+        android:layout_marginBottom="4dp" />
     <FoodDatabase.Droid.Views.Widgets.MainTextView
         android:id="@+id/SearchItemKcals"
         android:layout_width="wrap_content"

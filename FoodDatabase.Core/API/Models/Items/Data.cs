@@ -275,10 +275,27 @@ namespace FoodDatabase.Core.API.Models.Items
                 Unit = "mg",
             });
 
-            // Loop through list to apply IDs 
-            for (int i = 0; i < list.Count; i+=1) list[i].id = i;
+            return cleanUp(list);
+        }
 
-            return list;
+        /// <summary>
+        /// Will give IDs to the list elements and remove those with
+        /// no values.
+        /// </summary>
+        private List<ItemDataHolder> cleanUp(List<ItemDataHolder> list)
+        {
+            List<ItemDataHolder> ret = new List<ItemDataHolder>();
+
+            for (int i = 0; i < list.Count; i += 1)
+            {
+                if (list[i].Value != null && list[i].Value.Length > 0)
+                {
+                    list[i].id = i;
+                    if (list[i].Value.Length > 4) list[i].Value = list[i].Value.Substring(0, 4);
+                    ret.Add(list[i]);
+                }
+            }
+            return ret;
         }
     
         /// <summary>

@@ -1,11 +1,11 @@
 <resources>
 	<dimen name="buttonHeight">45dp</dimen>
 	<dimen name="buttonWidth">330dp</dimen>
-	<dimen name="bodyTextSize">15sp</dimen>
-	<dimen name="bodyTitleSize">16sp</dimen>
+	<dimen name="bodyTextSize">16sp</dimen>
+	<dimen name="bodyTitleSize">17sp</dimen>
 	<dimen name="titleSize">20sp</dimen>
 	<dimen name="headerTopMargin">70dp</dimen>
 	<dimen name="paddingLeft">12dp</dimen>
-	<dimen name="spaceBetweenIcons">10dp</dimen>
+	<dimen name="spaceBetweenIcons">8dp</dimen>
 	<dimen name="spaceBetweenIconText">2dp</dimen>
 </resources>
