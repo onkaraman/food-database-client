@@ -114,6 +114,7 @@
     <AndroidResource Include="Resources\layout\NutritionItem.axml" />
     <AndroidResource Include="Resources\drawable\detaildefault.png" />
     <AndroidResource Include="Resources\layout\Servings.axml" />
+    <AndroidResource Include="Resources\layout\ServingItem.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

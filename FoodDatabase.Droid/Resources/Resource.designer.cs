@@ -1576,8 +1576,8 @@ namespace FoodDatabase.Droid
 			// aapt resource value: 0x7f0b0051
 			public const int DetailThumbnailBlur = 2131427409;
 			
-			// aapt resource value: 0x7f0b0078
-			public const int FoodName = 2131427448;
+			// aapt resource value: 0x7f0b007b
+			public const int FoodName = 2131427451;
 			
 			// aapt resource value: 0x7f0b0059
 			public const int MainEditText = 2131427417;
@@ -1636,14 +1636,23 @@ namespace FoodDatabase.Droid
 			// aapt resource value: 0x7f0b006b
 			public const int SearchItemThumbnail = 2131427435;
 			
-			// aapt resource value: 0x7f0b0079
-			public const int ServingDescription = 2131427449;
+			// aapt resource value: 0x7f0b007c
+			public const int ServingDescription = 2131427452;
 			
-			// aapt resource value: 0x7f0b007b
-			public const int ServingListView = 2131427451;
+			// aapt resource value: 0x7f0b0079
+			public const int ServingItemDescription = 2131427449;
 			
 			// aapt resource value: 0x7f0b007a
-			public const int ServingPresetDescription = 2131427450;
+			public const int ServingItemKcal = 2131427450;
+			
+			// aapt resource value: 0x7f0b0078
+			public const int ServingItemName = 2131427448;
+			
+			// aapt resource value: 0x7f0b007e
+			public const int ServingListView = 2131427454;
+			
+			// aapt resource value: 0x7f0b007d
+			public const int ServingPresetDescription = 2131427453;
 			
 			// aapt resource value: 0x7f0b005c
 			public const int action0 = 2131427420;
@@ -2086,10 +2095,13 @@ namespace FoodDatabase.Droid
 			public const int select_dialog_singlechoice_material = 2130903079;
 			
 			// aapt resource value: 0x7f030028
-			public const int Servings = 2130903080;
+			public const int ServingItem = 2130903080;
 			
 			// aapt resource value: 0x7f030029
-			public const int support_simple_spinner_dropdown_item = 2130903081;
+			public const int Servings = 2130903081;
+			
+			// aapt resource value: 0x7f03002a
+			public const int support_simple_spinner_dropdown_item = 2130903082;
 			
 			static Layout()
 			{
