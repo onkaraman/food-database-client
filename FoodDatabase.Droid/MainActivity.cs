@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading;
 using Android.App;
-using Android.Content;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;

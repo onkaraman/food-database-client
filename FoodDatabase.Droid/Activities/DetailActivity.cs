@@ -1,7 +1,5 @@
 ﻿using Android.App;
-using Android.Graphics;
 using Android.OS;
-using Android.Renderscripts;
 using Android.Widget;
 using FoodDatabase.Core.Sessions;
 using FoodDatabase.Droid.Views.Adapters.Concretes;
@@ -26,6 +24,7 @@ namespace FoodDatabase.Droid.Activities
         private TextView _group;
         private TextView _nutritionTitle;
         private ListView _listView;
+        private Button _addButton;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -33,7 +32,7 @@ namespace FoodDatabase.Droid.Activities
             SetContentView(Resource.Layout.Detail);
             setupViews();
             applyData();
-            showNutritionList();
+            assignEvents();
         }
 
         /// <summary>
@@ -48,6 +47,7 @@ namespace FoodDatabase.Droid.Activities
             _group = FindViewById<TextView>(Resource.Id.DetailGroup);
             _nutritionTitle = FindViewById<TextView>(Resource.Id.DetailNutritionTitle);
             _listView = FindViewById<ListView>(Resource.Id.DetaiListView);
+            _addButton = FindViewById<Button>(Resource.Id.DetailAddButton);
         }
 
         /// <summary>
@@ -61,7 +61,22 @@ namespace FoodDatabase.Droid.Activities
             _nutritionTitle.Text = string.Format("Nutritional data for {0}{1}",
                                                  SessionHolder.Static.Item.Data.amount,
                                                  SessionHolder.Static.Item.Data.GetMeasureUnit());
+            _listView.Adapter = new NutritionItemAdapter(SessionHolder.Static.Item.Data.SubdataAsList(),
+                                             this);
             loadThumbails();
+        }
+
+        /// <summary>
+        /// Will assign events for this UI elements of this activity.
+        /// </summary>
+        private void assignEvents()
+        {
+            _addButton.Click += addButtonClick;
+        }
+
+        private void addButtonClick(object sender, System.EventArgs e)
+        {
+            StartActivity(typeof(ServingsActivity));
         }
 
         /// <summary>
@@ -84,13 +99,5 @@ namespace FoodDatabase.Droid.Activities
             }
         }
     
-        /// <summary>
-        /// Will show the nutrition list of this item.
-        /// </summary>
-        private void showNutritionList()
-        {
-            _listView.Adapter = new NutritionItemAdapter(SessionHolder.Static.Item.Data.SubdataAsList(),
-                                                         this);
-        }
     }
 }

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="50dp">
+    android:layout_height="55dp">
     <TextView
         android:id="@+id/ServingItemName"
         android:layout_width="wrap_content"
@@ -19,13 +19,21 @@
         android:textSize="@dimen/bodyTextSize"
         android:layout_marginTop="1dp"
         android:layout_below="@+id/ServingItemName" />
-    <ImageView />
+    <ImageView
+        android:layout_toLeftOf="@+id/ServingItemKcal"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_alignTop="@+id/ServingItemKcal"
+        android:src="@drawable/kcalicon"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="1dp" />
     <TextView
         android:id="@+id/ServingItemKcal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="One tea spoon"
+        android:text="80"
         android:textSize="@dimen/bodyTitleSize"
         android:textColor="@color/blue"
-        android:layout_alignTop="@+id/ServingItemName" />
+        android:layout_alignTop="@+id/ServingItemName"
+        android:layout_alignParentRight="true" />
 </RelativeLayout>

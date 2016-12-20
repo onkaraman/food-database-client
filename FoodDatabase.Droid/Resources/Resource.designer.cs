@@ -1576,9 +1576,6 @@ namespace FoodDatabase.Droid
 			// aapt resource value: 0x7f0b0051
 			public const int DetailThumbnailBlur = 2131427409;
 			
-			// aapt resource value: 0x7f0b007b
-			public const int FoodName = 2131427451;
-			
 			// aapt resource value: 0x7f0b0059
 			public const int MainEditText = 2131427417;
 			
@@ -1638,6 +1635,9 @@ namespace FoodDatabase.Droid
 			
 			// aapt resource value: 0x7f0b007c
 			public const int ServingDescription = 2131427452;
+			
+			// aapt resource value: 0x7f0b007b
+			public const int ServingFoodName = 2131427451;
 			
 			// aapt resource value: 0x7f0b0079
 			public const int ServingItemDescription = 2131427449;

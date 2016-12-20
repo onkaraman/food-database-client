@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:id="@+id/FoodName"
+        android:id="@+id/ServingFoodName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Food name"
@@ -16,8 +16,8 @@
         android:id="@+id/ServingDescription"
         android:textSize="19dp"
         android:text="Add this food to your diary"
-        android:layout_below="@+id/FoodName"
-        android:layout_alignLeft="@+id/FoodName"
+        android:layout_below="@+id/ServingFoodName"
+        android:layout_alignLeft="@+id/ServingFoodName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp" />
@@ -26,7 +26,7 @@
         android:textSize="18dp"
         android:text="Quickly select a preset"
         android:layout_below="@+id/ServingDescription"
-        android:layout_alignLeft="@+id/FoodName"
+        android:layout_alignLeft="@+id/ServingFoodName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp" />
@@ -37,5 +37,7 @@
         android:layout_height="150dp"
         android:layout_below="@+id/ServingPresetDescription"
         android:layout_marginTop="10dp"
+        android:divider="@null"
+        android:scrollbars="none"
         android:layout_marginRight="20dp" />
 </RelativeLayout>

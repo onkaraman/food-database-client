@@ -72,6 +72,7 @@
     <Compile Include="Views\Adapters\Concretes\NutritionItemAdapter.cs" />
     <Compile Include="Views\ViewHolders\Concretes\ServingItemViewHolder.cs" />
     <Compile Include="Views\Adapters\Concretes\ServingItemAdapter.cs" />
+    <Compile Include="Activities\ServingsActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

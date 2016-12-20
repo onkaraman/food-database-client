@@ -25,7 +25,7 @@ namespace FoodDatabase.Droid.Views.Adapters.Concretes
         protected override View createView()
         {
             return activity.LayoutInflater.Inflate(Resource.Layout.NutritionItem,
-                _parentView, false);
+                parentView, false);
         }
 
         protected override GeneralViewHolder populateHolder(GeneralViewHolder _holder)
@@ -40,8 +40,8 @@ namespace FoodDatabase.Droid.Views.Adapters.Concretes
         protected override GeneralViewHolder setupView()
         {
             NutritionItemViewHolder holder = new NutritionItemViewHolder();
-            holder.Name = _convertView.FindViewById<TextView>(Resource.Id.NutritionItemName);
-            holder.Value = _convertView.FindViewById<TextView>(Resource.Id.NutritionItemValue);
+            holder.Name = convertView.FindViewById<TextView>(Resource.Id.NutritionItemName);
+            holder.Value = convertView.FindViewById<TextView>(Resource.Id.NutritionItemValue);
             return holder;
         }
     }
