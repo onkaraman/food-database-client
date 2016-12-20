@@ -3,7 +3,6 @@ using Android.Content;
 using Android.Views;
 using Android.Widget;
 using FoodDatabase.Core.API.Models.Abstracts;
-using FoodDatabase.Core.API.Models.Items;
 using FoodDatabase.Core.PlatformHelpers;
 using FoodDatabase.Droid.Views.ViewHolders.Concretes;
 
@@ -33,7 +32,7 @@ namespace FoodDatabase.Droid.Views.Adapters.Concretes
         {
             ItemDataHolder item = (ItemDataHolder)items[itemPosition];
             NutritionItemViewHolder holder = (NutritionItemViewHolder)_holder;
-            if (item != null) holder.ApplyData(item, activity);
+            if (item != null) holder.ApplyData(item);
 
             return holder;
         }

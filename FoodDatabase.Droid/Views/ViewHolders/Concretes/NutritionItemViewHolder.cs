@@ -13,7 +13,7 @@ namespace FoodDatabase.Droid.Views.ViewHolders.Concretes
         public TextView Name { get; set; }
         public TextView Value { get; set; }
 
-        public void ApplyData(ItemDataHolder idh, Activity a)
+        public void ApplyData(ItemDataHolder idh)
         {
             Name.Text = idh.Name;
             Value.Text = string.Format("{0}{1}", idh.Value, idh.Unit);

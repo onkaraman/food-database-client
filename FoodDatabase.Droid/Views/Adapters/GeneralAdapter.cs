@@ -12,8 +12,8 @@ namespace FoodDatabase.Droid.Views.Adapters
 	public class GeneralAdapter : BaseAdapter
 	{
         protected List<APIModel> items;
-        protected View _convertView;
-        protected ViewGroup _parentView;
+        protected View convertView;
+        protected ViewGroup parentView;
         protected int itemPosition;
         protected Context context;
         protected Activity activity { get {return (Activity) context;}}
@@ -58,22 +58,22 @@ namespace FoodDatabase.Droid.Views.Adapters
             try
             {
                 GeneralViewHolder holder = null;
-    			_convertView = convertView;
-    			_parentView = parent;
+    			this.convertView = convertView;
+    			parentView = parent;
     			itemPosition = position;
 
-    			if (_convertView != null)
+    			if (this.convertView != null)
                 {
-                    holder = _convertView.Tag as GeneralViewHolder;
+                    holder = this.convertView.Tag as GeneralViewHolder;
                 }
                 else
                 {
-                    _convertView = createView();
+                    this.convertView = createView();
                     holder = setupView();
-                    _convertView.Tag = holder;
+                    this.convertView.Tag = holder;
                 }
                 populateHolder(holder);
-                return _convertView;
+                return this.convertView;
             }
             catch (Exception ex)
             {

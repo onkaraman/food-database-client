@@ -26,7 +26,7 @@ namespace FoodDatabase.Droid.Views.Adapters.Concretes
         protected override View createView()
         {
             return activity.LayoutInflater.Inflate(Resource.Layout.SearchItem,
-                _parentView, false);
+                parentView, false);
         }
     
         protected override GeneralViewHolder populateHolder(GeneralViewHolder _holder)
@@ -41,14 +41,14 @@ namespace FoodDatabase.Droid.Views.Adapters.Concretes
         protected override GeneralViewHolder setupView()
         {
             SearchItemViewHolder holder = new SearchItemViewHolder();
-            holder.Thumbnail = _convertView.FindViewById<ImageView>(Resource.Id.SearchItemThumbnail);
-            holder.Name = _convertView.FindViewById<MainTextView>(Resource.Id.SearchItemName);
-            holder.Producer = _convertView.FindViewById<MainTextView>(Resource.Id.SearchItemProducer);
-            holder.Kcal = _convertView.FindViewById<MainTextView>(Resource.Id.SearchItemKcals);
-            holder.Proteins = _convertView.FindViewById<MainTextView>(Resource.Id.SearchItemProteins);
-            holder.Carbohydrates = _convertView.FindViewById<MainTextView>(Resource.Id.SearchItemCHs);
-            holder.Sugar = _convertView.FindViewById<MainTextView>(Resource.Id.SearchItemSugar);
-            holder.Fat = _convertView.FindViewById<MainTextView>(Resource.Id.SearchItemFat);
+            holder.Thumbnail = convertView.FindViewById<ImageView>(Resource.Id.SearchItemThumbnail);
+            holder.Name = convertView.FindViewById<MainTextView>(Resource.Id.SearchItemName);
+            holder.Producer = convertView.FindViewById<MainTextView>(Resource.Id.SearchItemProducer);
+            holder.Kcal = convertView.FindViewById<MainTextView>(Resource.Id.SearchItemKcals);
+            holder.Proteins = convertView.FindViewById<MainTextView>(Resource.Id.SearchItemProteins);
+            holder.Carbohydrates = convertView.FindViewById<MainTextView>(Resource.Id.SearchItemCHs);
+            holder.Sugar = convertView.FindViewById<MainTextView>(Resource.Id.SearchItemSugar);
+            holder.Fat = convertView.FindViewById<MainTextView>(Resource.Id.SearchItemFat);
             return holder;
         }
 
