@@ -1,43 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/ServingFoodName"
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
+    <RelativeLayout
+        android:orientation="vertical"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Food name"
-        android:textSize="@dimen/titleSize"
-        android:textColor="@color/blue"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="40dp" />
-    <TextView
-        android:id="@+id/ServingDescription"
-        android:textSize="19dp"
-        android:text="Add this food to your diary"
-        android:layout_below="@+id/ServingFoodName"
-        android:layout_alignLeft="@+id/ServingFoodName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp" />
-    <TextView
-        android:id="@+id/ServingPresetDescription"
-        android:textSize="18dp"
-        android:text="Quickly select a preset"
-        android:layout_below="@+id/ServingDescription"
-        android:layout_alignLeft="@+id/ServingFoodName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp" />
-    <ListView
-        android:id="@+id/ServingListView"
-        android:layout_alignLeft="@+id/ServingPresetDescription"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_below="@+id/ServingPresetDescription"
-        android:layout_marginTop="10dp"
-        android:divider="@null"
-        android:scrollbars="none"
-        android:layout_marginRight="20dp" />
-</RelativeLayout>
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/ServingFoodName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Food name"
+            android:textSize="@dimen/titleSize"
+            android:textColor="@color/blue"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp" />
+        <TextView
+            android:id="@+id/ServingDescription"
+            android:textSize="19dp"
+            android:text="Add this food to your diary"
+            android:layout_below="@+id/ServingFoodName"
+            android:layout_alignLeft="@+id/ServingFoodName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" />
+        <TextView
+            android:id="@+id/ServingPresetDescription"
+            android:textSize="18dp"
+            android:text="Quickly select a preset"
+            android:layout_below="@+id/ServingDescription"
+            android:layout_alignLeft="@+id/ServingFoodName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" />
+        <ListView
+            android:id="@+id/ServingListView"
+            android:layout_alignLeft="@+id/ServingPresetDescription"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_below="@+id/ServingPresetDescription"
+            android:layout_marginTop="10dp"
+            android:divider="@null"
+            android:scrollbars="none"
+            android:layout_marginRight="20dp" />
+        <TextView
+            android:id="@+id/ServingCustomDescription"
+            android:textSize="18dp"
+            android:text="Select a custom amount"
+            android:layout_below="@+id/ServingListView"
+            android:layout_alignLeft="@+id/ServingFoodName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp" />
+        <EditText
+            android:id="@+id/ServingCustomEditText"
+            style="@style/MainEditText"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_below="@+id/ServingCustomDescription"
+            android:hint="100g"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:numeric="integer"
+            android:inputType="number" />
+        <Button
+            android:id="@+id/ServingAddButton"
+            android:layout_below="@+id/ServingCustomEditText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            style="@style/MainButton"
+            android:text="Add" />
+    </RelativeLayout>
+</ScrollView>

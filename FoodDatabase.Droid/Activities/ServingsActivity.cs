@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Android.App;
-using Android.Content;
+﻿using Android.App;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using FoodDatabase.Core.Sessions;
@@ -18,8 +12,9 @@ namespace FoodDatabase.Droid.Activities
     /// selected food to his diary.
     /// </summary>
     [Activity(Label = "ServingsActivity",
-      WindowSoftInputMode = SoftInput.AdjustResize,
-      ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
+        WindowSoftInputMode = SoftInput.AdjustResize|SoftInput.StateHidden,
+        ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait,
+        ConfigurationChanges = Android.Content.PM.ConfigChanges.ScreenSize|Android.Content.PM.ConfigChanges.Orientation)]
     public class ServingsActivity : Activity
     {
         private TextView _name;
