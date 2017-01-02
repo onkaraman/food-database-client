@@ -1,6 +1,6 @@
 ﻿using Android.App;
 using Android.Widget;
-using FoodDatabase.Core.PlatformHelpers;
+using FoodDatabase.Core.Sessions;
 using FoodDatabase.Droid.Views.Adapters;
 
 namespace FoodDatabase.Droid.Views.ViewHolders.Concretes

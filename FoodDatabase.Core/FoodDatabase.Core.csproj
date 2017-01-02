@@ -45,7 +45,7 @@
     <Compile Include="API\Models\Stats.cs" />
     <Compile Include="PlatformHelpers\ItemDataHolder.cs" />
     <Compile Include="Sessions\SessionHolder.cs" />
-    <Compile Include="PlatformHelpers\LoginData.cs" />
+    <Compile Include="Sessions\LoginData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">

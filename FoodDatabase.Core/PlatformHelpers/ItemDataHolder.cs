@@ -2,7 +2,7 @@
 using FoodDatabase.Core.API.Models.Abstracts;
 using FoodDatabase.Core.API.Models.Items;
 
-namespace FoodDatabase.Core.PlatformHelpers
+namespace FoodDatabase.Core.Sessions
 {
     /// <summary>
     /// This class holds item data for ListView purposes.

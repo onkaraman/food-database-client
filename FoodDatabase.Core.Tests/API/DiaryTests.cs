@@ -2,7 +2,7 @@
 using FoodDatabase.Core.API.Accessors;
 using FoodDatabase.Core.API.Models;
 using FoodDatabase.Core.API.Parsers;
-using FoodDatabase.Core.PlatformHelpers;
+using FoodDatabase.Core.Sessions;
 using NUnit.Framework;
 
 namespace FoodDatabase.Core.Tests.API

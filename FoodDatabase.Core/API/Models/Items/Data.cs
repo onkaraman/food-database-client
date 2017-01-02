@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using FoodDatabase.Core.PlatformHelpers;
+using FoodDatabase.Core.Sessions;
 
 namespace FoodDatabase.Core.API.Models.Items
 {

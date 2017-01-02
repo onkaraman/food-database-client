@@ -73,6 +73,7 @@
     <Compile Include="Views\ViewHolders\Concretes\ServingItemViewHolder.cs" />
     <Compile Include="Views\Adapters\Concretes\ServingItemAdapter.cs" />
     <Compile Include="Activities\ServingsActivity.cs" />
+    <Compile Include="Activities\LoginActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -118,6 +119,7 @@
     <AndroidResource Include="Resources\drawable\detaildefault.png" />
     <AndroidResource Include="Resources\layout\Servings.axml" />
     <AndroidResource Include="Resources\layout\ServingItem.axml" />
+    <AndroidResource Include="Resources\layout\Login.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

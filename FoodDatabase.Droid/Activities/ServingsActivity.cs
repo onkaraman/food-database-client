@@ -60,12 +60,25 @@ namespace FoodDatabase.Droid.Activities
             _listView.ItemClick += servingsClick;
         }
 
+        /// <summary>
+        /// Will add the selected serving to the diary.
+        /// </summary>
         private void servingsClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             if (e == null) return;
             var serving = SessionHolder.Static.Item.Servings[e.Position];
+        }
 
-            
+        /// <summary>
+        /// Will check whether the current user is logged into his account.
+        /// If so, the user will be redirected to the login activity.
+        /// </summary>
+        private void checkLogin()
+        {
+            if (SessionHolder.Static.LoginData.Username == null)
+            {
+                StartActivity(typeof(LoginActivity));
+            }
         }
     }
 }

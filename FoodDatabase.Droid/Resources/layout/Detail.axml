@@ -35,9 +35,7 @@
         android:layout_marginTop="40dp"
         android:text="Food item title"
         android:textColor="@color/blue"
-        android:textSize="@dimen/titleSize"
-        android:shadowDx="0"
-        android:shadowDy="0" />
+        android:textSize="@dimen/titleSize" />
     <RelativeLayout
         android:layout_alignTop="@+id/DetailProducer"
         android:layout_alignLeft="@+id/DetailProducer"
