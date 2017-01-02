@@ -7,6 +7,13 @@
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+        <ProgressBar
+            android:id="@+id/ServingProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:indeterminate="true"
+            android:layout_marginTop="-3dp" />
         <TextView
             android:id="@+id/ServingFoodName"
             android:layout_width="wrap_content"

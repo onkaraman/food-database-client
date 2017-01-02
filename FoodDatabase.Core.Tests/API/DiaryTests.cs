@@ -1,7 +1,8 @@
 ﻿using System;
 using FoodDatabase.Core.API.Accessors;
-using FoodDatabase.Core.API.Models.Item;
+using FoodDatabase.Core.API.Models;
 using FoodDatabase.Core.API.Parsers;
+using FoodDatabase.Core.PlatformHelpers;
 using NUnit.Framework;
 
 namespace FoodDatabase.Core.Tests.API
@@ -12,20 +13,22 @@ namespace FoodDatabase.Core.Tests.API
         [Test]
         public async void GetTodaysDiary()
         {
-            string response = await APIAccessor.Static.DiaryGet("QuadrigaKing", "jonny0011", DateTime.Today);
+            LoginData ld = new LoginData("QuadrigaKing", "jonny0011");
+            string response = await APIAccessor.Static.DiaryGet(ld, DateTime.Today);
             Result result = APIParser.Static.Parse(response);
         }
 
         [Test]
         public async void DeleteDiaryItem()
         {
-            string diaryResponse = await APIAccessor.Static.DiaryGet("QuadrigaKing", "jonny0011", DateTime.Today);
+            LoginData ld = new LoginData("QuadrigaKing", "jonny0011");
+            string diaryResponse = await APIAccessor.Static.DiaryGet(ld, DateTime.Today);
             Result diaryResult = APIParser.Static.Parse(diaryResponse);
 
             string uidToRemove = diaryResult.DiaryElements[0].diary_uid;
-            string removeResponse = await APIAccessor.Static.DiaryRemove("QuadrigaKing", "jonny0011", uidToRemove);
+            string removeResponse = await APIAccessor.Static.DiaryRemove(ld, uidToRemove);
 
-            diaryResponse = await APIAccessor.Static.DiaryGet("QuadrigaKing", "jonny0011", DateTime.Today);
+            diaryResponse = await APIAccessor.Static.DiaryGet(ld, DateTime.Today);
             diaryResult = APIParser.Static.Parse(diaryResponse);
 
             Assert.IsTrue(removeResponse.ToLower().Contains("success"));
@@ -35,7 +38,8 @@ namespace FoodDatabase.Core.Tests.API
         [Test]
         public async void AddFoodCustomServing()
         {
-            string response = await APIAccessor.Static.DiaryAddItem("QuadrigaKing", "jonny0011", "1", 100);
+            LoginData ld = new LoginData("QuadrigaKing", "jonny0011");
+            string response = await APIAccessor.Static.DiaryAddItem(ld, "1", 100);
             Assert.IsTrue(response.ToLower().Contains("success"));
         }
 
@@ -45,8 +49,8 @@ namespace FoodDatabase.Core.Tests.API
             string response = await APIAccessor.Static.Search("Banane");
             Result result = APIParser.Static.Parse(response);
 
-            response = await APIAccessor.Static.DiaryAddItem("QuadrigaKing", "jonny0011", "1", 0, 
-                                                               result.Items[0].Servings[0].serving_id);
+            LoginData ld = new LoginData("QuadrigaKing", "jonny0011");
+            response = await APIAccessor.Static.DiaryAddItem(ld, "1", 0, result.Items[0].Servings[0].serving_id);
             Assert.IsTrue(response.ToLower().Contains("success"));
         }
     }

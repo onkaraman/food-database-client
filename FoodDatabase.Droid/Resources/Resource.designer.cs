@@ -1633,20 +1633,20 @@ namespace FoodDatabase.Droid
 			// aapt resource value: 0x7f0b006b
 			public const int SearchItemThumbnail = 2131427435;
 			
-			// aapt resource value: 0x7f0b0081
-			public const int ServingAddButton = 2131427457;
-			
-			// aapt resource value: 0x7f0b007f
-			public const int ServingCustomDescription = 2131427455;
+			// aapt resource value: 0x7f0b0082
+			public const int ServingAddButton = 2131427458;
 			
 			// aapt resource value: 0x7f0b0080
-			public const int ServingCustomEditText = 2131427456;
+			public const int ServingCustomDescription = 2131427456;
+			
+			// aapt resource value: 0x7f0b0081
+			public const int ServingCustomEditText = 2131427457;
+			
+			// aapt resource value: 0x7f0b007d
+			public const int ServingDescription = 2131427453;
 			
 			// aapt resource value: 0x7f0b007c
-			public const int ServingDescription = 2131427452;
-			
-			// aapt resource value: 0x7f0b007b
-			public const int ServingFoodName = 2131427451;
+			public const int ServingFoodName = 2131427452;
 			
 			// aapt resource value: 0x7f0b0079
 			public const int ServingItemDescription = 2131427449;
@@ -1657,11 +1657,14 @@ namespace FoodDatabase.Droid
 			// aapt resource value: 0x7f0b0078
 			public const int ServingItemName = 2131427448;
 			
-			// aapt resource value: 0x7f0b007e
-			public const int ServingListView = 2131427454;
+			// aapt resource value: 0x7f0b007f
+			public const int ServingListView = 2131427455;
 			
-			// aapt resource value: 0x7f0b007d
-			public const int ServingPresetDescription = 2131427453;
+			// aapt resource value: 0x7f0b007e
+			public const int ServingPresetDescription = 2131427454;
+			
+			// aapt resource value: 0x7f0b007b
+			public const int ServingProgressBar = 2131427451;
 			
 			// aapt resource value: 0x7f0b005c
 			public const int action0 = 2131427420;

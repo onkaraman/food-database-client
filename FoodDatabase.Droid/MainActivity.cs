@@ -50,7 +50,7 @@ namespace FoodDatabase.Droid
             _searchField = FindViewById<EditText>(Resource.Id.MainEditText);
             _listView = FindViewById<ListView>(Resource.Id.MainListView);
 
-            _progBar.Visibility = Android.Views.ViewStates.Invisible;
+            _progBar.Visibility = ViewStates.Invisible;
         }
 
         /// <summary>

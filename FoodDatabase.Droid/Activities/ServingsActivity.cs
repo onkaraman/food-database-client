@@ -21,6 +21,7 @@ namespace FoodDatabase.Droid.Activities
         private TextView _description;
         private TextView _servingPresetDescription;
         private ListView _listView;
+        private ProgressBar _progBar;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -39,6 +40,7 @@ namespace FoodDatabase.Droid.Activities
             _description = FindViewById<TextView>(Resource.Id.ServingDescription);
             _servingPresetDescription = FindViewById<TextView>(Resource.Id.ServingPresetDescription);
             _listView = FindViewById<ListView>(Resource.Id.ServingListView);
+            _progBar = FindViewById<ProgressBar>(Resource.Id.ServingProgressBar);
         }
 
         /// <summary>
@@ -48,6 +50,22 @@ namespace FoodDatabase.Droid.Activities
         {
             _name.Text = SessionHolder.Static.Item.Description.name;
             _listView.Adapter = new ServingItemAdapter(SessionHolder.Static.Item.Servings, this);
+        }
+
+        /// <summary>
+        /// Will assign the events of the controls to methods.
+        /// </summary>
+        private void assignEvents()
+        {
+            _listView.ItemClick += servingsClick;
+        }
+
+        private void servingsClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            if (e == null) return;
+            var serving = SessionHolder.Static.Item.Servings[e.Position];
+
+            
         }
     }
 }

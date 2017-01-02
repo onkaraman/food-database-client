@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="API\SearchTests.cs" />
     <Compile Include="API\DiaryTests.cs" />
+    <Compile Include="API\UserAccountTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FoodDatabase.Core\FoodDatabase.Core.csproj">
