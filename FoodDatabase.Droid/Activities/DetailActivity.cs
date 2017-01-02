@@ -13,7 +13,7 @@ namespace FoodDatabase.Droid.Activities
     /// add this item to the user's diary.
     /// </summary>
     [Activity(Label = "DetailActivity",
-      WindowSoftInputMode = Android.Views.SoftInput.AdjustResize,
+              WindowSoftInputMode = Android.Views.SoftInput.AdjustPan,
       ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class DetailActivity : Activity
     {

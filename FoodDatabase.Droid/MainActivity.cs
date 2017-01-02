@@ -90,7 +90,13 @@ namespace FoodDatabase.Droid
         /// </summary>
         private void search(string query)
         {
-            _progBar.Visibility = Android.Views.ViewStates.Visible;
+            _progBar.Visibility = ViewStates.Visible;
+
+            if (CurrentFocus != null)
+            {
+                InputMethodManager imm = (InputMethodManager)GetSystemService(InputMethodService);
+                imm.HideSoftInputFromWindow(CurrentFocus.WindowToken, 0);
+            }
 
             ThreadPool.QueueUserWorkItem(async o =>
             {
@@ -109,12 +115,6 @@ namespace FoodDatabase.Droid
                 {
                     _listView.Adapter = new SearchItemAdapter(result.Items, this);
                     _progBar.Visibility = ViewStates.Invisible;
-
-                    if (CurrentFocus != null)
-                    {
-                        InputMethodManager imm = (InputMethodManager)GetSystemService(InputMethodService);
-                        imm.HideSoftInputFromWindow(CurrentFocus.WindowToken, 0);
-                    }
                 });
             });
         }
