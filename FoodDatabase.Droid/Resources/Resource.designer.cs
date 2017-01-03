@@ -2203,11 +2203,8 @@ namespace FoodDatabase.Droid
 			// aapt resource value: 0x7f050012
 			public const int abc_toolbar_collapse_description = 2131034130;
 			
-			// aapt resource value: 0x7f050015
-			public const int app_name = 2131034133;
-			
 			// aapt resource value: 0x7f050014
-			public const int hello = 2131034132;
+			public const int app_name = 2131034132;
 			
 			// aapt resource value: 0x7f050013
 			public const int status_bar_notification_info_overflow = 2131034131;

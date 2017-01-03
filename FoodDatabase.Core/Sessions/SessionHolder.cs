@@ -9,8 +9,11 @@ namespace FoodDatabase.Core.Sessions
     /// </summary>
     public class SessionHolder : LazyStatic<SessionHolder>
     {
-        public SessionHolder() {}
+        public bool FromDiary;
+        public bool FromServing;
         public LoginData LoginData { get; set; }
         public Item Item { get; set; }
+
+        public SessionHolder() { }
     }
 }

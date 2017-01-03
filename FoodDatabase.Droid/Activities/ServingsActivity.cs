@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.OS;
+using Android.Text;
 using Android.Views;
 using Android.Widget;
 using FoodDatabase.Core.Sessions;
@@ -17,11 +18,13 @@ namespace FoodDatabase.Droid.Activities
         ConfigurationChanges = Android.Content.PM.ConfigChanges.ScreenSize|Android.Content.PM.ConfigChanges.Orientation)]
     public class ServingsActivity : Activity
     {
+        private ProgressBar _progBar;
         private TextView _name;
         private TextView _description;
         private TextView _servingPresetDescription;
         private ListView _listView;
-        private ProgressBar _progBar;
+        private EditText _customServing;
+        private Button _button;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -29,6 +32,7 @@ namespace FoodDatabase.Droid.Activities
             SetContentView(Resource.Layout.Servings);
             setupViews();
             applyData();
+            assignEvents();
         }
 
         /// <summary>
@@ -36,11 +40,15 @@ namespace FoodDatabase.Droid.Activities
         /// </summary>
         private void setupViews()
         {
+            _progBar = FindViewById<ProgressBar>(Resource.Id.ServingProgressBar);
             _name = FindViewById<TextView>(Resource.Id.ServingFoodName);
             _description = FindViewById<TextView>(Resource.Id.ServingDescription);
             _servingPresetDescription = FindViewById<TextView>(Resource.Id.ServingPresetDescription);
             _listView = FindViewById<ListView>(Resource.Id.ServingListView);
-            _progBar = FindViewById<ProgressBar>(Resource.Id.ServingProgressBar);
+            _customServing = FindViewById<EditText>(Resource.Id.ServingCustomEditText);
+            _button = FindViewById<Button>(Resource.Id.ServingAddButton);
+
+            _progBar.Visibility = ViewStates.Invisible;
         }
 
         /// <summary>
@@ -58,6 +66,8 @@ namespace FoodDatabase.Droid.Activities
         private void assignEvents()
         {
             _listView.ItemClick += servingsClick;
+            _customServing.TextChanged += customServingTextChanged;
+            _button.Click += addButtonClick;
         }
 
         /// <summary>
@@ -69,16 +79,34 @@ namespace FoodDatabase.Droid.Activities
             var serving = SessionHolder.Static.Item.Servings[e.Position];
         }
 
+        private void customServingTextChanged(object sender, TextChangedEventArgs e)
+        {
+            _customServing.TextChanged -= customServingTextChanged;
+            _customServing.Text = _customServing.Text.Replace("g", "");
+            _customServing.Text = string.Format("{0}g", _customServing.Text);
+            _customServing.TextChanged += customServingTextChanged;
+        }
+
         /// <summary>
         /// Will check whether the current user is logged into his account.
         /// If so, the user will be redirected to the login activity.
         /// </summary>
         private void checkLogin()
         {
-            if (SessionHolder.Static.LoginData.Username == null)
+            if (SessionHolder.Static.LoginData == null)
             {
+                SessionHolder.Static.FromServing = true;
                 StartActivity(typeof(LoginActivity));
             }
+        }
+
+        /// <summary>
+        /// Will first check if the user is logged in. If so, the custom serving will be added.
+        /// Otherwise the user will be redirected to the login activity.
+        /// </summary>
+        private void addButtonClick(object sender, System.EventArgs e)
+        {
+            checkLogin();
         }
     }
 }

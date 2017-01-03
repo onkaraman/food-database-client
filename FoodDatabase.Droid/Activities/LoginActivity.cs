@@ -8,6 +8,8 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using FoodDatabase.Core.API.Accessors;
+using FoodDatabase.Core.Sessions;
 
 namespace FoodDatabase.Droid.Activities
 {
@@ -31,6 +33,7 @@ namespace FoodDatabase.Droid.Activities
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Login);
             setupViews();
+            assigEvents();
         }
 
         /// <summary>
@@ -43,6 +46,54 @@ namespace FoodDatabase.Droid.Activities
             _username = FindViewById<EditText>(Resource.Id.LoginUsername);
             _password = FindViewById<EditText>(Resource.Id.LoginPassword);
             _button = FindViewById<Button>(Resource.Id.LoginButton);
+
+            _progBar.Visibility = ViewStates.Invisible;
+        }
+
+        /// <summary>
+        /// Will assign the events of the controls to local methods.
+        /// </summary>
+        private void assigEvents()
+        {
+            _button.Click += buttonClick;
+        }
+
+        /// <summary>
+        /// Will attempt to login the user. If it won't crash, login is successful.
+        /// </summary>
+        private async void buttonClick(object sender, EventArgs e)
+        {
+            _progBar.Visibility = ViewStates.Visible;
+
+            try
+            {
+                string response = await APIAccessor.Static.Login(_username.Text, _password.Text);
+                LoginData ld = new LoginData(_username.Text, _password.Text);
+                SessionHolder.Static.LoginData = ld;
+
+                if (SessionHolder.Static.FromServing) StartActivity(typeof(ServingsActivity));
+                //else if (SessionHolder.Static.FromDiary) 
+
+            }
+            catch 
+            {
+                showAlertDialog("Login error. Please try again.");
+            }
+
+            _progBar.Visibility = ViewStates.Invisible;
+        }
+
+        /// <summary>
+        /// Will show an alert dialog with the passed message as its content.
+        /// </summary>
+        /// <param name="msg">Message.</param>
+        private void showAlertDialog(string msg)
+        {
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.SetTitle(Resource.String.app_name);
+            alert.SetMessage(msg);
+            alert.SetPositiveButton("OK",(senderAlert, args) => { });
+            alert.Show();
         }
     }
 }
