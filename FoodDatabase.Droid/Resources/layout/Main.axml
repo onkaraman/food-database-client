@@ -15,16 +15,25 @@
         android:layout_height="8dp"
         android:indeterminate="true"
         android:layout_marginTop="-3dp" />
+    <ImageView
+        android:id="@+id/MainMenuIcon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/summaryicon"
+        android:layout_alignLeft="@+id/MainEditText"
+        android:layout_marginLeft="1dp" />
     <EditText
         android:id="@+id/MainEditText"
         android:layout_height="@dimen/buttonHeight"
         android:layout_width="@dimen/buttonWidth"
-        android:layout_marginTop="@dimen/headerTopMargin"
+        android:layout_marginTop="28dp"
         android:layout_centerHorizontal="true"
         style="@style/MainEditText"
         android:imeOptions="actionSearch"
         android:hint="Search"
-        android:paddingLeft="43dp" />
+        android:paddingLeft="43dp"
+        android:layout_below="@+id/MainMenuIcon" />
     <ImageView
         android:id="@+id/MainSearchIcon"
         android:layout_alignTop="@+id/MainEditText"

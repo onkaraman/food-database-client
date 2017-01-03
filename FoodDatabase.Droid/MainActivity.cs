@@ -28,6 +28,7 @@ namespace FoodDatabase.Droid
           ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class MainActivity : Activity
     {
+        private ImageView _menuButton;
         private List<Item> _items;
         private EditText _searchField;
         private ListView _listView;

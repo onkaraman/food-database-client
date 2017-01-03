@@ -120,6 +120,7 @@
     <AndroidResource Include="Resources\layout\Servings.axml" />
     <AndroidResource Include="Resources\layout\ServingItem.axml" />
     <AndroidResource Include="Resources\layout\Login.axml" />
+    <AndroidResource Include="Resources\drawable\summaryIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
