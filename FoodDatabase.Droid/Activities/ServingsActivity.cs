@@ -1,8 +1,10 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.OS;
 using Android.Text;
 using Android.Views;
 using Android.Widget;
+using FoodDatabase.Core.API.Accessors;
 using FoodDatabase.Core.Sessions;
 using FoodDatabase.Droid.Views.Adapters.Concretes;
 
@@ -66,25 +68,27 @@ namespace FoodDatabase.Droid.Activities
         private void assignEvents()
         {
             _listView.ItemClick += servingsClick;
-            _customServing.TextChanged += customServingTextChanged;
             _button.Click += addButtonClick;
         }
 
         /// <summary>
         /// Will add the selected serving to the diary.
         /// </summary>
-        private void servingsClick(object sender, AdapterView.ItemClickEventArgs e)
+        private async void servingsClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             if (e == null) return;
             var serving = SessionHolder.Static.Item.Servings[e.Position];
-        }
 
-        private void customServingTextChanged(object sender, TextChangedEventArgs e)
-        {
-            _customServing.TextChanged -= customServingTextChanged;
-            _customServing.Text = _customServing.Text.Replace("g", "");
-            _customServing.Text = string.Format("{0}g", _customServing.Text);
-            _customServing.TextChanged += customServingTextChanged;
+            try
+            {
+                string response = await APIAccessor.Static.DiaryAddItem(SessionHolder.Static.LoginData,
+                                            SessionHolder.Static.Item.id.ToString(), 0, serving.id.ToString());
+            }
+            catch (Exception)
+            {
+                showAlertDialog("Couldn't add serving to diary.");
+            }
+
         }
 
         /// <summary>
@@ -104,9 +108,32 @@ namespace FoodDatabase.Droid.Activities
         /// Will first check if the user is logged in. If so, the custom serving will be added.
         /// Otherwise the user will be redirected to the login activity.
         /// </summary>
-        private void addButtonClick(object sender, System.EventArgs e)
+        private async void addButtonClick(object sender, System.EventArgs e)
         {
             checkLogin();
+            _progBar.Visibility = ViewStates.Visible;
+
+            if (_customServing.Text.Length > 0)
+            {
+                string response = await APIAccessor.Static.DiaryAddItem(SessionHolder.Static.LoginData, "1", 100);
+                StartActivity(typeof(MainActivity));
+            }
+            else
+            {
+                showAlertDialog("You need to enter a custom amount first.");
+            }
+        }
+
+        /// <summary>
+        /// Will show an alert dialog with the passed message as its content.
+        /// </summary>
+        private void showAlertDialog(string msg)
+        {
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.SetTitle(Resource.String.app_name);
+            alert.SetMessage(msg);
+            alert.SetPositiveButton("OK", (senderAlert, args) => { });
+            alert.Show();
         }
     }
 }

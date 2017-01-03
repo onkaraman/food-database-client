@@ -45,7 +45,7 @@
             android:id="@+id/ServingListView"
             android:layout_alignLeft="@+id/ServingPresetDescription"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="150dp"
             android:layout_below="@+id/ServingPresetDescription"
             android:layout_marginTop="10dp"
             android:divider="@null"
@@ -66,13 +66,21 @@
             android:layout_height="@dimen/buttonHeight"
             android:layout_width="@dimen/buttonWidth"
             android:layout_below="@+id/ServingCustomDescription"
-            android:hint="100g"
+            android:hint="100"
             android:paddingLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_centerHorizontal="true"
             android:gravity="center"
             android:numeric="integer"
             android:inputType="number" />
+        <TextView
+            android:id="@+id/ServingCustomUnit"
+            android:textSize="18dp"
+            android:text="g"
+            android:layout_below="@+id/ServingListView"
+            android:layout_alignLeft="@+id/ServingFoodName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
         <Button
             android:id="@+id/ServingAddButton"
             android:layout_below="@+id/ServingCustomEditText"
