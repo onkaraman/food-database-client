@@ -17,12 +17,13 @@
         android:layout_marginTop="-3dp" />
     <ImageView
         android:id="@+id/MainMenuIcon"
-        android:layout_width="20dp"
+        android:layout_width="60dp"
         android:layout_height="20dp"
         android:layout_marginTop="25dp"
         android:src="@drawable/summaryicon"
         android:layout_alignLeft="@+id/MainEditText"
-        android:layout_marginLeft="1dp" />
+        android:layout_marginLeft="1dp"
+        android:paddingRight="40dp" />
     <EditText
         android:id="@+id/MainEditText"
         android:layout_height="@dimen/buttonHeight"

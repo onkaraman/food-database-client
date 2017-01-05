@@ -20,6 +20,7 @@ namespace FoodDatabase.Droid.Activities
           ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class DiaryActivity : Activity
     {
+        private ProgressBar _progBar;
         private DateTime _dateTime;
         private TextView _title;
         private TextView _date;
@@ -30,7 +31,9 @@ namespace FoodDatabase.Droid.Activities
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Diary);
             _dateTime = DateTime.Today;
+
             setupViews();
+            assignEvents();
             getDiary();
         }
 
@@ -39,11 +42,42 @@ namespace FoodDatabase.Droid.Activities
         /// </summary>
         private void setupViews()
         {
+            _progBar = FindViewById<ProgressBar>(Resource.Id.DiaryProgressBar);
             _title = FindViewById<TextView>(Resource.Id.DiaryTitle);
             _date = FindViewById<TextView>(Resource.Id.DiaryDate);
             _listView = FindViewById<ListView>(Resource.Id.DiaryListView);
 
+            _progBar.Visibility = Android.Views.ViewStates.Invisible;
             _date.Text = _dateTime.ToString("dd.MM.yyyy");
+        }
+
+        /// <summary>
+        /// Assigns the events of the controls to methods of this activity.
+        /// </summary>
+        private void assignEvents()
+        {
+            _date.Click += dateClick;
+        }
+
+        /// <summary>
+        /// Will open the date picker for the user to see the diary of that day.
+        /// </summary>
+        private void dateClick(object sender, EventArgs e)
+        {
+            DateTime now = DateTime.UtcNow;
+            DatePickerDialog diag = new DatePickerDialog(this, datePicked,
+                now.Year, now.Month - 1, now.Day);
+            diag.Show();
+        }
+
+        /// <summary>
+        /// Once the user picked a date, the diary will be updated.
+        /// </summary>
+        private void datePicked(object sender, DatePickerDialog.DateSetEventArgs e)
+        {
+            _dateTime = e.Date;
+            _date.Text = _dateTime.ToString("dd.MM.yyyy");
+            getDiary();
         }
 
         /// <summary>
@@ -58,6 +92,7 @@ namespace FoodDatabase.Droid.Activities
             }
             else
             {
+                _progBar.Visibility = Android.Views.ViewStates.Visible;
                 ThreadPool.QueueUserWorkItem(async o =>
                 {
                     string response = await APIAccessor.Static.DiaryGet(SessionHolder.Static.LoginData, _dateTime);
@@ -66,6 +101,7 @@ namespace FoodDatabase.Droid.Activities
                     RunOnUiThread(() =>
                     {
                         _listView.Adapter = new DiaryItemAdapter(result.DiaryElements, this);
+                        _progBar.Visibility = Android.Views.ViewStates.Invisible;
                     });
                 });
             }

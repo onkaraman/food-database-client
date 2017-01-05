@@ -3,6 +3,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <ProgressBar
+        android:id="@+id/DiaryProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:indeterminate="true"
+        android:layout_marginTop="-3dp" />
     <TextView
         android:id="@+id/DiaryTitle"
         android:layout_width="wrap_content"
@@ -10,24 +17,47 @@
         android:text="Diary"
         android:textSize="@dimen/titleSize"
         android:textColor="@color/blue"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:layout_alignLeft="@+id/DiaryListView" />
     <TextView
         android:id="@+id/DiaryDate"
-        android:layout_below="@+id/DiaryTitle"
         android:text="03.01.2017"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:textSize="@dimen/bodyTitleSize"
-        android:layout_marginTop="5dp" />
+        android:clickable="true"
+        android:textStyle="normal"
+        android:layout_alignRight="@+id/DiaryListView"
+        android:layout_alignTop="@+id/DiaryTitle" />
+    <ProgressBar
+        android:id="@+id/DiaryUseBar"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="10dp"
+        android:layout_below="@+id/DiaryTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:scaleY="6"
+        android:progress="50"
+        android:max="100"
+        style="?android:attr/progressBarStyleHorizontal" />
+    <TextView
+        android:id="@+id/DiarySummary"
+        android:text="1200 / 2400 kcal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="15sp"
+        android:clickable="true"
+        android:textStyle="normal"
+        android:layout_alignTop="@+id/DiaryUseBar"
+        android:layout_marginTop="-5dp" />
     <ListView
         android:id="@+id/DiaryListView"
         android:layout_height="match_parent"
         android:layout_width="@dimen/buttonWidth"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/DiaryDate"
-        android:layout_marginTop="30dp"
+        android:layout_below="@+id/DiarySummary"
+        android:layout_marginTop="20dp"
         android:divider="@null"
         android:dividerHeight="0dp"
         android:layout_marginBottom="20dp" />
