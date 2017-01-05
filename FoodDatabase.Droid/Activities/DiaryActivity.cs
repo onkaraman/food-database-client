@@ -107,5 +107,14 @@ namespace FoodDatabase.Droid.Activities
             }
         }
 
+        public override bool OnKeyDown(Android.Views.Keycode keyCode, Android.Views.KeyEvent e)
+        {
+            if (e.KeyCode == Android.Views.Keycode.Back)
+            {
+                StartActivity(typeof(MainActivity));
+                return true;
+            }
+            return base.OnKeyDown(keyCode, e);
+        }
     }
 }
