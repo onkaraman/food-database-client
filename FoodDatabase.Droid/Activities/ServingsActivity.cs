@@ -77,12 +77,15 @@ namespace FoodDatabase.Droid.Activities
         private async void servingsClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             if (e == null) return;
+            checkLogin();
+
             var serving = SessionHolder.Static.Item.Servings[e.Position];
 
             try
             {
                 string response = await APIAccessor.Static.DiaryAddItem(SessionHolder.Static.LoginData,
                                             SessionHolder.Static.Item.id.ToString(), 0, serving.id.ToString());
+                StartActivity(typeof(MainActivity));
             }
             catch (Exception)
             {

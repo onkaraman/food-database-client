@@ -15,7 +15,7 @@ namespace FoodDatabase.Core.API.Models.Diary
             set { id = int.Parse(value); } 
         }
 
-        public DateTime DateInTimeStamp
+        public DateTime DateInTime
         {
             get
             {

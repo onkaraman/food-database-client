@@ -74,6 +74,9 @@
     <Compile Include="Views\Adapters\Concretes\ServingItemAdapter.cs" />
     <Compile Include="Activities\ServingsActivity.cs" />
     <Compile Include="Activities\LoginActivity.cs" />
+    <Compile Include="Activities\DiaryActivity.cs" />
+    <Compile Include="Views\ViewHolders\Concretes\DiaryItemViewHolder.cs" />
+    <Compile Include="Views\Adapters\Concretes\DiaryItemAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

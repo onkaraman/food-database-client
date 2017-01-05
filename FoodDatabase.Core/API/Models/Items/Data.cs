@@ -40,21 +40,27 @@ namespace FoodDatabase.Core.API.Models.Items
 
         private int _kcal;
         public string kcal { get { return _kcal.ToString(); } set { _kcal = ((int)double.Parse(value)); } }
+        public int kcal_diary { get { return (int)(_kcal * (double.Parse(diary_serving_amount) / 100)); } }
 
         private int _fat;
         public string fat_gram { get { return _fat.ToString(); } set { _fat = ((int)double.Parse(value)); } }
+        public int fat_diary { get { return (int) (_fat * (double.Parse(diary_serving_amount) / 100)); } }
 
         private int _fatSat;
         public string fat_sat_gram { get { return _fatSat.ToString(); } set { _fatSat = ((int)double.Parse(value)); } }
+        public int fat_sat_diary { get { return (int)(_fatSat * (double.Parse(diary_serving_amount) / 100)); } }
 
         private int _kh;
         public string kh_gram { get { return _kh.ToString(); } set { _kh = ((int)double.Parse(value)); } }
+        public int kh_diary { get { return (int)(_kh * (double.Parse(diary_serving_amount) / 100)); } }
 
         private int _sugar;
         public string sugar_gram { get { return _sugar.ToString(); } set { _sugar = ((int)double.Parse(value)); } }
+        public int sugar_diary { get { return (int)(_sugar * (double.Parse(diary_serving_amount) / 100)); } }
 
         private int _protein;
         public string protein_gram { get { return _protein.ToString(); } set { _protein = ((int)double.Parse(value)); } }
+        public int protein_diary { get { return (int)(_protein * (double.Parse(diary_serving_amount) / 100)); } }
 
         public string cholesterol_mg { get; set; }
         public string df_gram { get; set; }

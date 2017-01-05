@@ -48,6 +48,8 @@ namespace FoodDatabase.Droid.Activities
             _button = FindViewById<Button>(Resource.Id.LoginButton);
 
             _progBar.Visibility = ViewStates.Invisible;
+            _username.Text = "quadrigaking";
+            _password.Text = "jonny0011";
         }
 
         /// <summary>
@@ -72,7 +74,7 @@ namespace FoodDatabase.Droid.Activities
                 SessionHolder.Static.LoginData = ld;
 
                 if (SessionHolder.Static.FromServing) StartActivity(typeof(ServingsActivity));
-                //else if (SessionHolder.Static.FromDiary) 
+                else if (SessionHolder.Static.FromDiary) StartActivity(typeof(DiaryActivity));
 
             }
             catch 

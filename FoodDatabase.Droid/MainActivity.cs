@@ -48,9 +48,9 @@ namespace FoodDatabase.Droid
         private void setupViews()
         {
             _progBar = FindViewById<ProgressBar>(Resource.Id.MainProgressBar);
+            _menuButton = FindViewById<ImageView>(Resource.Id.MainMenuIcon);
             _searchField = FindViewById<EditText>(Resource.Id.MainEditText);
             _listView = FindViewById<ListView>(Resource.Id.MainListView);
-
             _progBar.Visibility = ViewStates.Invisible;
         }
 
@@ -59,6 +59,7 @@ namespace FoodDatabase.Droid
         /// </summary>
         private void assignEvents()
         {
+            _menuButton.Click += menuButtonClick;
             _searchField.KeyPress += searchFieldKeyPress;
             _listView.ItemClick += listItemClick;
         }
@@ -68,7 +69,7 @@ namespace FoodDatabase.Droid
         /// </summary>
         private void searchFieldKeyPress(object sender, Android.Views.View.KeyEventArgs e)
         {
-            if (e.KeyCode == Android.Views.Keycode.Enter)
+            if (e.KeyCode == Keycode.Enter)
             {
                 search(_searchField.Text);
             }
@@ -118,6 +119,14 @@ namespace FoodDatabase.Droid
                     _progBar.Visibility = ViewStates.Invisible;
                 });
             });
+        }
+
+        /// <summary>
+        /// Will open the diary activity.
+        /// </summary>
+        private void menuButtonClick(object sender, EventArgs e)
+        {
+            StartActivity(typeof(DiaryActivity));
         }
     }
 
