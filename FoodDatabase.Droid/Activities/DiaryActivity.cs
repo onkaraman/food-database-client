@@ -2,6 +2,7 @@
 using System.Threading;
 using Android.App;
 using Android.OS;
+using Android.Views;
 using Android.Widget;
 using FoodDatabase.Core.API.Accessors;
 using FoodDatabase.Core.API.Parsers;
@@ -20,6 +21,8 @@ namespace FoodDatabase.Droid.Activities
           ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class DiaryActivity : Activity
     {
+        private string[] _contextMenuItems;
+        private Core.API.Models.Result _result;
         private ProgressBar _progBar;
         private DateTime _dateTime;
         private TextView _title;
@@ -31,6 +34,7 @@ namespace FoodDatabase.Droid.Activities
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Diary);
             _dateTime = DateTime.Today;
+            _contextMenuItems = new string[] { "Delete" };
 
             setupViews();
             assignEvents();
@@ -46,8 +50,9 @@ namespace FoodDatabase.Droid.Activities
             _title = FindViewById<TextView>(Resource.Id.DiaryTitle);
             _date = FindViewById<TextView>(Resource.Id.DiaryDate);
             _listView = FindViewById<ListView>(Resource.Id.DiaryListView);
+            RegisterForContextMenu(_listView);
 
-            _progBar.Visibility = Android.Views.ViewStates.Invisible;
+            _progBar.Visibility = ViewStates.Invisible;
             _date.Text = _dateTime.ToString("dd.MM.yyyy");
         }
 
@@ -57,6 +62,33 @@ namespace FoodDatabase.Droid.Activities
         private void assignEvents()
         {
             _date.Click += dateClick;
+        }
+
+        /// <summary>
+        /// Will open the context menu on a list item to give the user
+        /// the option to delete an item.
+        /// </summary>
+        public override void OnCreateContextMenu(IContextMenu menu, View v, IContextMenuContextMenuInfo menuInfo)
+        {
+            if (v.Id == Resource.Id.DiaryListView)
+            {
+                var info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+                menu.SetHeaderTitle(_result.DiaryElements[info.Position].DiaryShortItem.Description.name);
+                var menuItems = new string[] { "Delete" };
+
+                for (var i = 0; i < menuItems.Length; i++)
+                    menu.Add(Menu.None, i, i, menuItems[i]);
+            }
+        }
+
+        public override bool OnContextItemSelected(IMenuItem item)
+        {
+            var info = (AdapterView.AdapterContextMenuInfo)item.MenuInfo;
+            var menuItemIndex = item.ItemId;
+            var listItemName = _contextMenuItems[menuItemIndex];
+
+            Toast.MakeText(this, listItemName, ToastLength.Short).Show();
+            return true;
         }
 
         /// <summary>
@@ -92,16 +124,16 @@ namespace FoodDatabase.Droid.Activities
             }
             else
             {
-                _progBar.Visibility = Android.Views.ViewStates.Visible;
+                _progBar.Visibility = ViewStates.Visible;
                 ThreadPool.QueueUserWorkItem(async o =>
                 {
                     string response = await APIAccessor.Static.DiaryGet(SessionHolder.Static.LoginData, _dateTime);
-                    var result = APIParser.Static.Parse(response);
+                    _result = APIParser.Static.Parse(response);
 
                     RunOnUiThread(() =>
                     {
-                        _listView.Adapter = new DiaryItemAdapter(result.DiaryElements, this);
-                        _progBar.Visibility = Android.Views.ViewStates.Invisible;
+                        _listView.Adapter = new DiaryItemAdapter(_result.DiaryElements, this);
+                        _progBar.Visibility = ViewStates.Invisible;
                     });
                 });
             }
