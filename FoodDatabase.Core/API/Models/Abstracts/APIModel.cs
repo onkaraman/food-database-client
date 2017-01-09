@@ -1,4 +1,5 @@
 ﻿using System;
+using SQLite;
 
 namespace FoodDatabase.Core.API.Models.Abstracts
 {
@@ -7,6 +8,7 @@ namespace FoodDatabase.Core.API.Models.Abstracts
     /// </summary>
     public class APIModel
     {
+        [PrimaryKey]
         public int id { get; set; }
     }
 }

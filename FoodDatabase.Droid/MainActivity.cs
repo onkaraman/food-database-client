@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using ActionRadar.Core.Managers;
 using Android.App;
 using Android.Graphics;
 using Android.OS;
@@ -13,6 +14,7 @@ using FoodDatabase.Core.API.Models.Items;
 using FoodDatabase.Core.API.Parsers;
 using FoodDatabase.Core.Sessions;
 using FoodDatabase.Droid.Activities;
+using FoodDatabase.Droid.Persistence;
 using FoodDatabase.Droid.Views.Adapters.Concretes;
 using UniversalImageLoader.Core;
 
@@ -38,6 +40,7 @@ namespace FoodDatabase.Droid
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Main);
+            DBManager.Static.Init(new DBConnection());
             setupViews();
             assignEvents();
         }

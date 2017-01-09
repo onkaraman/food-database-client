@@ -5,6 +5,7 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using FoodDatabase.Core.API.Accessors;
+using FoodDatabase.Core.API.Models.Diary;
 using FoodDatabase.Core.API.Parsers;
 using FoodDatabase.Core.Sessions;
 using FoodDatabase.Droid.Views.Adapters.Concretes;
@@ -20,6 +21,7 @@ namespace FoodDatabase.Droid.Activities
       ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class DiaryActivity : Activity
     {
+        private int _kcals;
         private string[] _contextMenuItems;
         private Core.API.Models.Result _result;
         private ProgressBar _progBar;
@@ -135,6 +137,7 @@ namespace FoodDatabase.Droid.Activities
                     RunOnUiThread(() =>
                     {
                         _listView.Adapter = new DiaryItemAdapter(_result.DiaryElements, this);
+                        countKcals();
                         _progBar.Visibility = ViewStates.Invisible;
                     });
                 });
@@ -167,6 +170,17 @@ namespace FoodDatabase.Droid.Activities
             catch (Exception)
             {
                 //TODO: Report
+            }
+        }
+
+        /// <summary>
+        /// Will go through every diary item and add its kcals to the daily summary.
+        /// </summary>
+        private void countKcals()
+        {
+            foreach (DiaryElement dsi in _result.DiaryElements)
+            {
+                _kcals += dsi.DiaryShortItem.Data.kcal_diary;
             }
         }
 
