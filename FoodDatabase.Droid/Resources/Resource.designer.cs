@@ -1515,8 +1515,8 @@ namespace FoodDatabase.Droid
 			// aapt resource value: 0x7f020058
 			public const int MainButtonSelector = 2130837592;
 			
-			// aapt resource value: 0x7f020061
-			public const int notification_template_icon_bg = 2130837601;
+			// aapt resource value: 0x7f020062
+			public const int notification_template_icon_bg = 2130837602;
 			
 			// aapt resource value: 0x7f020059
 			public const int proteinicon = 2130837593;
@@ -1531,16 +1531,19 @@ namespace FoodDatabase.Droid
 			public const int search = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int stargrey = 2130837597;
+			public const int settingsIcon = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int sugaricon = 2130837598;
+			public const int stargrey = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int summaryIcon = 2130837599;
+			public const int sugaricon = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int sync = 2130837600;
+			public const int summaryIcon = 2130837600;
+			
+			// aapt resource value: 0x7f020061
+			public const int sync = 2130837601;
 			
 			static Drawable()
 			{
@@ -1615,8 +1618,8 @@ namespace FoodDatabase.Droid
 			// aapt resource value: 0x7f0b0065
 			public const int MainEditText = 2131427429;
 			
-			// aapt resource value: 0x7f0b0067
-			public const int MainListView = 2131427431;
+			// aapt resource value: 0x7f0b0068
+			public const int MainListView = 2131427432;
 			
 			// aapt resource value: 0x7f0b0064
 			public const int MainMenuIcon = 2131427428;
@@ -1624,92 +1627,95 @@ namespace FoodDatabase.Droid
 			// aapt resource value: 0x7f0b0063
 			public const int MainProgressBar = 2131427427;
 			
-			// aapt resource value: 0x7f0b0066
-			public const int MainSearchIcon = 2131427430;
+			// aapt resource value: 0x7f0b0067
+			public const int MainSearchIcon = 2131427431;
 			
-			// aapt resource value: 0x7f0b0075
-			public const int NutritionItemName = 2131427445;
+			// aapt resource value: 0x7f0b0066
+			public const int MainSettingsIcon = 2131427430;
 			
 			// aapt resource value: 0x7f0b0076
-			public const int NutritionItemValue = 2131427446;
-			
-			// aapt resource value: 0x7f0b007e
-			public const int SearchItemCHIcon = 2131427454;
-			
-			// aapt resource value: 0x7f0b007f
-			public const int SearchItemCHs = 2131427455;
-			
-			// aapt resource value: 0x7f0b0083
-			public const int SearchItemFat = 2131427459;
-			
-			// aapt resource value: 0x7f0b0082
-			public const int SearchItemFatIcon = 2131427458;
-			
-			// aapt resource value: 0x7f0b007a
-			public const int SearchItemKcalIcon = 2131427450;
-			
-			// aapt resource value: 0x7f0b007b
-			public const int SearchItemKcals = 2131427451;
-			
-			// aapt resource value: 0x7f0b0078
-			public const int SearchItemName = 2131427448;
-			
-			// aapt resource value: 0x7f0b0079
-			public const int SearchItemProducer = 2131427449;
-			
-			// aapt resource value: 0x7f0b007c
-			public const int SearchItemProteinIcon = 2131427452;
-			
-			// aapt resource value: 0x7f0b007d
-			public const int SearchItemProteins = 2131427453;
-			
-			// aapt resource value: 0x7f0b0081
-			public const int SearchItemSugar = 2131427457;
-			
-			// aapt resource value: 0x7f0b0080
-			public const int SearchItemSugarIcon = 2131427456;
+			public const int NutritionItemName = 2131427446;
 			
 			// aapt resource value: 0x7f0b0077
-			public const int SearchItemThumbnail = 2131427447;
+			public const int NutritionItemValue = 2131427447;
 			
-			// aapt resource value: 0x7f0b008f
-			public const int ServingAddButton = 2131427471;
+			// aapt resource value: 0x7f0b007f
+			public const int SearchItemCHIcon = 2131427455;
 			
-			// aapt resource value: 0x7f0b008c
-			public const int ServingCustomDescription = 2131427468;
-			
-			// aapt resource value: 0x7f0b008d
-			public const int ServingCustomEditText = 2131427469;
-			
-			// aapt resource value: 0x7f0b008e
-			public const int ServingCustomUnit = 2131427470;
-			
-			// aapt resource value: 0x7f0b0089
-			public const int ServingDescription = 2131427465;
-			
-			// aapt resource value: 0x7f0b0088
-			public const int ServingFoodName = 2131427464;
-			
-			// aapt resource value: 0x7f0b0085
-			public const int ServingItemDescription = 2131427461;
-			
-			// aapt resource value: 0x7f0b0086
-			public const int ServingItemKcal = 2131427462;
+			// aapt resource value: 0x7f0b0080
+			public const int SearchItemCHs = 2131427456;
 			
 			// aapt resource value: 0x7f0b0084
-			public const int ServingItemName = 2131427460;
+			public const int SearchItemFat = 2131427460;
 			
-			// aapt resource value: 0x7f0b008b
-			public const int ServingListView = 2131427467;
+			// aapt resource value: 0x7f0b0083
+			public const int SearchItemFatIcon = 2131427459;
+			
+			// aapt resource value: 0x7f0b007b
+			public const int SearchItemKcalIcon = 2131427451;
+			
+			// aapt resource value: 0x7f0b007c
+			public const int SearchItemKcals = 2131427452;
+			
+			// aapt resource value: 0x7f0b0079
+			public const int SearchItemName = 2131427449;
+			
+			// aapt resource value: 0x7f0b007a
+			public const int SearchItemProducer = 2131427450;
+			
+			// aapt resource value: 0x7f0b007d
+			public const int SearchItemProteinIcon = 2131427453;
+			
+			// aapt resource value: 0x7f0b007e
+			public const int SearchItemProteins = 2131427454;
+			
+			// aapt resource value: 0x7f0b0082
+			public const int SearchItemSugar = 2131427458;
+			
+			// aapt resource value: 0x7f0b0081
+			public const int SearchItemSugarIcon = 2131427457;
+			
+			// aapt resource value: 0x7f0b0078
+			public const int SearchItemThumbnail = 2131427448;
+			
+			// aapt resource value: 0x7f0b0090
+			public const int ServingAddButton = 2131427472;
+			
+			// aapt resource value: 0x7f0b008d
+			public const int ServingCustomDescription = 2131427469;
+			
+			// aapt resource value: 0x7f0b008e
+			public const int ServingCustomEditText = 2131427470;
+			
+			// aapt resource value: 0x7f0b008f
+			public const int ServingCustomUnit = 2131427471;
 			
 			// aapt resource value: 0x7f0b008a
-			public const int ServingPresetDescription = 2131427466;
+			public const int ServingDescription = 2131427466;
+			
+			// aapt resource value: 0x7f0b0089
+			public const int ServingFoodName = 2131427465;
+			
+			// aapt resource value: 0x7f0b0086
+			public const int ServingItemDescription = 2131427462;
 			
 			// aapt resource value: 0x7f0b0087
-			public const int ServingProgressBar = 2131427463;
+			public const int ServingItemKcal = 2131427463;
 			
-			// aapt resource value: 0x7f0b0068
-			public const int action0 = 2131427432;
+			// aapt resource value: 0x7f0b0085
+			public const int ServingItemName = 2131427461;
+			
+			// aapt resource value: 0x7f0b008c
+			public const int ServingListView = 2131427468;
+			
+			// aapt resource value: 0x7f0b008b
+			public const int ServingPresetDescription = 2131427467;
+			
+			// aapt resource value: 0x7f0b0088
+			public const int ServingProgressBar = 2131427464;
+			
+			// aapt resource value: 0x7f0b0069
+			public const int action0 = 2131427433;
 			
 			// aapt resource value: 0x7f0b0041
 			public const int action_bar = 2131427393;
@@ -1735,8 +1741,8 @@ namespace FoodDatabase.Droid
 			// aapt resource value: 0x7f0b0042
 			public const int action_context_bar = 2131427394;
 			
-			// aapt resource value: 0x7f0b006c
-			public const int action_divider = 2131427436;
+			// aapt resource value: 0x7f0b006d
+			public const int action_divider = 2131427437;
 			
 			// aapt resource value: 0x7f0b0002
 			public const int action_menu_divider = 2131427330;
@@ -1768,14 +1774,14 @@ namespace FoodDatabase.Droid
 			// aapt resource value: 0x7f0b002b
 			public const int buttonPanel = 2131427371;
 			
-			// aapt resource value: 0x7f0b0069
-			public const int cancel_action = 2131427433;
+			// aapt resource value: 0x7f0b006a
+			public const int cancel_action = 2131427434;
 			
 			// aapt resource value: 0x7f0b0039
 			public const int checkbox = 2131427385;
 			
-			// aapt resource value: 0x7f0b006f
-			public const int chronometer = 2131427439;
+			// aapt resource value: 0x7f0b0070
+			public const int chronometer = 2131427440;
 			
 			// aapt resource value: 0x7f0b001c
 			public const int collapseActionView = 2131427356;
@@ -1804,8 +1810,8 @@ namespace FoodDatabase.Droid
 			// aapt resource value: 0x7f0b0019
 			public const int end = 2131427353;
 			
-			// aapt resource value: 0x7f0b0074
-			public const int end_padder = 2131427444;
+			// aapt resource value: 0x7f0b0075
+			public const int end_padder = 2131427445;
 			
 			// aapt resource value: 0x7f0b0025
 			public const int expand_activities_button = 2131427365;
@@ -1828,14 +1834,14 @@ namespace FoodDatabase.Droid
 			// aapt resource value: 0x7f0b0026
 			public const int image = 2131427366;
 			
-			// aapt resource value: 0x7f0b0073
-			public const int info = 2131427443;
+			// aapt resource value: 0x7f0b0074
+			public const int info = 2131427444;
 			
-			// aapt resource value: 0x7f0b006d
-			public const int line1 = 2131427437;
+			// aapt resource value: 0x7f0b006e
+			public const int line1 = 2131427438;
 			
-			// aapt resource value: 0x7f0b0071
-			public const int line3 = 2131427441;
+			// aapt resource value: 0x7f0b0072
+			public const int line3 = 2131427442;
 			
 			// aapt resource value: 0x7f0b0009
 			public const int listMode = 2131427337;
@@ -1843,8 +1849,8 @@ namespace FoodDatabase.Droid
 			// aapt resource value: 0x7f0b0028
 			public const int list_item = 2131427368;
 			
-			// aapt resource value: 0x7f0b006b
-			public const int media_actions = 2131427435;
+			// aapt resource value: 0x7f0b006c
+			public const int media_actions = 2131427436;
 			
 			// aapt resource value: 0x7f0b001a
 			public const int middle = 2131427354;
@@ -1945,8 +1951,8 @@ namespace FoodDatabase.Droid
 			// aapt resource value: 0x7f0b0017
 			public const int src_over = 2131427351;
 			
-			// aapt resource value: 0x7f0b006a
-			public const int status_bar_latest_event_content = 2131427434;
+			// aapt resource value: 0x7f0b006b
+			public const int status_bar_latest_event_content = 2131427435;
 			
 			// aapt resource value: 0x7f0b004c
 			public const int submit_area = 2131427404;
@@ -1954,17 +1960,17 @@ namespace FoodDatabase.Droid
 			// aapt resource value: 0x7f0b000b
 			public const int tabMode = 2131427339;
 			
-			// aapt resource value: 0x7f0b0072
-			public const int text = 2131427442;
+			// aapt resource value: 0x7f0b0073
+			public const int text = 2131427443;
 			
-			// aapt resource value: 0x7f0b0070
-			public const int text2 = 2131427440;
+			// aapt resource value: 0x7f0b0071
+			public const int text2 = 2131427441;
 			
 			// aapt resource value: 0x7f0b0034
 			public const int textSpacerNoButtons = 2131427380;
 			
-			// aapt resource value: 0x7f0b006e
-			public const int time = 2131427438;
+			// aapt resource value: 0x7f0b006f
+			public const int time = 2131427439;
 			
 			// aapt resource value: 0x7f0b002a
 			public const int title = 2131427370;

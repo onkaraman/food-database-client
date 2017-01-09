@@ -24,11 +24,20 @@
         android:layout_alignLeft="@+id/MainEditText"
         android:layout_marginLeft="1dp"
         android:paddingRight="40dp" />
+    <ImageView
+        android:id="@+id/MainSettingsIcon"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:src="@drawable/settingsicon"
+        android:layout_marginLeft="1dp"
+        android:layout_alignRight="@+id/MainEditText"
+        android:layout_alignTop="@+id/MainMenuIcon"
+        android:paddingLeft="40dp" />
     <EditText
         android:id="@+id/MainEditText"
         android:layout_height="@dimen/buttonHeight"
         android:layout_width="@dimen/buttonWidth"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         style="@style/MainEditText"
         android:imeOptions="actionSearch"

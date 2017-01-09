@@ -13,7 +13,6 @@ using FoodDatabase.Core.API.Accessors;
 using FoodDatabase.Core.API.Models.Items;
 using FoodDatabase.Core.API.Parsers;
 using FoodDatabase.Core.Managers;
-using FoodDatabase.Core.Persistence.Models;
 using FoodDatabase.Core.Security;
 using FoodDatabase.Core.Sessions;
 using FoodDatabase.Droid.Activities;
@@ -134,9 +133,9 @@ namespace FoodDatabase.Droid
                 string response = await APIAccessor.Static.Search(query);
                 var result = APIParser.Static.Parse(response);
 
-                for (int i = 1; i <= 10; i+=1)
+                for (int i = 1; i <= 10; i += 1)
                 {
-                    response = await APIAccessor.Static.Search(query, (i*10).ToString());
+                    response = await APIAccessor.Static.Search(query, (i * 10).ToString());
                     result.Items.AddRange(APIParser.Static.Parse(response).Items);
                 }
 
