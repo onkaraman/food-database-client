@@ -139,6 +139,7 @@
     <AndroidResource Include="Resources\drawable\summaryIcon.png" />
     <AndroidResource Include="Resources\layout\Diary.axml" />
     <AndroidResource Include="Resources\drawable\settingsIcon.png" />
+    <AndroidResource Include="Resources\layout\Settings.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

@@ -77,10 +77,12 @@
             android:id="@+id/ServingCustomUnit"
             android:textSize="18dp"
             android:text="g"
-            android:layout_below="@+id/ServingListView"
-            android:layout_alignLeft="@+id/ServingFoodName"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/ServingCustomEditText"
+            android:layout_alignRight="@+id/ServingCustomEditText"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp" />
         <Button
             android:id="@+id/ServingAddButton"
             android:layout_below="@+id/ServingCustomEditText"

@@ -15,24 +15,6 @@
         android:layout_height="8dp"
         android:indeterminate="true"
         android:layout_marginTop="-3dp" />
-    <ImageView
-        android:id="@+id/MainMenuIcon"
-        android:layout_width="60dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="25dp"
-        android:src="@drawable/summaryicon"
-        android:layout_alignLeft="@+id/MainEditText"
-        android:layout_marginLeft="1dp"
-        android:paddingRight="40dp" />
-    <ImageView
-        android:id="@+id/MainSettingsIcon"
-        android:layout_width="60dp"
-        android:layout_height="20dp"
-        android:src="@drawable/settingsicon"
-        android:layout_marginLeft="1dp"
-        android:layout_alignRight="@+id/MainEditText"
-        android:layout_alignTop="@+id/MainMenuIcon"
-        android:paddingLeft="40dp" />
     <EditText
         android:id="@+id/MainEditText"
         android:layout_height="@dimen/buttonHeight"
@@ -42,17 +24,33 @@
         style="@style/MainEditText"
         android:imeOptions="actionSearch"
         android:hint="Search"
-        android:paddingLeft="43dp"
-        android:layout_below="@+id/MainMenuIcon" />
+        android:paddingLeft="43dp" />
     <ImageView
-        android:id="@+id/MainSearchIcon"
+        android:id="@+id/MainMenuIcon"
         android:layout_alignTop="@+id/MainEditText"
         android:layout_alignLeft="@+id/MainEditText"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/icon"
-        android:layout_marginLeft="6dp" />
+        android:src="@drawable/summaryicon"
+        android:layout_marginLeft="6dp"
+        android:paddingTop="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp" />
+    <ImageView
+        android:id="@+id/MainMenuSettings"
+        android:layout_alignTop="@+id/MainEditText"
+        android:layout_alignRight="@+id/MainEditText"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="9dp"
+        android:src="@drawable/settingsicon"
+        android:paddingTop="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:layout_marginRight="6dp" />
     <ListView
         android:id="@+id/MainListView"
         android:layout_width="@dimen/buttonWidth"

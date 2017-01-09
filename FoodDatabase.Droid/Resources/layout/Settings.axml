@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ProgressBar
+        android:id="@+id/SettingsProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:indeterminate="true"
+        android:layout_marginTop="-3dp" />
+    <EditText
+        android:id="@+id/SettingsDailyKcal"
+        style="@style/MainEditText"
+        android:layout_height="@dimen/buttonHeight"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:hint="Daily Kcal"
+        android:paddingLeft="20dp"
+        android:inputType="textEmailAddress" />
+    <ImageView
+        android:id="@+id/SettingsKcalIcon"
+        android:layout_alignTop="@+id/SettingsDailyKcal"
+        android:layout_alignRight="@+id/SettingsDailyKcal"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="9dp"
+        android:src="@drawable/kcalicon"
+        android:paddingTop="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:layout_marginRight="6dp" />
+    <Button
+        android:id="@+id/SettingsSaveButton"
+        android:layout_below="@+id/SettingsDailyKcal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="@dimen/buttonHeight"
+        style="@style/MainButton"
+        android:text="Save" />
+    <TextView
+        android:id="@+id/SettingsLoggedInAs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logged in as Quadriga"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/bodyTitleSize"
+        android:layout_alignLeft="@+id/SettingsDailyKcal"
+        android:layout_below="@+id/SettingsSaveButton" />
+    <Button
+        android:id="@+id/SettingsLogoutButton"
+        android:layout_below="@+id/SettingsLoggedInAs"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="@dimen/buttonHeight"
+        style="@style/MainButton"
+        android:text="Logout" />
+</RelativeLayout>
