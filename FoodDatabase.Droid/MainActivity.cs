@@ -121,6 +121,8 @@ namespace FoodDatabase.Droid
         {
             _progBar.Visibility = ViewStates.Visible;
 
+            PersistenceManager.Static.AddAndPersist("search", query);
+
             if (CurrentFocus != null)
             {
                 InputMethodManager imm = (InputMethodManager)GetSystemService(InputMethodService);

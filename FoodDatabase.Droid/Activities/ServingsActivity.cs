@@ -5,6 +5,7 @@ using Android.Text;
 using Android.Views;
 using Android.Widget;
 using FoodDatabase.Core.API.Accessors;
+using FoodDatabase.Core.Managers;
 using FoodDatabase.Core.Sessions;
 using FoodDatabase.Droid.Views.Adapters.Concretes;
 
@@ -83,6 +84,9 @@ namespace FoodDatabase.Droid.Activities
 
             try
             {
+                PersistenceManager.Static.AddAndPersist(string.Format("{0}-img", SessionHolder.Static.Item.id),
+                                                        SessionHolder.Static.Item.thumbsrc);
+                
                 string response = await APIAccessor.Static.DiaryAddItem(SessionHolder.Static.LoginData,
                                             SessionHolder.Static.Item.id.ToString(), 0, serving.id.ToString());
                 StartActivity(typeof(MainActivity));
@@ -118,6 +122,9 @@ namespace FoodDatabase.Droid.Activities
 
             if (_customServing.Text.Length > 0)
             {
+                PersistenceManager.Static.AddAndPersist(string.Format("{0}-img", SessionHolder.Static.Item.id),
+                                        SessionHolder.Static.Item.thumbsrc);
+                
                 string response = await APIAccessor.Static.DiaryAddItem(SessionHolder.Static.LoginData, "1", 100);
                 StartActivity(typeof(MainActivity));
             }

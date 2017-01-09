@@ -38,6 +38,15 @@ namespace FoodDatabase.Core.Managers
         }
 
         /// <summary>
+        /// Will add and instantly persist the added item to the DB.
+        /// </summary>
+        public void AddAndPersist(string key, string value)
+        {
+            Add(key, value);
+            PersistAllToDB();
+        }
+
+        /// <summary>
         /// Will write all APIJsonResponses to the database.
         /// </summary>
         public void PersistAllToDB()
@@ -57,6 +66,21 @@ namespace FoodDatabase.Core.Managers
                 if (sdbi.Key.Equals(key)) return sdbi;
             }
             return null;
+        }
+
+        /// <summary>
+        /// Will return a list of simple items where all keys are the same.
+        /// </summary>
+        public List<SimpleDBItem> GetList(string key)
+        {
+            if (_items.Count == 0) throw new Exception("No items persisted.");
+            List<SimpleDBItem> list = new List<SimpleDBItem>();
+
+            foreach (SimpleDBItem sdbi in _items)
+            {
+                if (sdbi.Key.Equals(key)) list.Add(sdbi);
+            }
+            return list;
         }
     
         /// <summary>
