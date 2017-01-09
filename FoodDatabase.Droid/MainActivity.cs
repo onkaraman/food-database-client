@@ -12,6 +12,9 @@ using Android.Widget;
 using FoodDatabase.Core.API.Accessors;
 using FoodDatabase.Core.API.Models.Items;
 using FoodDatabase.Core.API.Parsers;
+using FoodDatabase.Core.Managers;
+using FoodDatabase.Core.Persistence.Models;
+using FoodDatabase.Core.Security;
 using FoodDatabase.Core.Sessions;
 using FoodDatabase.Droid.Activities;
 using FoodDatabase.Droid.Persistence;
@@ -41,8 +44,29 @@ namespace FoodDatabase.Droid
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Main);
             DBManager.Static.Init(new DBConnection());
+            checkLogin();
             setupViews();
             assignEvents();
+        }
+
+        /// <summary>
+        /// Will check and apply login data if given.
+        /// </summary>
+        private void checkLogin()
+        {
+            try
+            {
+                if (PersistenceManager.Static.GetFirst("username") != null)
+                {
+                    string username = PersistenceManager.Static.GetFirst("username").Value;
+                    string password = Encrypter.Static.Decrypt(PersistenceManager.Static.GetFirst("password").Value);
+                    SessionHolder.Static.LoginData = new LoginData(username, password);
+                }
+            }
+            catch (Exception)
+            {
+                //TODO: Handle
+            }
         }
 
         /// <summary>

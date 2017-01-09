@@ -9,6 +9,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using FoodDatabase.Core.API.Accessors;
+using FoodDatabase.Core.Managers;
+using FoodDatabase.Core.Security;
 using FoodDatabase.Core.Sessions;
 
 namespace FoodDatabase.Droid.Activities
@@ -73,12 +75,18 @@ namespace FoodDatabase.Droid.Activities
                 LoginData ld = new LoginData(_username.Text, _password.Text);
                 SessionHolder.Static.LoginData = ld;
 
+                PersistenceManager.Static.Add("username", _username.Text);
+                PersistenceManager.Static.Add("password", Encrypter.Static.Encrypt(_password.Text));
+                PersistenceManager.Static.PersistAllToDB();
+
+
                 if (SessionHolder.Static.FromServing) StartActivity(typeof(ServingsActivity));
                 else if (SessionHolder.Static.FromDiary) StartActivity(typeof(DiaryActivity));
 
             }
-            catch 
+            catch (Exception)
             {
+                //TODO: Handle
                 showAlertDialog("Login error. Please try again.");
             }
 

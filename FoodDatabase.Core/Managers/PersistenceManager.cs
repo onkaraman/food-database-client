@@ -22,7 +22,7 @@ namespace FoodDatabase.Core.Managers
         /// Adds a new item to the list by replacing the existing name
         /// if it does already exist. Otherwise it will be added as new.
         /// </summary>
-        public void AddSimpleDBItem(string key, string value)
+        public void Add(string key, string value)
         {
             SimpleDBItem sdbi = new SimpleDBItem(key, value);
             
@@ -43,30 +43,9 @@ namespace FoodDatabase.Core.Managers
         public void PersistAllToDB()
         {
             DBManager.Static.DBAccessor.Clear<SimpleDBItem>();
-            DBManager.Static.DBAccessor.Insert<SimpleDBItem>(_items);
+            DBManager.Static.DBAccessor.Insert(_items);
         }
-
-        /// <summary>
-        /// Will clear and write the passed model to the DB.
-        /// </summary>
-        public void PersistAllToDB<T>(T model) where T : new()
-        {
-            DBManager.Static.DBAccessor.Clear<T>();
-            DBManager.Static.DBAccessor.Insert<T>(model);
-        }
-
-        /// <summary>
-        /// Will return the first object of the requested table.
-        /// </summary>
-        public T GetFirst<T>() where T : new()
-        {
-            if (!DBManager.Static.DBAccessor.IsEmpty<T>())
-            {
-                return DBManager.Static.DBAccessor.Select<T>()[0];
-            }
-            throw new NullReferenceException();
-        }
-            
+                          
         /// <summary>
         /// Will extract a persisted SimpleDBItem response from the DB.
         /// </summary>

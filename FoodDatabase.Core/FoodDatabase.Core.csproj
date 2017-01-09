@@ -52,6 +52,7 @@
     <Compile Include="Persistence\Models\SimpleDBItem.cs" />
     <Compile Include="Managers\DBManager.cs" />
     <Compile Include="Managers\PersistenceManager.cs" />
+    <Compile Include="Security\Encrypter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -92,6 +93,7 @@
     <Folder Include="Persistence\DB\" />
     <Folder Include="Persistence\Models\" />
     <Folder Include="Managers\" />
+    <Folder Include="Security\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ProjectExtensions>

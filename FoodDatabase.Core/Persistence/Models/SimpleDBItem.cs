@@ -5,13 +5,14 @@ namespace FoodDatabase.Core.Persistence.Models
 {
     public class SimpleDBItem : APIModel
     {
-        public string Key { get; }
-        public string Value { get; }
+        public string Key { get; set; }
+        public string Value { get; set; }
 
         public SimpleDBItem() {}
 
         public SimpleDBItem(string key, string value)
         {
+            id = key.GetHashCode();
             Key = key;
             Value = value;
         }
