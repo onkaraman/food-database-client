@@ -7,6 +7,7 @@ namespace FoodDatabase.Core.Persistence.Models
     {
         public string Key { get; set; }
         public string Value { get; set; }
+        public DateTime TimeStamp { get; set; }
 
         public SimpleDBItem() {}
 
@@ -15,6 +16,7 @@ namespace FoodDatabase.Core.Persistence.Models
             id = key.GetHashCode();
             Key = key;
             Value = value;
+            TimeStamp = DateTime.Now;
         }
     }
 }
