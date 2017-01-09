@@ -88,16 +88,16 @@ namespace FoodDatabase.Core.API.Accessors
         /// <summary>
         /// Will remove an item from the diary.
         /// </summary>
-        public async Task<string> DiaryRemove(LoginData loginData, string diaryItemID)
+        public async Task<string> DiaryRemove(LoginData loginData, string diaryUID)
         {
-            string url = string.Format("diary/delete_{0}.xml", diaryItemID);
+            string url = string.Format("diary/delete_{0}.xml", diaryUID);
 
             RestRequest req = new RestRequest(url);
-            req.AddBasicAuth(loginData.Username, loginData.Username);
+            req.AddBasicAuth(loginData.Username, loginData.Password);
             req.AddGetParam("apikey", _token);
-            req.AddPostParam("uid", diaryItemID);
+            //req.AddGetParam("uid", diaryUID);
 
-            req.Method = RestRequest.Methods.Post;
+            req.Method = RestRequest.Methods.Get;
             return await client.Execute(req);
         }
 

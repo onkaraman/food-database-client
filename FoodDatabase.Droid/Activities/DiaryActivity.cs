@@ -16,9 +16,8 @@ namespace FoodDatabase.Droid.Activities
     /// in which he can see everything s/he has taken today.
     /// </summary>
     [Activity(Label = "DiaryActivity",
-          MainLauncher = true,
-          Icon = "@drawable/icon",
-          ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
+              WindowSoftInputMode = Android.Views.SoftInput.AdjustPan,
+      ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class DiaryActivity : Activity
     {
         private string[] _contextMenuItems;
@@ -81,13 +80,16 @@ namespace FoodDatabase.Droid.Activities
             }
         }
 
+        /// <summary>
+        /// Will detect the selected context menu item for the diary item.
+        /// </summary>
         public override bool OnContextItemSelected(IMenuItem item)
         {
             var info = (AdapterView.AdapterContextMenuInfo)item.MenuInfo;
             var menuItemIndex = item.ItemId;
             var listItemName = _contextMenuItems[menuItemIndex];
 
-            Toast.MakeText(this, listItemName, ToastLength.Short).Show();
+            deleteSelectedItem(info.Position);
             return true;
         }
 
@@ -139,9 +141,38 @@ namespace FoodDatabase.Droid.Activities
             }
         }
 
-        public override bool OnKeyDown(Android.Views.Keycode keyCode, Android.Views.KeyEvent e)
+        /// <summary>
+        /// Will delete the selected item from the diary.
+        /// </summary>
+        /// <param name="index">Selected item from the list view.</param>
+        private void deleteSelectedItem(int index)
         {
-            if (e.KeyCode == Android.Views.Keycode.Back)
+            _progBar.Visibility = ViewStates.Visible;
+
+            try
+            {
+                string uid = _result.DiaryElements[index].diary_uid;
+
+                ThreadPool.QueueUserWorkItem(async o =>
+                {
+                    string removeResponse = await APIAccessor.Static.DiaryRemove(SessionHolder.Static.LoginData, uid);
+
+                    RunOnUiThread(() =>
+                    {
+                        _progBar.Visibility = ViewStates.Invisible;
+                        getDiary();
+                    });
+                });
+            }
+            catch (Exception)
+            {
+                //TODO: Report
+            }
+        }
+
+        public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
+        {
+            if (e.KeyCode == Keycode.Back)
             {
                 StartActivity(typeof(MainActivity));
                 return true;

@@ -21,7 +21,7 @@ namespace FoodDatabase.Core.Tests.API
         [Test]
         public async void DeleteDiaryItem()
         {
-            LoginData ld = new LoginData("QuadrigaKing", "jonny0011");
+            LoginData ld = new LoginData("quadrigaking", "jonny0011");
             string diaryResponse = await APIAccessor.Static.DiaryGet(ld, DateTime.Today);
             Result diaryResult = APIParser.Static.Parse(diaryResponse);
 
