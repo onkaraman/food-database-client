@@ -1,6 +1,7 @@
 ﻿using System;
 using Android.App;
 using Android.OS;
+using Android.Views.InputMethods;
 using Android.Widget;
 using FoodDatabase.Core.Managers;
 using FoodDatabase.Core.Security;
@@ -20,7 +21,7 @@ namespace FoodDatabase.Droid.Activities
         private ProgressBar _progBar;
         private EditText _kcalEdit;
         private Button _kcalSaveButton;
-        private TextView _loggedInAsText;
+        private TextView _loggedInAs;
         private Button _logoutButton;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -29,8 +30,8 @@ namespace FoodDatabase.Droid.Activities
             SetContentView(Resource.Layout.Settings);
             setupViews();
             assignEvents();
-            checkLogin();
-            reload();
+            reloadKcal();
+            reloadlogin();
         }
 
         /// <summary>
@@ -41,7 +42,7 @@ namespace FoodDatabase.Droid.Activities
             _progBar = FindViewById<ProgressBar>(Resource.Id.SettingsProgressBar);
             _kcalEdit = FindViewById<EditText>(Resource.Id.SettingsDailyKcal);
             _kcalSaveButton = FindViewById<Button>(Resource.Id.SettingsSaveButton);
-            _loggedInAsText = FindViewById<TextView>(Resource.Id.SettingsLoggedInAs);
+            _loggedInAs = FindViewById<TextView>(Resource.Id.SettingsLoggedInAs);
             _logoutButton = FindViewById<Button>(Resource.Id.SettingsLogoutButton);
 
             _progBar.Visibility = Android.Views.ViewStates.Invisible;
@@ -53,12 +54,13 @@ namespace FoodDatabase.Droid.Activities
         private void assignEvents()
         {
             _kcalSaveButton.Click += kcalSaveButtonClick;
+            _logoutButton.Click += logoutButtonClick;
         }
 
         /// <summary>
         /// Will reload the persisted setting of the user.
         /// </summary>
-        private void reload()
+        private void reloadKcal()
         {
             try
             {
@@ -70,11 +72,33 @@ namespace FoodDatabase.Droid.Activities
             }
         }
 
+        /// <summary>
+        /// Will reload the data for the logged in user.
+        /// </summary>
+        private void reloadlogin()
+        {
+            try
+            {
+                string username = PersistenceManager.Static.GetFirst("username").Value;
+                _loggedInAs.Text = string.Format("Loggedn in {0}", username);
+            }
+            catch (Exception)
+            {
+                _loggedInAs.Text = "You are not logged in.";
+                _logoutButton.Text = "Login";
+                _doLogin = true;
+            }
+        }
+
+        /// <summary>
+        /// Will persist the typed kcals to the db.
+        /// </summary>
         private void kcalSaveButtonClick(object sender, EventArgs e)
         {
             if (_kcalEdit.Text.Length > 0)
             {
                 PersistenceManager.Static.AddAndPersist("kcal", _kcalEdit.Text);
+                hideKeyboard();
             }
         }
 
@@ -82,19 +106,28 @@ namespace FoodDatabase.Droid.Activities
         /// Will check whether the user is logged in. If not, the logout button will be
         /// changed to a login button.
         /// </summary>
-        private void checkLogin()
+        private void logoutButtonClick(object sender, EventArgs e)
         {
-            try
+            if (_doLogin)
             {
-                string username = PersistenceManager.Static.GetFirst("username").Value;
-                _loggedInAsText.Text = string.Format("Loggedn in {0}", username);
+                StartActivity(typeof(LoginActivity));
             }
-            catch (Exception)
+            else
             {
-                _loggedInAsText.Text = "You are not loggedn in.";
-                _logoutButton.Text = "Login";
-                _doLogin = true;
+                PersistenceManager.Static.Delete(PersistenceManager.Static.GetFirst("username"));
+                PersistenceManager.Static.Delete(PersistenceManager.Static.GetFirst("password"));
+                StartActivity(typeof(MainActivity));
             }
         }
+
+        private void hideKeyboard()
+        {
+            if (CurrentFocus != null)
+            {
+                InputMethodManager imm = (InputMethodManager)GetSystemService(InputMethodService);
+                imm.HideSoftInputFromWindow(CurrentFocus.WindowToken, 0);
+            }
+        }
+
     }
 }

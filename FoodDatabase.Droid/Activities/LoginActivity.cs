@@ -59,13 +59,13 @@ namespace FoodDatabase.Droid.Activities
         /// </summary>
         private void assigEvents()
         {
-            _button.Click += buttonClick;
+            _button.Click += loginButtonClick;
         }
 
         /// <summary>
         /// Will attempt to login the user. If it won't crash, login is successful.
         /// </summary>
-        private async void buttonClick(object sender, EventArgs e)
+        private async void loginButtonClick(object sender, EventArgs e)
         {
             _progBar.Visibility = ViewStates.Visible;
 
@@ -82,6 +82,7 @@ namespace FoodDatabase.Droid.Activities
 
                 if (SessionHolder.Static.FromServing) StartActivity(typeof(ServingsActivity));
                 else if (SessionHolder.Static.FromDiary) StartActivity(typeof(DiaryActivity));
+                else StartActivity(typeof(MainActivity));
 
             }
             catch (Exception)

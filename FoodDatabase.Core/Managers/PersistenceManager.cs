@@ -86,9 +86,17 @@ namespace FoodDatabase.Core.Managers
         /// <summary>
         /// Will clear all persisted data from the DB.
         /// </summary>
-        public void ClearAll()
+        public void DeleteAll()
         {
             DBManager.Static.DBAccessor.Clear<SimpleDBItem>();
+        }
+
+        /// <summary>
+        /// Will delete a single db item from the db.
+        /// </summary>
+        public void Delete(SimpleDBItem sdbi)
+        {
+            DBManager.Static.DBAccessor.Delete(sdbi);
         }
     }
 }

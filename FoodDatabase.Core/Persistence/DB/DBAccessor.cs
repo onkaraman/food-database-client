@@ -211,6 +211,23 @@ namespace FoodDatabase.Core.Persistence
                 return false;
             }
         }
+
+        /// <summary>
+        /// Will delete the passed object.
+        /// </summary>
+        public bool Delete(SimpleDBItem a)
+        {
+            try
+            {
+                _conn.Delete<SimpleDBItem>(a.id);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                return false;
+            }
+        }
     }
 }
 

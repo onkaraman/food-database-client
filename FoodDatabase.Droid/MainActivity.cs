@@ -119,14 +119,9 @@ namespace FoodDatabase.Droid
         private void search(string query)
         {
             _progBar.Visibility = ViewStates.Visible;
+            hideKeyboard();
 
             PersistenceManager.Static.AddAndPersist("search", query);
-
-            if (CurrentFocus != null)
-            {
-                InputMethodManager imm = (InputMethodManager)GetSystemService(InputMethodService);
-                imm.HideSoftInputFromWindow(CurrentFocus.WindowToken, 0);
-            }
 
             ThreadPool.QueueUserWorkItem(async o =>
             {
@@ -147,6 +142,15 @@ namespace FoodDatabase.Droid
                     _progBar.Visibility = ViewStates.Invisible;
                 });
             });
+        }
+
+        private void hideKeyboard()
+        {
+            if (CurrentFocus != null)
+            {
+                InputMethodManager imm = (InputMethodManager)GetSystemService(InputMethodService);
+                imm.HideSoftInputFromWindow(CurrentFocus.WindowToken, 0);
+            }
         }
 
         /// <summary>
