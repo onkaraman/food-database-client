@@ -18,7 +18,7 @@ namespace FoodDatabase.Droid.Activities
     {
         private bool _doLogin;
         private ProgressBar _progBar;
-        private EditText _kcalEditText;
+        private EditText _kcalEdit;
         private Button _kcalSaveButton;
         private TextView _loggedInAsText;
         private Button _logoutButton;
@@ -37,12 +37,28 @@ namespace FoodDatabase.Droid.Activities
         private void setupViews()
         {
             _progBar = FindViewById<ProgressBar>(Resource.Id.SettingsProgressBar);
-            _kcalEditText = FindViewById<EditText>(Resource.Id.SettingsDailyKcal);
+            _kcalEdit = FindViewById<EditText>(Resource.Id.SettingsDailyKcal);
             _kcalSaveButton = FindViewById<Button>(Resource.Id.SettingsSaveButton);
             _loggedInAsText = FindViewById<TextView>(Resource.Id.SettingsLoggedInAs);
             _logoutButton = FindViewById<Button>(Resource.Id.SettingsLogoutButton);
 
             _progBar.Visibility = Android.Views.ViewStates.Invisible;
+        }
+
+        /// <summary>
+        /// Will assign the events for the controls of this activity.
+        /// </summary>
+        private void assignEvents()
+        {
+            _kcalSaveButton.Click += kcalSaveButtonClick;
+        }
+
+        private void kcalSaveButtonClick(object sender, EventArgs e)
+        {
+            if (_kcalEdit.Text.Length > 0)
+            {
+                PersistenceManager.Static.AddAndPersist("kcal", _kcalEdit.Text);
+            }
         }
 
         /// <summary>
