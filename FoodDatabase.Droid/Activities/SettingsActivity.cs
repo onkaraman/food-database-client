@@ -28,7 +28,9 @@ namespace FoodDatabase.Droid.Activities
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Settings);
             setupViews();
+            assignEvents();
             checkLogin();
+            reload();
         }
 
         /// <summary>
@@ -53,6 +55,21 @@ namespace FoodDatabase.Droid.Activities
             _kcalSaveButton.Click += kcalSaveButtonClick;
         }
 
+        /// <summary>
+        /// Will reload the persisted setting of the user.
+        /// </summary>
+        private void reload()
+        {
+            try
+            {
+                _kcalEdit.Text = PersistenceManager.Static.GetFirst("kcal").Value;
+            }
+            catch (Exception)
+            {
+                _kcalEdit.Text = "2000";
+            }
+        }
+
         private void kcalSaveButtonClick(object sender, EventArgs e)
         {
             if (_kcalEdit.Text.Length > 0)
@@ -69,11 +86,8 @@ namespace FoodDatabase.Droid.Activities
         {
             try
             {
-                if (PersistenceManager.Static.GetFirst("username") != null)
-                {
-                    string username = PersistenceManager.Static.GetFirst("username").Value;
-                    _loggedInAsText.Text = string.Format("Loggedn in {0}", username);
-                }
+                string username = PersistenceManager.Static.GetFirst("username").Value;
+                _loggedInAsText.Text = string.Format("Loggedn in {0}", username);
             }
             catch (Exception)
             {

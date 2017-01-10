@@ -7,6 +7,7 @@ using Android.Widget;
 using FoodDatabase.Core.API.Accessors;
 using FoodDatabase.Core.API.Models.Diary;
 using FoodDatabase.Core.API.Parsers;
+using FoodDatabase.Core.Managers;
 using FoodDatabase.Core.Sessions;
 using FoodDatabase.Droid.Views.Adapters.Concretes;
 
@@ -21,10 +22,12 @@ namespace FoodDatabase.Droid.Activities
       ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class DiaryActivity : Activity
     {
-        private int _kcals;
+        private int _dailyKcals;
         private string[] _contextMenuItems;
         private Core.API.Models.Result _result;
         private ProgressBar _progBar;
+        private ProgressBar _useBar;
+        private TextView _summary;
         private DateTime _dateTime;
         private TextView _title;
         private TextView _date;
@@ -48,6 +51,10 @@ namespace FoodDatabase.Droid.Activities
         private void setupViews()
         {
             _progBar = FindViewById<ProgressBar>(Resource.Id.DiaryProgressBar);
+            _useBar = FindViewById<ProgressBar>(Resource.Id.DiaryUseBar);
+            _useBar.Progress = 0;
+            _summary = FindViewById<TextView>(Resource.Id.DiarySummary);
+            _summary.Text = "";
             _title = FindViewById<TextView>(Resource.Id.DiaryTitle);
             _date = FindViewById<TextView>(Resource.Id.DiaryDate);
             _listView = FindViewById<ListView>(Resource.Id.DiaryListView);
@@ -137,8 +144,9 @@ namespace FoodDatabase.Droid.Activities
                     RunOnUiThread(() =>
                     {
                         _listView.Adapter = new DiaryItemAdapter(_result.DiaryElements, this);
-                        countKcals();
                         _progBar.Visibility = ViewStates.Invisible;
+                        countKcals();
+                        displayKcals();
                     });
                 });
             }
@@ -178,12 +186,37 @@ namespace FoodDatabase.Droid.Activities
         /// </summary>
         private void countKcals()
         {
+            _dailyKcals = 0;
             foreach (DiaryElement dsi in _result.DiaryElements)
             {
-                _kcals += dsi.DiaryShortItem.Data.kcal_diary;
+                _dailyKcals += dsi.DiaryShortItem.Data.kcal_diary;
             }
         }
 
+        /// <summary>
+        /// Will show how many kcals are available for this day with
+        /// the progress bar.
+        /// </summary>
+        private void displayKcals()
+        {
+            int limit = 2000;
+            try
+            {
+                limit = int.Parse(PersistenceManager.Static.GetFirst("kcal").Value);
+                _useBar.Progress = (100 * _dailyKcals) / limit;
+                _summary.Text = string.Format("{0}/{1}", _dailyKcals, limit);
+            }
+            catch (Exception)
+            {
+                //TODO: Handle
+            }
+
+
+        }
+
+        /// <summary>
+        /// Will bring the user always back the main activity.
+        /// </summary>
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
             if (e.KeyCode == Keycode.Back)

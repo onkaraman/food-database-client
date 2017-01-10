@@ -56,12 +56,9 @@ namespace FoodDatabase.Droid
         {
             try
             {
-                if (PersistenceManager.Static.GetFirst("username") != null)
-                {
-                    string username = PersistenceManager.Static.GetFirst("username").Value;
-                    string password = Encrypter.Static.Decrypt(PersistenceManager.Static.GetFirst("password").Value);
-                    SessionHolder.Static.LoginData = new LoginData(username, password);
-                }
+                string username = PersistenceManager.Static.GetFirst("username").Value;
+                string password = Encrypter.Static.Decrypt(PersistenceManager.Static.GetFirst("password").Value);
+                SessionHolder.Static.LoginData = new LoginData(username, password);
             }
             catch (Exception)
             {
