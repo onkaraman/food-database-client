@@ -1715,19 +1715,22 @@ namespace FoodDatabase.Droid
 			public const int SettingsDailyKcal = 2131427473;
 			
 			// aapt resource value: 0x7f0b0092
-			public const int SettingsKcalIcon = 2131427474;
+			public const int SettingsDailyKcalDescription = 2131427474;
 			
-			// aapt resource value: 0x7f0b0094
-			public const int SettingsLoggedInAs = 2131427476;
+			// aapt resource value: 0x7f0b0093
+			public const int SettingsKcalIcon = 2131427475;
 			
 			// aapt resource value: 0x7f0b0095
-			public const int SettingsLogoutButton = 2131427477;
+			public const int SettingsLoggedInAs = 2131427477;
+			
+			// aapt resource value: 0x7f0b0096
+			public const int SettingsLogoutButton = 2131427478;
 			
 			// aapt resource value: 0x7f0b0090
 			public const int SettingsProgressBar = 2131427472;
 			
-			// aapt resource value: 0x7f0b0093
-			public const int SettingsSaveButton = 2131427475;
+			// aapt resource value: 0x7f0b0094
+			public const int SettingsSaveButton = 2131427476;
 			
 			// aapt resource value: 0x7f0b0068
 			public const int action0 = 2131427432;

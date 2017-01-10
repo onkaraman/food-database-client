@@ -90,6 +90,7 @@
     <Compile Include="Views\ViewHolders\Concretes\DiaryItemViewHolder.cs" />
     <Compile Include="Views\Adapters\Concretes\DiaryItemAdapter.cs" />
     <Compile Include="Persistence\DBConnection.cs" />
+    <Compile Include="Activities\SettingsActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

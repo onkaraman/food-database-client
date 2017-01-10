@@ -33,6 +33,7 @@ namespace FoodDatabase.Droid
     public class MainActivity : Activity
     {
         private ImageView _menuButton;
+        private ImageView _settingsButton;
         private List<Item> _items;
         private EditText _searchField;
         private ListView _listView;
@@ -75,6 +76,7 @@ namespace FoodDatabase.Droid
         {
             _progBar = FindViewById<ProgressBar>(Resource.Id.MainProgressBar);
             _menuButton = FindViewById<ImageView>(Resource.Id.MainMenuIcon);
+            _settingsButton = FindViewById<ImageView>(Resource.Id.MainMenuSettings);
             _searchField = FindViewById<EditText>(Resource.Id.MainEditText);
             _listView = FindViewById<ListView>(Resource.Id.MainListView);
             _progBar.Visibility = ViewStates.Invisible;
@@ -86,6 +88,7 @@ namespace FoodDatabase.Droid
         private void assignEvents()
         {
             _menuButton.Click += menuButtonClick;
+            _settingsButton.Click += settingsButtonClick;
             _searchField.KeyPress += searchFieldKeyPress;
             _listView.ItemClick += listItemClick;
         }
@@ -155,6 +158,14 @@ namespace FoodDatabase.Droid
         private void menuButtonClick(object sender, EventArgs e)
         {
             StartActivity(typeof(DiaryActivity));
+        }
+
+        /// <summary>
+        /// Will open the settings activity.
+        /// </summary>
+        private void settingsButtonClick(object sender, EventArgs e)
+        {
+            StartActivity(typeof(SettingsActivity));
         }
     }
 
