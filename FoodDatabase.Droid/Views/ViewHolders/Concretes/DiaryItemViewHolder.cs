@@ -1,8 +1,11 @@
-﻿using Android.App;
+﻿using System.Threading;
+using Android.App;
 using Android.Widget;
 using FoodDatabase.Core.API.Models.Diary;
+using FoodDatabase.Core.Managers;
 using FoodDatabase.Droid.Views.Adapters;
 using FoodDatabase.Droid.Views.Widgets;
+using UniversalImageLoader.Core;
 
 namespace FoodDatabase.Droid.Views.ViewHolders.Concretes
 {
@@ -22,6 +25,8 @@ namespace FoodDatabase.Droid.Views.ViewHolders.Concretes
         /// </summary>
         public void ApplyData(DiaryElement diaryElement, Activity a)
         {
+            ThreadPool.QueueUserWorkItem(o => loadThumbnail(diaryElement, a));
+
             Name.Text = shortenName(diaryElement.DiaryShortItem.Description.name, 25);
             Producer.Text = string.Format("{0}{1}", diaryElement.DiaryShortItem.Data.diary_serving_amount, 
                                           diaryElement.DiaryShortItem.Data.GetMeasureUnit());
@@ -40,6 +45,25 @@ namespace FoodDatabase.Droid.Views.ViewHolders.Concretes
             if (name.Length > cutLength)
                 return name.Substring(0, cutLength).Trim();
             return name.Trim();
+        }
+
+        /// <summary>
+        /// Will load the thumbnail into the ImageView UI.
+        /// </summary>
+        private void loadThumbnail(DiaryElement item, Activity a)
+        {
+            try
+            {
+                a.RunOnUiThread(() =>
+                {
+                    string url = PersistenceManager.Static.GetFirst(string.Format("{0}-img", item.DiaryShortItem.id)).Value;
+                    ImageLoader.Instance.DisplayImage(url, Thumbnail);
+                });
+            }
+            catch
+            {
+                //TODO: Reporter here.
+            }
         }
     }
 }

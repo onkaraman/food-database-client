@@ -81,7 +81,7 @@ namespace FoodDatabase.Droid.Activities
         private void listViewClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             if (e == null) return;
-            Item item = DiaryItemConverter.Static.ConvertToItem(_result.DiaryElements[e.Position].DiaryShortItem);
+            Item item = DiaryItemConverter.Static.ConvertToItem(_result.DiaryElements[e.Position]);
             SessionHolder.Static.Item = item;
             SessionHolder.Static.FromDiary = true;
             StartActivity(typeof(DetailActivity));

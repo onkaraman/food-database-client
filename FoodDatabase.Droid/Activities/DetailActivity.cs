@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.OS;
 using Android.Widget;
+using FoodDatabase.Core.Managers;
 using FoodDatabase.Core.Sessions;
 using FoodDatabase.Droid.Views.Adapters.Concretes;
 using UniversalImageLoader.Core;
@@ -56,8 +57,8 @@ namespace FoodDatabase.Droid.Activities
         /// </summary>
         private void detectAddButtonVisibility()
         {
-            if (SessionHolder.Static.FromDiary) _addButton.Visibility = Android.Views.ViewStates.Gone;
-            else _addButton.Visibility = Android.Views.ViewStates.Visible;
+            if (SessionHolder.Static.FromDiary) _addButton.Enabled = false;
+            else _addButton.Enabled = true;
         }
 
         /// <summary>

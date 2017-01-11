@@ -1,6 +1,7 @@
 ﻿using System;
 using FoodDatabase.Core.API.Models.Diary;
 using FoodDatabase.Core.API.Models.Items;
+using FoodDatabase.Core.Managers;
 using FoodDatabase.Core.Patterns;
 
 namespace FoodDatabase.Core.PlatformHelpers
@@ -12,14 +13,29 @@ namespace FoodDatabase.Core.PlatformHelpers
     {
         public DiaryItemConverter(){}
 
-        public Item ConvertToItem(DiaryShortItem ds, string producer="", string group="")
+        /// <summary>
+        /// Will convert a diary element to a standard item in order to display it in 
+        /// the detail activity.
+        /// </summary>
+        public Item ConvertToItem(DiaryElement de)
         {
-            Item i = new Item();
-            i.Data = ds.Data;
-            i.Description = ds.Description;
-            i.Description.producer = producer;
-            i.Description.group = group;
-            i.id = ds.id;
+            de.DiaryShortItem.Description.producer = string.Format("Added on {0}", de.DateInTime.ToString("dd.MM.yyyy"));
+            de.DiaryShortItem.Description.group = "In your diary";
+                
+            Item i = new Item
+            {
+                id = de.id,
+                Data = de.DiaryShortItem.Data,
+                Description = de.DiaryShortItem.Description,
+            };
+
+            try 
+            { 
+                i.thumbsrc = PersistenceManager.Static.GetFirst(string.Format("{0}-img", de.DiaryShortItem.id)).Value;
+                i.thumbsrclarge = i.thumbsrc;
+            }
+            catch { i.Description.group = "Added from other app."; }
+
             return i;
         }
     }
