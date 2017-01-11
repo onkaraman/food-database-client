@@ -9,8 +9,8 @@ using FoodDatabase.Core.API.Models.Diary;
 using FoodDatabase.Core.API.Models.Items;
 using FoodDatabase.Core.API.Parsers;
 using FoodDatabase.Core.Managers;
-using FoodDatabase.Core.PlatformHelpers;
-using FoodDatabase.Core.Sessions;
+using FoodDatabase.Core.Helpers;
+using FoodDatabase.Core.Helpers;
 using FoodDatabase.Droid.Views.Adapters.Concretes;
 
 namespace FoodDatabase.Droid.Activities

@@ -22,7 +22,7 @@
             android:textSize="@dimen/titleSize"
             android:textColor="@color/blue"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="40dp" />
+            android:layout_marginTop="@dimen/headerTopMargin" />
         <TextView
             android:id="@+id/ServingDescription"
             android:textSize="19dp"
@@ -66,7 +66,7 @@
             android:layout_height="@dimen/buttonHeight"
             android:layout_width="@dimen/buttonWidth"
             android:layout_below="@+id/ServingCustomDescription"
-            android:hint="100"
+            android:hint="1111"
             android:paddingLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_centerHorizontal="true"
@@ -82,7 +82,7 @@
             android:layout_alignTop="@+id/ServingCustomEditText"
             android:layout_alignRight="@+id/ServingCustomEditText"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="30dp" />
+            android:layout_marginRight="108dp" />
         <Button
             android:id="@+id/ServingAddButton"
             android:layout_below="@+id/ServingCustomEditText"

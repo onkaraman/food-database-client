@@ -11,7 +11,7 @@ using Android.Widget;
 using FoodDatabase.Core.API.Accessors;
 using FoodDatabase.Core.Managers;
 using FoodDatabase.Core.Security;
-using FoodDatabase.Core.Sessions;
+using FoodDatabase.Core.Helpers;
 
 namespace FoodDatabase.Droid.Activities
 {

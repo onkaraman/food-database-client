@@ -6,7 +6,7 @@ using Android.Views;
 using Android.Widget;
 using FoodDatabase.Core.API.Accessors;
 using FoodDatabase.Core.Managers;
-using FoodDatabase.Core.Sessions;
+using FoodDatabase.Core.Helpers;
 using FoodDatabase.Droid.Views.Adapters.Concretes;
 
 namespace FoodDatabase.Droid.Activities

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using FoodDatabase.Core.Patterns;
-using FoodDatabase.Core.Sessions;
+using FoodDatabase.Core.Helpers;
 using FoodDatatase.Core.API.Requests;
 
 namespace FoodDatabase.Core.API.Accessors

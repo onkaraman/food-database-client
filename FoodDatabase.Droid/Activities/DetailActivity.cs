@@ -2,7 +2,7 @@
 using Android.OS;
 using Android.Widget;
 using FoodDatabase.Core.Managers;
-using FoodDatabase.Core.Sessions;
+using FoodDatabase.Core.Helpers;
 using FoodDatabase.Droid.Views.Adapters.Concretes;
 using UniversalImageLoader.Core;
 

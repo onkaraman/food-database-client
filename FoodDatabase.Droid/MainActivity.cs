@@ -14,7 +14,7 @@ using FoodDatabase.Core.API.Models.Items;
 using FoodDatabase.Core.API.Parsers;
 using FoodDatabase.Core.Managers;
 using FoodDatabase.Core.Security;
-using FoodDatabase.Core.Sessions;
+using FoodDatabase.Core.Helpers;
 using FoodDatabase.Droid.Activities;
 using FoodDatabase.Droid.Persistence;
 using FoodDatabase.Droid.Views.Adapters.Concretes;

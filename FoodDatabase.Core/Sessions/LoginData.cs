@@ -1,5 +1,5 @@
 ﻿
-namespace FoodDatabase.Core.Sessions
+namespace FoodDatabase.Core.Helpers
 {
     /// <summary>
     /// Hold username and password of the logged in user.

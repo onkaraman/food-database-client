@@ -43,7 +43,7 @@
     <Compile Include="API\Models\Abstracts\APIModel.cs" />
     <Compile Include="API\Models\Result.cs" />
     <Compile Include="API\Models\Stats.cs" />
-    <Compile Include="PlatformHelpers\ItemDataHolder.cs" />
+    <Compile Include="Helpers\ItemDataHolder.cs" />
     <Compile Include="Sessions\SessionHolder.cs" />
     <Compile Include="Sessions\LoginData.cs" />
     <Compile Include="Persistence\DB\DBAccessor.cs" />
@@ -53,7 +53,8 @@
     <Compile Include="Managers\DBManager.cs" />
     <Compile Include="Managers\PersistenceManager.cs" />
     <Compile Include="Security\Encrypter.cs" />
-    <Compile Include="PlatformHelpers\DiaryItemConverter.cs" />
+    <Compile Include="Helpers\DiaryItemConverter.cs" />
+    <Compile Include="Helpers\HTMLCleaner.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -88,7 +89,7 @@
     <Folder Include="API\Models\Items\" />
     <Folder Include="API\Models\Diary\" />
     <Folder Include="API\Models\Abstracts\" />
-    <Folder Include="PlatformHelpers\" />
+    <Folder Include="Helpers\" />
     <Folder Include="Sessions\" />
     <Folder Include="Persistence\" />
     <Folder Include="Persistence\DB\" />

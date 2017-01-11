@@ -2,7 +2,7 @@
 using FoodDatabase.Core.API.Models.Items;
 using FoodDatabase.Core.Patterns;
 
-namespace FoodDatabase.Core.Sessions
+namespace FoodDatabase.Core.Helpers
 {
     /// <summary>
     /// Will hold global session info regarding the logged in user.
