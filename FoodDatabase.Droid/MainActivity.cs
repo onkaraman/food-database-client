@@ -93,7 +93,7 @@ namespace FoodDatabase.Droid
         /// <summary>
         /// Will handle the user input if he wants to initiate a search.
         /// </summary>
-        private void searchFieldKeyPress(object sender, Android.Views.View.KeyEventArgs e)
+        private void searchFieldKeyPress(object sender, View.KeyEventArgs e)
         {
             if (e.KeyCode == Keycode.Enter)
             {
@@ -109,6 +109,8 @@ namespace FoodDatabase.Droid
         {
             if (e == null) return;
             SessionHolder.Static.Item = _items[e.Position];
+            SessionHolder.Static.FromDiary = false;
+            SessionHolder.Static.FromServing = false;
             StartActivity(typeof(DetailActivity));
         }
 

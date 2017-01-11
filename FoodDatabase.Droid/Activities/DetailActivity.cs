@@ -31,6 +31,7 @@ namespace FoodDatabase.Droid.Activities
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Detail);
             setupViews();
+            detectAddButtonVisibility();
             applyData();
             assignEvents();
         }
@@ -48,6 +49,15 @@ namespace FoodDatabase.Droid.Activities
             _nutritionTitle = FindViewById<TextView>(Resource.Id.DetailNutritionTitle);
             _listView = FindViewById<ListView>(Resource.Id.DetaiListView);
             _addButton = FindViewById<Button>(Resource.Id.DetailAddButton);
+        }
+
+        /// <summary>
+        /// Will hide the add button if this detail activity was called from the diary.
+        /// </summary>
+        private void detectAddButtonVisibility()
+        {
+            if (SessionHolder.Static.FromDiary) _addButton.Visibility = Android.Views.ViewStates.Gone;
+            else _addButton.Visibility = Android.Views.ViewStates.Visible;
         }
 
         /// <summary>
@@ -85,15 +95,18 @@ namespace FoodDatabase.Droid.Activities
         /// </summary>
         private void loadThumbails()
         {
-            if (SessionHolder.Static.Item.thumbsrclarge.Length > 3)
+            try
             {
-                ImageLoader.Instance.DisplayImage(SessionHolder.Static.Item.thumbsrclarge, _thumbnail);
+                if (SessionHolder.Static.Item.thumbsrclarge.Length > 3)
+                {
+                    ImageLoader.Instance.DisplayImage(SessionHolder.Static.Item.thumbsrclarge, _thumbnail);
+                }
+                else if (SessionHolder.Static.Item.thumbsrc.Length > 3)
+                {
+                    ImageLoader.Instance.DisplayImage(SessionHolder.Static.Item.thumbsrc, _thumbnail);
+                }
             }
-            else if (SessionHolder.Static.Item.thumbsrc.Length > 3)
-            {
-                ImageLoader.Instance.DisplayImage(SessionHolder.Static.Item.thumbsrc, _thumbnail);
-            }
-            else
+            catch
             {
                 _thumbnail.SetImageResource(Resource.Drawable.detaildefault);
             }

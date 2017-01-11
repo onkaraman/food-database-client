@@ -53,6 +53,7 @@
     <Compile Include="Managers\DBManager.cs" />
     <Compile Include="Managers\PersistenceManager.cs" />
     <Compile Include="Security\Encrypter.cs" />
+    <Compile Include="PlatformHelpers\DiaryItemConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">

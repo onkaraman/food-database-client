@@ -6,8 +6,10 @@ using Android.Views;
 using Android.Widget;
 using FoodDatabase.Core.API.Accessors;
 using FoodDatabase.Core.API.Models.Diary;
+using FoodDatabase.Core.API.Models.Items;
 using FoodDatabase.Core.API.Parsers;
 using FoodDatabase.Core.Managers;
+using FoodDatabase.Core.PlatformHelpers;
 using FoodDatabase.Core.Sessions;
 using FoodDatabase.Droid.Views.Adapters.Concretes;
 
@@ -70,6 +72,19 @@ namespace FoodDatabase.Droid.Activities
         private void assignEvents()
         {
             _date.Click += dateClick;
+            _listView.ItemClick += listViewClick;
+        }
+
+        /// <summary>
+        /// Will open the detail activity for the selected item.
+        /// </summary>
+        private void listViewClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            if (e == null) return;
+            Item item = DiaryItemConverter.Static.ConvertToItem(_result.DiaryElements[e.Position].DiaryShortItem);
+            SessionHolder.Static.Item = item;
+            SessionHolder.Static.FromDiary = true;
+            StartActivity(typeof(DetailActivity));
         }
 
         /// <summary>
@@ -204,7 +219,7 @@ namespace FoodDatabase.Droid.Activities
             {
                 limit = int.Parse(PersistenceManager.Static.GetFirst("kcal").Value);
                 _useBar.Progress = (100 * _dailyKcals) / limit;
-                _summary.Text = string.Format("{0}/{1}", _dailyKcals, limit);
+                _summary.Text = string.Format("{0}/{1} kcal", _dailyKcals, limit);
             }
             catch (Exception)
             {
