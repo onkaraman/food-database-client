@@ -27,6 +27,7 @@ namespace FoodDatabase.Droid.Activities
         private TextView _servingPresetDescription;
         private ListView _listView;
         private EditText _customServing;
+        private TextView _servingUnit;
         private Button _button;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -49,6 +50,7 @@ namespace FoodDatabase.Droid.Activities
             _servingPresetDescription = FindViewById<TextView>(Resource.Id.ServingPresetDescription);
             _listView = FindViewById<ListView>(Resource.Id.ServingListView);
             _customServing = FindViewById<EditText>(Resource.Id.ServingCustomEditText);
+            _servingUnit = FindViewById<TextView>(Resource.Id.ServingCustomUnit);
             _button = FindViewById<Button>(Resource.Id.ServingAddButton);
 
             _progBar.Visibility = ViewStates.Invisible;
@@ -69,7 +71,17 @@ namespace FoodDatabase.Droid.Activities
         private void assignEvents()
         {
             _listView.ItemClick += servingsClick;
+            _customServing.TextChanged += customServingTextChanged;
             _button.Click += addButtonClick;
+        }
+
+        /// <summary>
+        /// Will hide the custom unit symbol when the custom serving length is too much.
+        /// </summary>
+        private void customServingTextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (_customServing.Text.Length > 4) _servingUnit.Visibility = ViewStates.Invisible;
+            else _servingUnit.Visibility = ViewStates.Visible;
         }
 
         /// <summary>
