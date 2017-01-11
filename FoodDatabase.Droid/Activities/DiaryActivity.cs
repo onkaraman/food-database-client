@@ -151,6 +151,7 @@ namespace FoodDatabase.Droid.Activities
             else
             {
                 _progBar.Visibility = ViewStates.Visible;
+                _summary.Text = "Updating";
                 ThreadPool.QueueUserWorkItem(async o =>
                 {
                     string response = await APIAccessor.Static.DiaryGet(SessionHolder.Static.LoginData, _dateTime);

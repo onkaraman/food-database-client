@@ -94,14 +94,14 @@
         android:layout_width="match_parent"
         android:divider="@null"
         android:scrollbars="none"
-        android:layout_height="285dp"
+        android:layout_height="287dp"
         android:layout_alignLeft="@+id/DetailNutritionTitle"
         android:layout_marginRight="20dp" />
     <Button
         android:id="@+id/DetailAddButton"
         android:layout_below="@+id/DetaiListView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="13dp"
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
         style="@style/MainButton"
