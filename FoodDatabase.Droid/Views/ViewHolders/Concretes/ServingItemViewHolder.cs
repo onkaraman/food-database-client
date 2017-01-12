@@ -1,4 +1,5 @@
-﻿using Android.Widget;
+﻿using System;
+using Android.Widget;
 using FoodDatabase.Core.API.Models.Items;
 using FoodDatabase.Core.Helpers;
 using FoodDatabase.Droid.Views.Adapters;
@@ -18,7 +19,8 @@ namespace FoodDatabase.Droid.Views.ViewHolders.Concretes
         {
             Name.Text = HTMLCleaner.Static.Replace(s.name);
             Description.Text = string.Format("{0}g", s.weight_gram);
-            Kcal.Text = ((kcal100 / 100) * int.Parse(s.weight_gram)).ToString();
+            double _kcal = (((double)kcal100 / 100) * int.Parse(s.weight_gram));
+            Kcal.Text = Math.Round(_kcal).ToString();
         }
     }
 }
