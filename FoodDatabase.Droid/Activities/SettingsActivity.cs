@@ -6,6 +6,7 @@ using Android.Widget;
 using FoodDatabase.Core.Managers;
 using FoodDatabase.Core.Security;
 using FoodDatabase.Core.Helpers;
+using Android.Content;
 
 namespace FoodDatabase.Droid.Activities
 {
@@ -22,6 +23,8 @@ namespace FoodDatabase.Droid.Activities
         private EditText _kcalEdit;
         private Button _kcalSaveButton;
         private TextView _loggedInAs;
+        private TextView _versionNumber;
+        private TextView _contact;
         private Button _logoutButton;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -44,6 +47,9 @@ namespace FoodDatabase.Droid.Activities
             _kcalSaveButton = FindViewById<Button>(Resource.Id.SettingsSaveButton);
             _loggedInAs = FindViewById<TextView>(Resource.Id.SettingsLoggedInAs);
             _logoutButton = FindViewById<Button>(Resource.Id.SettingsLogoutButton);
+            _versionNumber = FindViewById<TextView>(Resource.Id.SettingsVersionInfo);
+            _versionNumber.Text = getVersionNumber();
+            _contact = FindViewById<TextView>(Resource.Id.SettingsContact);
 
             _progBar.Visibility = Android.Views.ViewStates.Invisible;
         }
@@ -55,6 +61,7 @@ namespace FoodDatabase.Droid.Activities
         {
             _kcalSaveButton.Click += kcalSaveButtonClick;
             _logoutButton.Click += logoutButtonClick;
+            _contact.Click += contactClick;
         }
 
         /// <summary>
@@ -80,7 +87,7 @@ namespace FoodDatabase.Droid.Activities
             try
             {
                 string username = PersistenceManager.Static.GetFirst("username").Value;
-                _loggedInAs.Text = string.Format("Loggedn in {0}", username);
+                _loggedInAs.Text = string.Format("Logged in as {0}", username);
             }
             catch (Exception)
             {
@@ -129,5 +136,26 @@ namespace FoodDatabase.Droid.Activities
             }
         }
 
+        /// <summary>
+        /// Will return a string with the version number of this app.
+        /// </summary>
+        /// <returns>The version number.</returns>
+        private string getVersionNumber()
+        {
+            var code = PackageManager.GetPackageInfo(PackageName, 0).VersionName;
+            return string.Format("Food Database {0}", code);
+        }
+
+        /// <summary>
+        /// Will open the local email client to write a support mail.
+        /// </summary>
+        private void contactClick(object sender, EventArgs e)
+        {
+            Intent email = new Intent(Intent.ActionSend);
+            email.PutExtra(Intent.ExtraEmail, new string[] { "service@areondev.de" });
+            email.PutExtra(Intent.ExtraSubject, new string[] { "Food Database App" });
+            email.SetType("message/rfc822");
+            StartActivity(email);
+        }
     }
 }

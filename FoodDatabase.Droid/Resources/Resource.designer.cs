@@ -1714,6 +1714,9 @@ namespace FoodDatabase.Droid
 			// aapt resource value: 0x7f0b0088
 			public const int ServingProgressBar = 2131427464;
 			
+			// aapt resource value: 0x7f0b0099
+			public const int SettingsContact = 2131427481;
+			
 			// aapt resource value: 0x7f0b0092
 			public const int SettingsDailyKcal = 2131427474;
 			
@@ -1734,6 +1737,9 @@ namespace FoodDatabase.Droid
 			
 			// aapt resource value: 0x7f0b0095
 			public const int SettingsSaveButton = 2131427477;
+			
+			// aapt resource value: 0x7f0b0098
+			public const int SettingsVersionInfo = 2131427480;
 			
 			// aapt resource value: 0x7f0b0069
 			public const int action0 = 2131427433;

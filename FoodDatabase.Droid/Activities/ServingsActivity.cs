@@ -80,7 +80,7 @@ namespace FoodDatabase.Droid.Activities
         /// </summary>
         private void customServingTextChanged(object sender, TextChangedEventArgs e)
         {
-            if (_customServing.Text.Length > 4) _servingUnit.Visibility = ViewStates.Invisible;
+            if (_customServing.Text.Length > 5) _servingUnit.Visibility = ViewStates.Invisible;
             else _servingUnit.Visibility = ViewStates.Visible;
         }
 
