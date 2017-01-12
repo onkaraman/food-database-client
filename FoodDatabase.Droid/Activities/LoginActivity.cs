@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using FoodDatabase.Core.API.Accessors;
@@ -29,6 +25,7 @@ namespace FoodDatabase.Droid.Activities
         private EditText _username;
         private EditText _password;
         private Button _button;
+        private TextView _registerText;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -60,6 +57,7 @@ namespace FoodDatabase.Droid.Activities
         private void assigEvents()
         {
             _button.Click += loginButtonClick;
+            _registerText.Click += registerTextClick;
         }
 
         /// <summary>
@@ -95,6 +93,16 @@ namespace FoodDatabase.Droid.Activities
         }
 
         /// <summary>
+        /// Will open an external website to register for an account.
+        /// </summary>
+        private void registerTextClick(object sender, EventArgs e)
+        {
+            Intent i = new Intent(Intent.ActionView);
+            i.SetData(Android.Net.Uri.Parse("http://fddb.mobi/register/?lang=de"));
+            StartActivity(i);
+        }
+
+        /// <summary>
         /// Will show an alert dialog with the passed message as its content.
         /// </summary>
         /// <param name="msg">Message.</param>
@@ -103,7 +111,7 @@ namespace FoodDatabase.Droid.Activities
             AlertDialog.Builder alert = new AlertDialog.Builder(this);
             alert.SetTitle(Resource.String.app_name);
             alert.SetMessage(msg);
-            alert.SetPositiveButton("OK",(senderAlert, args) => { });
+            alert.SetPositiveButton("OK", (senderAlert, args) => { });
             alert.Show();
         }
     }

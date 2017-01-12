@@ -105,7 +105,7 @@ namespace FoodDatabase.Droid.Activities
             if (_kcalEdit.Text.Length > 0)
             {
                 PersistenceManager.Static.AddAndPersist("kcal", _kcalEdit.Text);
-                hideKeyboard();
+                StartActivity(typeof(MainActivity));
             }
         }
 

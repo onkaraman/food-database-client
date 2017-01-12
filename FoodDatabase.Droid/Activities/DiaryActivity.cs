@@ -219,15 +219,14 @@ namespace FoodDatabase.Droid.Activities
             try
             {
                 limit = int.Parse(PersistenceManager.Static.GetFirst("kcal").Value);
-                _useBar.Progress = (100 * _dailyKcals) / limit;
-                _summary.Text = string.Format("{0}/{1} kcal", _dailyKcals, limit);
             }
             catch (Exception)
             {
                 //TODO: Handle
             }
 
-
+            _useBar.Progress = (100 * _dailyKcals) / limit;
+            _summary.Text = string.Format("{0}/{1} kcal", _dailyKcals, limit);
         }
 
         /// <summary>

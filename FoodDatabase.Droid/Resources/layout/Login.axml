@@ -16,9 +16,9 @@
         android:layout_height="wrap_content"
         android:text="Log into your account"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="@dimen/headerTopMargin"
         android:textColor="@color/blue"
-        android:textSize="@dimen/bodyTitleSize" />
+        android:textSize="@dimen/titleSize" />
     <EditText
         android:id="@+id/LoginUsername"
         style="@style/MainEditText"
@@ -50,4 +50,14 @@
         android:layout_height="@dimen/buttonHeight"
         style="@style/MainButton"
         android:text="Log in" />
+    <TextView
+        android:id="@+id/LoginRegisterText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log into your account"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/blue"
+        android:layout_below="@+id/LoginButton"
+        android:textSize="16sp" />
 </RelativeLayout>

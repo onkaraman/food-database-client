@@ -28,8 +28,9 @@ namespace FoodDatabase.Droid.Views.ViewHolders.Concretes
             ThreadPool.QueueUserWorkItem(o => loadThumbnail(diaryElement, a));
 
             Name.Text = shortenName(diaryElement.DiaryShortItem.Description.name, 25);
-            Producer.Text = string.Format("{0}{1}", diaryElement.DiaryShortItem.Data.diary_serving_amount, 
-                                          diaryElement.DiaryShortItem.Data.GetMeasureUnit());
+            Producer.Text = string.Format("{0}{1} ({2})", diaryElement.DiaryShortItem.Data.diary_serving_amount, 
+                                          diaryElement.DiaryShortItem.Data.GetMeasureUnit(),
+                                          diaryElement.DateInTime.ToString("HH:mm"));
             Kcal.Text = string.Format("{0}", diaryElement.DiaryShortItem.Data.kcal_diary);
             Proteins.Text = string.Format("{0}g", diaryElement.DiaryShortItem.Data.protein_gram);
             Carbohydrates.Text = string.Format("{0}g", diaryElement.DiaryShortItem.Data.kh_gram);
