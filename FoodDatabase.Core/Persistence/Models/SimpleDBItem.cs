@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using FoodDatabase.Core.API.Models.Abstracts;
 
 namespace FoodDatabase.Core.Persistence.Models

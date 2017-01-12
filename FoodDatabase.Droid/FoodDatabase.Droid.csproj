@@ -91,6 +91,8 @@
     <Compile Include="Views\Adapters\Concretes\DiaryItemAdapter.cs" />
     <Compile Include="Persistence\DBConnection.cs" />
     <Compile Include="Activities\SettingsActivity.cs" />
+    <Compile Include="Views\ViewHolders\Concretes\RecentSearchViewHolder.cs" />
+    <Compile Include="Views\Adapters\Concretes\RecentSearchAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -141,6 +143,7 @@
     <AndroidResource Include="Resources\layout\Diary.axml" />
     <AndroidResource Include="Resources\drawable\settingsIcon.png" />
     <AndroidResource Include="Resources\layout\Settings.axml" />
+    <AndroidResource Include="Resources\layout\RecentSearchItem.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

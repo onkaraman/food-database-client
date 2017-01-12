@@ -25,13 +25,13 @@ namespace FoodDatabase.Core.Managers
         public void Add(string key, string value)
         {
             SimpleDBItem sdbi = new SimpleDBItem(key, value);
-            
-            for (int i = 0; i < _items.Count; i+=1)
+
+            for (int i = 0; i < _items.Count; i += 1)
             {
                 if (_items[i].Key.Equals(key))
                 {
                     _items[i] = sdbi;
-                    return;
+                    break;
                 }
             }
             _items.Add(sdbi);
@@ -78,7 +78,7 @@ namespace FoodDatabase.Core.Managers
 
             foreach (SimpleDBItem sdbi in _items)
             {
-                if (sdbi.Key.Equals(key)) list.Add(sdbi);
+                if (sdbi.Key.StartsWith(key)) list.Add(sdbi);
             }
             return list;
         }

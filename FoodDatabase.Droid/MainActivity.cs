@@ -19,6 +19,7 @@ using FoodDatabase.Droid.Activities;
 using FoodDatabase.Droid.Persistence;
 using FoodDatabase.Droid.Views.Adapters.Concretes;
 using UniversalImageLoader.Core;
+using FoodDatabase.Core.Persistence.Models;
 
 namespace FoodDatabase.Droid
 {
@@ -38,6 +39,7 @@ namespace FoodDatabase.Droid
         private EditText _searchField;
         private ListView _listView;
         private ProgressBar _progBar;
+        private List<SimpleDBItem> _recentSearches;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -46,6 +48,7 @@ namespace FoodDatabase.Droid
             DBManager.Static.Init(new DBConnection());
             checkLogin();
             setupViews();
+            getRecentSearches();
             assignEvents();
         }
 
@@ -64,6 +67,38 @@ namespace FoodDatabase.Droid
             {
                 //TODO: Handle
             }
+        }
+
+        /// <summary>
+        /// Will load the recent searches of the user from the database.
+        /// </summary>
+        private void getRecentSearches()
+        {
+            try
+            {
+                _recentSearches = PersistenceManager.Static.GetList("search");
+
+                int cut = 15;
+                if (_recentSearches.Count > cut) _recentSearches.RemoveRange(cut, _recentSearches.Count - 1);
+                _listView.Adapter = new RecentSearchAdapter(_recentSearches, this);
+            }
+            catch
+            {
+                _recentSearches = new List<SimpleDBItem>();
+                //TODO: Handle
+            }
+        }
+
+        /// <summary>
+        /// Will return true if the recent searches already contain the value.
+        /// </summary>
+        private bool recentSearchesContain(string value)
+        {
+            foreach (SimpleDBItem si in _recentSearches)
+            {
+                if (si.Value.Equals(value)) return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -108,10 +143,17 @@ namespace FoodDatabase.Droid
         private void listItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             if (e == null) return;
-            SessionHolder.Static.Item = _items[e.Position];
-            SessionHolder.Static.FromDiary = false;
-            SessionHolder.Static.FromServing = false;
-            StartActivity(typeof(DetailActivity));
+            try
+            {
+                SessionHolder.Static.Item = _items[e.Position];
+                SessionHolder.Static.FromDiary = false;
+                SessionHolder.Static.FromServing = false;
+                StartActivity(typeof(DetailActivity));
+            }
+            catch
+            {
+                search(_recentSearches[e.Position].Value);
+            }
         }
 
         /// <summary>
@@ -123,7 +165,8 @@ namespace FoodDatabase.Droid
             _progBar.Visibility = ViewStates.Visible;
             hideKeyboard();
 
-            PersistenceManager.Static.AddAndPersist("search", query);
+            if (!recentSearchesContain(query))
+                PersistenceManager.Static.AddAndPersist(string.Format("search-{0}", query.GetHashCode()), query);
 
             ThreadPool.QueueUserWorkItem(async o =>
             {
@@ -146,6 +189,9 @@ namespace FoodDatabase.Droid
             });
         }
 
+        /// <summary>
+        /// Will hide the soft keyboardd of the device.
+        /// </summary>
         private void hideKeyboard()
         {
             if (CurrentFocus != null)
@@ -169,6 +215,18 @@ namespace FoodDatabase.Droid
         private void settingsButtonClick(object sender, EventArgs e)
         {
             StartActivity(typeof(SettingsActivity));
+        }
+    
+        /// <summary>
+        /// Will bring the user always back the main activity.
+        /// </summary>
+        public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
+        {
+            if (e.KeyCode == Keycode.Back)
+            {
+                FinishAffinity();
+            }
+            return base.OnKeyDown(keyCode, e);
         }
     }
 
