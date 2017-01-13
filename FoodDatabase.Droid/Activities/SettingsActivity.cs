@@ -4,9 +4,8 @@ using Android.OS;
 using Android.Views.InputMethods;
 using Android.Widget;
 using FoodDatabase.Core.Managers;
-using FoodDatabase.Core.Security;
-using FoodDatabase.Core.Helpers;
 using Android.Content;
+using FoodDatabase.Core.Helpers;
 
 namespace FoodDatabase.Droid.Activities
 {
@@ -123,10 +122,14 @@ namespace FoodDatabase.Droid.Activities
             {
                 PersistenceManager.Static.Delete(PersistenceManager.Static.GetFirst("username"));
                 PersistenceManager.Static.Delete(PersistenceManager.Static.GetFirst("password"));
+                SessionManager.Static.LoginData = null;
                 StartActivity(typeof(MainActivity));
             }
         }
 
+        /// <summary>
+        /// Will hide the soft keyboard of the device.
+        /// </summary>
         private void hideKeyboard()
         {
             if (CurrentFocus != null)

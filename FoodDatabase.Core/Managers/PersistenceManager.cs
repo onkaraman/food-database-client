@@ -96,6 +96,7 @@ namespace FoodDatabase.Core.Managers
         /// </summary>
         public void Delete(SimpleDBItem sdbi)
         {
+            _items.Remove(sdbi);
             DBManager.Static.DBAccessor.Delete(sdbi);
         }
     }

@@ -82,8 +82,8 @@ namespace FoodDatabase.Droid.Activities
         {
             if (e == null) return;
             Item item = DiaryItemConverter.Static.ConvertToItem(_result.DiaryElements[e.Position]);
-            SessionHolder.Static.Item = item;
-            SessionHolder.Static.FromDiary = true;
+            SessionManager.Static.Item = item;
+            SessionManager.Static.FromDiary = true;
             StartActivity(typeof(DetailActivity));
         }
 
@@ -143,9 +143,9 @@ namespace FoodDatabase.Droid.Activities
         /// </summary>
         private void getDiary()
         {
-            if (SessionHolder.Static.LoginData == null)
+            if (SessionManager.Static.LoginData == null)
             {
-                SessionHolder.Static.FromDiary = true;
+                SessionManager.Static.FromDiary = true;
                 StartActivity(typeof(LoginActivity));
             }
             else
@@ -154,7 +154,7 @@ namespace FoodDatabase.Droid.Activities
                 _summary.Text = "Updating";
                 ThreadPool.QueueUserWorkItem(async o =>
                 {
-                    string response = await APIAccessor.Static.DiaryGet(SessionHolder.Static.LoginData, _dateTime);
+                    string response = await APIAccessor.Static.DiaryGet(SessionManager.Static.LoginData, _dateTime);
                     _result = APIParser.Static.Parse(response);
 
                     RunOnUiThread(() =>
@@ -182,7 +182,7 @@ namespace FoodDatabase.Droid.Activities
 
                 ThreadPool.QueueUserWorkItem(async o =>
                 {
-                    string removeResponse = await APIAccessor.Static.DiaryRemove(SessionHolder.Static.LoginData, uid);
+                    string removeResponse = await APIAccessor.Static.DiaryRemove(SessionManager.Static.LoginData, uid);
 
                     RunOnUiThread(() =>
                     {

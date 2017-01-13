@@ -61,7 +61,7 @@ namespace FoodDatabase.Droid
             {
                 string username = PersistenceManager.Static.GetFirst("username").Value;
                 string password = Encrypter.Static.Decrypt(PersistenceManager.Static.GetFirst("password").Value);
-                SessionHolder.Static.LoginData = new LoginData(username, password);
+                SessionManager.Static.LoginData = new LoginData(username, password);
             }
             catch (Exception)
             {
@@ -145,9 +145,9 @@ namespace FoodDatabase.Droid
             if (e == null) return;
             try
             {
-                SessionHolder.Static.Item = _items[e.Position];
-                SessionHolder.Static.FromDiary = false;
-                SessionHolder.Static.FromServing = false;
+                SessionManager.Static.Item = _items[e.Position];
+                SessionManager.Static.FromDiary = false;
+                SessionManager.Static.FromServing = false;
                 StartActivity(typeof(DetailActivity));
             }
             catch

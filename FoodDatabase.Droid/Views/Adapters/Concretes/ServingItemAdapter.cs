@@ -34,7 +34,7 @@ namespace FoodDatabase.Droid.Views.Adapters.Concretes
         {
             Serving item = (Serving)items[itemPosition];
             ServingItemViewHolder holder = (ServingItemViewHolder)_holder;
-            if (item != null) holder.ApplyData(item, int.Parse(SessionHolder.Static.Item.Data.kcal));
+            if (item != null) holder.ApplyData(item, int.Parse(SessionManager.Static.Item.Data.kcal));
 
             return holder;
         }

@@ -44,7 +44,6 @@
     <Compile Include="API\Models\Result.cs" />
     <Compile Include="API\Models\Stats.cs" />
     <Compile Include="Helpers\ItemDataHolder.cs" />
-    <Compile Include="Sessions\SessionHolder.cs" />
     <Compile Include="Sessions\LoginData.cs" />
     <Compile Include="Persistence\DB\DBAccessor.cs" />
     <Compile Include="Persistence\DB\DBConnectionCore.cs" />
@@ -55,6 +54,7 @@
     <Compile Include="Security\Encrypter.cs" />
     <Compile Include="Helpers\DiaryItemConverter.cs" />
     <Compile Include="Helpers\HTMLCleaner.cs" />
+    <Compile Include="Managers\SessionManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">

@@ -61,8 +61,8 @@ namespace FoodDatabase.Droid.Activities
         /// </summary>
         private void applyData()
         {
-            _name.Text = SessionHolder.Static.Item.Description.name;
-            _listView.Adapter = new ServingItemAdapter(SessionHolder.Static.Item.Servings, this);
+            _name.Text = SessionManager.Static.Item.Description.name;
+            _listView.Adapter = new ServingItemAdapter(SessionManager.Static.Item.Servings, this);
         }
 
         /// <summary>
@@ -92,15 +92,15 @@ namespace FoodDatabase.Droid.Activities
             if (e == null) return;
             checkLogin();
 
-            var serving = SessionHolder.Static.Item.Servings[e.Position];
+            var serving = SessionManager.Static.Item.Servings[e.Position];
 
             try
             {
-                PersistenceManager.Static.AddAndPersist(string.Format("{0}-img", SessionHolder.Static.Item.id),
-                                                        SessionHolder.Static.Item.thumbsrc);
+                PersistenceManager.Static.AddAndPersist(string.Format("{0}-img", SessionManager.Static.Item.id),
+                                                        SessionManager.Static.Item.thumbsrc);
                 
-                string response = await APIAccessor.Static.DiaryAddItem(SessionHolder.Static.LoginData,
-                                            SessionHolder.Static.Item.id.ToString(), 0, serving.id.ToString());
+                string response = await APIAccessor.Static.DiaryAddItem(SessionManager.Static.LoginData,
+                                            SessionManager.Static.Item.id.ToString(), 0, serving.id.ToString());
                 StartActivity(typeof(MainActivity));
             }
             catch (Exception)
@@ -116,9 +116,9 @@ namespace FoodDatabase.Droid.Activities
         /// </summary>
         private void checkLogin()
         {
-            if (SessionHolder.Static.LoginData == null)
+            if (SessionManager.Static.LoginData == null)
             {
-                SessionHolder.Static.FromServing = true;
+                SessionManager.Static.FromServing = true;
                 StartActivity(typeof(LoginActivity));
             }
         }
@@ -134,10 +134,10 @@ namespace FoodDatabase.Droid.Activities
 
             if (_customServing.Text.Length > 0)
             {
-                PersistenceManager.Static.AddAndPersist(string.Format("{0}-img", SessionHolder.Static.Item.id),
-                                        SessionHolder.Static.Item.thumbsrc);
+                PersistenceManager.Static.AddAndPersist(string.Format("{0}-img", SessionManager.Static.Item.id),
+                                        SessionManager.Static.Item.thumbsrc);
                 
-                string response = await APIAccessor.Static.DiaryAddItem(SessionHolder.Static.LoginData, "1", 100);
+                string response = await APIAccessor.Static.DiaryAddItem(SessionManager.Static.LoginData, "1", 100);
                 StartActivity(typeof(MainActivity));
             }
             else

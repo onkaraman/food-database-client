@@ -57,7 +57,7 @@ namespace FoodDatabase.Droid.Activities
         /// </summary>
         private void detectAddButtonVisibility()
         {
-            if (SessionHolder.Static.FromDiary) _addButton.Enabled = false;
+            if (SessionManager.Static.FromDiary) _addButton.Enabled = false;
             else _addButton.Enabled = true;
         }
 
@@ -66,13 +66,13 @@ namespace FoodDatabase.Droid.Activities
         /// </summary>
         private void applyData()
         {
-            _name.Text = SessionHolder.Static.Item.Description.name;
-            _producer.Text = SessionHolder.Static.Item.Description.producer;
-            _group.Text = SessionHolder.Static.Item.Description.group;
+            _name.Text = SessionManager.Static.Item.Description.name;
+            _producer.Text = SessionManager.Static.Item.Description.producer;
+            _group.Text = SessionManager.Static.Item.Description.group;
             _nutritionTitle.Text = string.Format("Nutritional data for {0}{1}",
-                                                 SessionHolder.Static.Item.Data.amount,
-                                                 SessionHolder.Static.Item.Data.GetMeasureUnit());
-            _listView.Adapter = new NutritionItemAdapter(SessionHolder.Static.Item.Data.SubdataAsList(),
+                                                 SessionManager.Static.Item.Data.amount,
+                                                 SessionManager.Static.Item.Data.GetMeasureUnit());
+            _listView.Adapter = new NutritionItemAdapter(SessionManager.Static.Item.Data.SubdataAsList(),
                                              this);
             loadThumbails();
         }
@@ -98,13 +98,13 @@ namespace FoodDatabase.Droid.Activities
         {
             try
             {
-                if (SessionHolder.Static.Item.thumbsrclarge.Length > 3)
+                if (SessionManager.Static.Item.thumbsrclarge.Length > 3)
                 {
-                    ImageLoader.Instance.DisplayImage(SessionHolder.Static.Item.thumbsrclarge, _thumbnail);
+                    ImageLoader.Instance.DisplayImage(SessionManager.Static.Item.thumbsrclarge, _thumbnail);
                 }
-                else if (SessionHolder.Static.Item.thumbsrc.Length > 3)
+                else if (SessionManager.Static.Item.thumbsrc.Length > 3)
                 {
-                    ImageLoader.Instance.DisplayImage(SessionHolder.Static.Item.thumbsrc, _thumbnail);
+                    ImageLoader.Instance.DisplayImage(SessionManager.Static.Item.thumbsrc, _thumbnail);
                 }
             }
             catch
