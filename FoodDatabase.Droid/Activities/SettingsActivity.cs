@@ -6,6 +6,7 @@ using Android.Widget;
 using FoodDatabase.Core.Managers;
 using Android.Content;
 using FoodDatabase.Core.Helpers;
+using FoodDatabase.Core.Localization;
 
 namespace FoodDatabase.Droid.Activities
 {
@@ -20,7 +21,9 @@ namespace FoodDatabase.Droid.Activities
         private bool _doLogin;
         private ProgressBar _progBar;
         private EditText _kcalEdit;
-        private Button _kcalSaveButton;
+        private Button _saveButton;
+        private TextView _dailyKcalDescription;
+        private TextView _title;
         private TextView _loggedInAs;
         private TextView _versionNumber;
         private TextView _contact;
@@ -31,6 +34,7 @@ namespace FoodDatabase.Droid.Activities
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Settings);
             setupViews();
+            localize();
             assignEvents();
             reloadKcal();
             reloadlogin();
@@ -42,8 +46,10 @@ namespace FoodDatabase.Droid.Activities
         private void setupViews()
         {
             _progBar = FindViewById<ProgressBar>(Resource.Id.SettingsProgressBar);
+            _title = FindViewById<TextView>(Resource.Id.SettingsTitle);
+            _dailyKcalDescription = FindViewById<TextView>(Resource.Id.SettingsDailyKcalDescription);
             _kcalEdit = FindViewById<EditText>(Resource.Id.SettingsDailyKcal);
-            _kcalSaveButton = FindViewById<Button>(Resource.Id.SettingsSaveButton);
+            _saveButton = FindViewById<Button>(Resource.Id.SettingsSaveButton);
             _loggedInAs = FindViewById<TextView>(Resource.Id.SettingsLoggedInAs);
             _logoutButton = FindViewById<Button>(Resource.Id.SettingsLogoutButton);
             _versionNumber = FindViewById<TextView>(Resource.Id.SettingsVersionInfo);
@@ -54,11 +60,22 @@ namespace FoodDatabase.Droid.Activities
         }
 
         /// <summary>
+        /// Will localize this activity according to the user's device settings.
+        /// </summary>
+        private void localize()
+        {
+            _title.Text = Localization.Static.Raw("SettingsTitle");
+            _dailyKcalDescription.Text = Localization.Static.Raw("DailyKcal");
+            _saveButton.Text = Localization.Static.Raw("SaveButton");
+            _contact.Text = Localization.Static.Raw("ContactSupport");
+        }
+
+        /// <summary>
         /// Will assign the events for the controls of this activity.
         /// </summary>
         private void assignEvents()
         {
-            _kcalSaveButton.Click += kcalSaveButtonClick;
+            _saveButton.Click += kcalSaveButtonClick;
             _logoutButton.Click += logoutButtonClick;
             _contact.Click += contactClick;
         }
@@ -86,12 +103,13 @@ namespace FoodDatabase.Droid.Activities
             try
             {
                 string username = PersistenceManager.Static.GetFirst("username").Value;
-                _loggedInAs.Text = string.Format("Logged in as {0}", username);
+                _loggedInAs.Text = string.Format(Localization.Static.Raw("LoggedInAs"), username);
+                _logoutButton.Text = Localization.Static.Raw("LogoutButton");
             }
             catch (Exception)
             {
-                _loggedInAs.Text = "You are not logged in.";
-                _logoutButton.Text = "Login";
+                _loggedInAs.Text = Localization.Static.Raw("NotLoggedIn");
+                _logoutButton.Text = Localization.Static.Raw("LoginButton");
                 _doLogin = true;
             }
         }

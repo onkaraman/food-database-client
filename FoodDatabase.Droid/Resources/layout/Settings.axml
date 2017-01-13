@@ -28,7 +28,7 @@
         android:layout_below="@id/SettingsTitle"
         android:layout_height="@dimen/buttonHeight"
         android:layout_width="@dimen/buttonWidth"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
         android:hint="1200"
         android:paddingLeft="105dp"
@@ -75,7 +75,8 @@
         android:textColor="@color/blue"
         android:textSize="@dimen/bodyTitleSize"
         android:layout_alignLeft="@+id/SettingsDailyKcal"
-        android:layout_below="@+id/SettingsSaveButton" />
+        android:layout_below="@+id/SettingsSaveButton"
+        android:layout_marginLeft="4dp" />
     <Button
         android:id="@+id/SettingsLogoutButton"
         android:layout_below="@+id/SettingsLoggedInAs"

@@ -56,7 +56,6 @@
     <Compile Include="Helpers\HTMLCleaner.cs" />
     <Compile Include="Managers\SessionManager.cs" />
     <Compile Include="Localization\Localization.cs" />
-    <Compile Include="Localization\ResourceKeyNames.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>

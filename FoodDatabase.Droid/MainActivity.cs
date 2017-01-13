@@ -20,6 +20,7 @@ using FoodDatabase.Droid.Persistence;
 using FoodDatabase.Droid.Views.Adapters.Concretes;
 using UniversalImageLoader.Core;
 using FoodDatabase.Core.Persistence.Models;
+using FoodDatabase.Core.Localization;
 
 namespace FoodDatabase.Droid
 {
@@ -48,6 +49,7 @@ namespace FoodDatabase.Droid
             DBManager.Static.Init(new DBConnection());
             checkLogin();
             setupViews();
+            localize();
             getRecentSearches();
             assignEvents();
         }
@@ -112,6 +114,14 @@ namespace FoodDatabase.Droid
             _searchField = FindViewById<EditText>(Resource.Id.MainEditText);
             _listView = FindViewById<ListView>(Resource.Id.MainListView);
             _progBar.Visibility = ViewStates.Invisible;
+        }
+
+        /// <summary>
+        /// Will localize the activity according to the user's device settings.
+        /// </summary>
+        private void localize()
+        {
+            _searchField.Hint = Localization.Static.Raw("Search");
         }
 
         /// <summary>
@@ -183,6 +193,7 @@ namespace FoodDatabase.Droid
 
                 RunOnUiThread(() =>
                 {
+                    _listView.RequestFocus();
                     _listView.Adapter = new SearchItemAdapter(result.Items, this);
                     _progBar.Visibility = ViewStates.Invisible;
                 });

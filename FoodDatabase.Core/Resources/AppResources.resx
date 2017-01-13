@@ -181,12 +181,20 @@
     <value>Eisen</value>
     <comment>Details</comment>
   </data>
+  <data name="KcalUsed" xml:space="preserve">
+    <value>{0}/{1} Kcal verbraucht</value>
+    <comment>Diary</comment>
+  </data>
   <data name="LoggedInAs" xml:space="preserve">
     <value>Angemeldet als {0}</value>
     <comment>Settings</comment>
   </data>
   <data name="LoginButton" xml:space="preserve">
     <value>Anmelden</value>
+    <comment>Login</comment>
+  </data>
+  <data name="LoginError" xml:space="preserve">
+    <value>Fehler bei der Anmeldung. Bitte noch mal versuchen.</value>
     <comment>Login</comment>
   </data>
   <data name="LoginTitle" xml:space="preserve">
@@ -268,6 +276,10 @@
   <data name="Sulfur" xml:space="preserve">
     <value>Schwefel</value>
     <comment>Details</comment>
+  </data>
+  <data name="Updating" xml:space="preserve">
+    <value>Aktualisiere</value>
+    <comment>Diary</comment>
   </data>
   <data name="UsernameHint" xml:space="preserve">
     <value>Nutzername oder E-Mail</value>

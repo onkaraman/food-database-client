@@ -206,6 +206,15 @@ namespace FoodDatabase.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0}/{1} Kcal verbraucht.
+        /// </summary>
+        internal static string KcalUsed {
+            get {
+                return ResourceManager.GetString("KcalUsed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Angemeldet als {0}.
         /// </summary>
         internal static string LoggedInAs {
@@ -220,6 +229,15 @@ namespace FoodDatabase.Core.Resources {
         internal static string LoginButton {
             get {
                 return ResourceManager.GetString("LoginButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fehler bei der Anmeldung. Bitte noch mal versuchen..
+        /// </summary>
+        internal static string LoginError {
+            get {
+                return ResourceManager.GetString("LoginError", resourceCulture);
             }
         }
         
@@ -400,6 +418,15 @@ namespace FoodDatabase.Core.Resources {
         internal static string Sulfur {
             get {
                 return ResourceManager.GetString("Sulfur", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aktualisiere.
+        /// </summary>
+        internal static string Updating {
+            get {
+                return ResourceManager.GetString("Updating", resourceCulture);
             }
         }
         

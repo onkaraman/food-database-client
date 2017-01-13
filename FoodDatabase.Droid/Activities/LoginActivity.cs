@@ -8,6 +8,7 @@ using FoodDatabase.Core.API.Accessors;
 using FoodDatabase.Core.Managers;
 using FoodDatabase.Core.Security;
 using FoodDatabase.Core.Helpers;
+using FoodDatabase.Core.Localization;
 
 namespace FoodDatabase.Droid.Activities
 {
@@ -32,6 +33,7 @@ namespace FoodDatabase.Droid.Activities
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Login);
             setupViews();
+            localize();
             assigEvents();
         }
 
@@ -50,6 +52,18 @@ namespace FoodDatabase.Droid.Activities
             _progBar.Visibility = ViewStates.Invisible;
             _username.Text = "quadrigaking";
             _password.Text = "jonny0011";
+        }
+
+        /// <summary>
+        /// Will localize the activity according to the user's device setting.
+        /// </summary>
+        private void localize()
+        {
+            _description.Text = Localization.Static.Raw("LoginTitle");
+            _username.Hint = Localization.Static.Raw("UsernameHint");
+            _password.Hint = Localization.Static.Raw("PasswordHint");
+            _button.Text = Localization.Static.Raw("LoginButton");
+            _registerText.Text = Localization.Static.Raw("RegisterText");
         }
 
         /// <summary>
@@ -87,7 +101,7 @@ namespace FoodDatabase.Droid.Activities
             catch (Exception)
             {
                 //TODO: Handle
-                showAlertDialog("Login error. Please try again.");
+                showAlertDialog(Localization.Static.Raw("LoginError"));
             }
 
             _progBar.Visibility = ViewStates.Invisible;

@@ -10,8 +10,8 @@ using FoodDatabase.Core.API.Models.Items;
 using FoodDatabase.Core.API.Parsers;
 using FoodDatabase.Core.Managers;
 using FoodDatabase.Core.Helpers;
-using FoodDatabase.Core.Helpers;
 using FoodDatabase.Droid.Views.Adapters.Concretes;
+using FoodDatabase.Core.Localization;
 
 namespace FoodDatabase.Droid.Activities
 {
@@ -29,9 +29,9 @@ namespace FoodDatabase.Droid.Activities
         private Core.API.Models.Result _result;
         private ProgressBar _progBar;
         private ProgressBar _useBar;
+        private TextView _title;
         private TextView _summary;
         private DateTime _dateTime;
-        private TextView _title;
         private TextView _date;
         private ListView _listView;
 
@@ -41,8 +41,9 @@ namespace FoodDatabase.Droid.Activities
             SetContentView(Resource.Layout.Diary);
             _dateTime = DateTime.Today;
             _contextMenuItems = new string[] { "Delete" };
-            
+
             setupViews();
+            localize();
             assignEvents();
             getDiary();
         }
@@ -64,6 +65,14 @@ namespace FoodDatabase.Droid.Activities
 
             _progBar.Visibility = ViewStates.Invisible;
             _date.Text = _dateTime.ToString("dd.MM.yyyy");
+        }
+
+        /// <summary>
+        /// Will localize the app according to the user's device settings.
+        /// </summary>
+        private void localize()
+        {
+            _title.Text = Localization.Static.Raw("DiaryTitle");
         }
 
         /// <summary>
@@ -95,7 +104,7 @@ namespace FoodDatabase.Droid.Activities
         {
             if (v.Id == Resource.Id.DiaryListView)
             {
-                var info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+                var info = (AdapterView.AdapterContextMenuInfo)menuInfo;
                 menu.SetHeaderTitle(_result.DiaryElements[info.Position].DiaryShortItem.Description.name);
                 var menuItems = new string[] { "Delete" };
 
@@ -151,7 +160,7 @@ namespace FoodDatabase.Droid.Activities
             else
             {
                 _progBar.Visibility = ViewStates.Visible;
-                _summary.Text = "Updating";
+                _summary.Text = Localization.Static.Raw("Updating");
                 ThreadPool.QueueUserWorkItem(async o =>
                 {
                     string response = await APIAccessor.Static.DiaryGet(SessionManager.Static.LoginData, _dateTime);
@@ -226,7 +235,7 @@ namespace FoodDatabase.Droid.Activities
             }
 
             _useBar.Progress = (100 * _dailyKcals) / limit;
-            _summary.Text = string.Format("{0}/{1} kcal", _dailyKcals, limit);
+            _summary.Text = string.Format(Localization.Static.Raw("KcalUsed"), _dailyKcals, limit);
         }
 
         /// <summary>
