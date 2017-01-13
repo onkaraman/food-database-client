@@ -13,12 +13,22 @@
         android:layout_height="8dp"
         android:indeterminate="true"
         android:layout_marginTop="-3dp" />
+    <TextView
+        android:id="@+id/SettingsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:textSize="@dimen/titleSize"
+        android:textColor="@color/blue"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="@dimen/headerTopMargin" />
     <EditText
         android:id="@+id/SettingsDailyKcal"
         style="@style/MainEditText"
+        android:layout_below="@id/SettingsTitle"
         android:layout_height="@dimen/buttonHeight"
         android:layout_width="@dimen/buttonWidth"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
         android:hint="1200"
         android:paddingLeft="105dp"

@@ -41,7 +41,7 @@ namespace FoodDatabase.Droid.Activities
             SetContentView(Resource.Layout.Diary);
             _dateTime = DateTime.Today;
             _contextMenuItems = new string[] { "Delete" };
-
+            
             setupViews();
             assignEvents();
             getDiary();

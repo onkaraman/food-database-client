@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -55,6 +55,11 @@
     <Compile Include="Helpers\DiaryItemConverter.cs" />
     <Compile Include="Helpers\HTMLCleaner.cs" />
     <Compile Include="Managers\SessionManager.cs" />
+    <Compile Include="Localization\Localization.cs" />
+    <Compile Include="Localization\ResourceKeyNames.cs" />
+    <Compile Include="Resources\AppResources.Designer.cs">
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -80,22 +85,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="API\" />
-    <Folder Include="API\Requests\" />
-    <Folder Include="API\Accessors\" />
-    <Folder Include="Patterns\" />
-    <Folder Include="API\Parsers\" />
-    <Folder Include="API\Models\" />
-    <Folder Include="API\Models\Items\" />
-    <Folder Include="API\Models\Diary\" />
-    <Folder Include="API\Models\Abstracts\" />
-    <Folder Include="Helpers\" />
-    <Folder Include="Sessions\" />
-    <Folder Include="Persistence\" />
-    <Folder Include="Persistence\DB\" />
-    <Folder Include="Persistence\Models\" />
-    <Folder Include="Managers\" />
-    <Folder Include="Security\" />
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AppResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ProjectExtensions>
