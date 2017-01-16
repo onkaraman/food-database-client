@@ -4,7 +4,8 @@ using Android.App;
 using Android.Widget;
 using FoodDatabase.Core.API.Models.Items;
 using FoodDatabase.Droid.Views.Adapters;
-using FoodDatabase.Droid.Views.Widgets;
+using FoodDatabase.Droid.Views.Controls;
+using HockeyApp;
 using UniversalImageLoader.Core;
 
 namespace FoodDatabase.Views.ViewHolders.Concretes
@@ -54,7 +55,7 @@ namespace FoodDatabase.Views.ViewHolders.Concretes
             }
             catch (Exception ex)
             {
-                //TODO: Reporter here.
+                MetricsManager.TrackEvent(string.Format("{0}\n{1}", ex.Message, ex.StackTrace));
             }
         }
 

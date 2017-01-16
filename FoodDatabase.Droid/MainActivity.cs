@@ -21,6 +21,9 @@ using FoodDatabase.Droid.Views.Adapters.Concretes;
 using UniversalImageLoader.Core;
 using FoodDatabase.Core.Persistence.Models;
 using FoodDatabase.Core.Localization;
+using HockeyApp.Android;
+using HockeyApp.Android.Metrics;
+using FoodDatabase.Droid.Views.Controls;
 
 namespace FoodDatabase.Droid
 {
@@ -37,7 +40,7 @@ namespace FoodDatabase.Droid
         private ImageView _menuButton;
         private ImageView _settingsButton;
         private List<Item> _items;
-        private EditText _searchField;
+        private MainEditText _searchField;
         private ListView _listView;
         private ProgressBar _progBar;
         private List<SimpleDBItem> _recentSearches;
@@ -45,6 +48,9 @@ namespace FoodDatabase.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            CrashManager.Register(this, "cacea18fe19f4de585de1b122e48aaee");
+            MetricsManager.Register(this, Application, "cacea18fe19f4de585de1b122e48aaee");
+
             SetContentView(Resource.Layout.Main);
             DBManager.Static.Init(new DBConnection());
             checkLogin();
@@ -65,9 +71,9 @@ namespace FoodDatabase.Droid
                 string password = Encrypter.Static.Decrypt(PersistenceManager.Static.GetFirst("password").Value);
                 SessionManager.Static.LoginData = new LoginData(username, password);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //TODO: Handle
+                MetricsManager.TrackEvent(string.Format("{0}\n{1}", ex.Message, ex.StackTrace));
             }
         }
 
@@ -84,10 +90,10 @@ namespace FoodDatabase.Droid
                 if (_recentSearches.Count > cut) _recentSearches.RemoveRange(cut, _recentSearches.Count - 1);
                 _listView.Adapter = new RecentSearchAdapter(_recentSearches, this);
             }
-            catch
+            catch (Exception ex)
             {
                 _recentSearches = new List<SimpleDBItem>();
-                //TODO: Handle
+                MetricsManager.TrackEvent(string.Format("{0}\n{1}", ex.Message, ex.StackTrace));
             }
         }
 
@@ -111,7 +117,7 @@ namespace FoodDatabase.Droid
             _progBar = FindViewById<ProgressBar>(Resource.Id.MainProgressBar);
             _menuButton = FindViewById<ImageView>(Resource.Id.MainMenuIcon);
             _settingsButton = FindViewById<ImageView>(Resource.Id.MainMenuSettings);
-            _searchField = FindViewById<EditText>(Resource.Id.MainEditText);
+            _searchField = FindViewById<MainEditText>(Resource.Id.MainEditText);
             _listView = FindViewById<ListView>(Resource.Id.MainListView);
             _progBar.Visibility = ViewStates.Invisible;
         }

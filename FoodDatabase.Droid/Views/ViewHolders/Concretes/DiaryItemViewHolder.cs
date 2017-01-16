@@ -1,11 +1,13 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using Android.App;
 using Android.Widget;
 using FoodDatabase.Core.API.Models.Diary;
 using FoodDatabase.Core.Localization;
 using FoodDatabase.Core.Managers;
 using FoodDatabase.Droid.Views.Adapters;
-using FoodDatabase.Droid.Views.Widgets;
+using FoodDatabase.Droid.Views.Controls;
+using HockeyApp;
 using UniversalImageLoader.Core;
 
 namespace FoodDatabase.Droid.Views.ViewHolders.Concretes
@@ -64,9 +66,9 @@ namespace FoodDatabase.Droid.Views.ViewHolders.Concretes
                     ImageLoader.Instance.DisplayImage(url, Thumbnail);
                 });
             }
-            catch
+            catch (Exception ex)
             {
-                //TODO: Reporter here.
+                MetricsManager.TrackEvent(string.Format("{0}\n{1}", ex.Message, ex.StackTrace));
             }
         }
     }

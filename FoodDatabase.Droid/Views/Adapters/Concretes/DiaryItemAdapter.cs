@@ -3,7 +3,7 @@ using Android.Content;
 using Android.Widget;
 using Android.Views;
 using FoodDatabase.Core.API.Models.Abstracts;
-using FoodDatabase.Droid.Views.Widgets;
+using FoodDatabase.Droid.Views.Controls;
 using FoodDatabase.Core.API.Models.Diary;
 using FoodDatabase.Droid.Views.ViewHolders.Concretes;
 

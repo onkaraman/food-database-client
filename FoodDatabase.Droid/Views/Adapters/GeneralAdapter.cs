@@ -6,6 +6,7 @@ using Android.Content;
 using Android.Views;
 using Android.Widget;
 using FoodDatabase.Core.API.Models.Abstracts;
+using HockeyApp;
 
 namespace FoodDatabase.Droid.Views.Adapters
 {
@@ -77,8 +78,7 @@ namespace FoodDatabase.Droid.Views.Adapters
             }
             catch (Exception ex)
             {
-                Console.WriteLine("GeneralAdapter ex: " + ex.Message);
-                //TODO: Report error.
+                MetricsManager.TrackEvent(string.Format("{0}\n{1}", ex.Message, ex.StackTrace));
             }
             return null;
 		}

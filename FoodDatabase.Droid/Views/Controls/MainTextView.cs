@@ -3,7 +3,7 @@ using Android.Content;
 using Android.Graphics;
 using Android.Util;
 
-namespace FoodDatabase.Droid.Views.Widgets
+namespace FoodDatabase.Droid.Views.Controls
 {
     public class MainTextView : TextView
     {

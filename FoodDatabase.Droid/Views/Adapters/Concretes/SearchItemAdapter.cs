@@ -5,7 +5,7 @@ using Android.Views;
 using FoodDatabase.Core.API.Models.Abstracts;
 using FoodDatabase.Core.API.Models.Items;
 using FoodDatabase.Views.ViewHolders.Concretes;
-using FoodDatabase.Droid.Views.Widgets;
+using FoodDatabase.Droid.Views.Controls;
 
 namespace FoodDatabase.Droid.Views.Adapters.Concretes
 {

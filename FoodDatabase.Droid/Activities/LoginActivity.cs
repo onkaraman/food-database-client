@@ -9,6 +9,7 @@ using FoodDatabase.Core.Managers;
 using FoodDatabase.Core.Security;
 using FoodDatabase.Core.Helpers;
 using FoodDatabase.Core.Localization;
+using HockeyApp;
 
 namespace FoodDatabase.Droid.Activities
 {
@@ -98,9 +99,9 @@ namespace FoodDatabase.Droid.Activities
                 else StartActivity(typeof(MainActivity));
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //TODO: Handle
+                MetricsManager.TrackEvent(string.Format("{0}\n{1}", ex.Message, ex.StackTrace));
                 showAlertDialog(Localization.Static.Raw("LoginError"));
             }
 
