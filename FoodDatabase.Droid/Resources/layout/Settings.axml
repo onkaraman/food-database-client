@@ -13,7 +13,7 @@
         android:layout_height="8dp"
         android:indeterminate="true"
         android:layout_marginTop="-3dp" />
-    <TextView
+    <FoodDatabase.Droid.Views.Controls.MainTextView
         android:id="@+id/SettingsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
         android:textColor="@color/blue"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="@dimen/headerTopMargin" />
-    <EditText
+    <FoodDatabase.Droid.Views.Controls.MainEditText
         android:id="@+id/SettingsDailyKcal"
         style="@style/MainEditText"
         android:layout_below="@id/SettingsTitle"
@@ -33,7 +33,7 @@
         android:hint="1200"
         android:paddingLeft="105dp"
         android:inputType="numberSigned" />
-    <TextView
+    <FoodDatabase.Droid.Views.Controls.MainTextView
         android:id="@+id/SettingsDailyKcalDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
         android:textSize="@dimen/bodyTitleSize"
         android:layout_alignLeft="@+id/SettingsDailyKcal"
         android:layout_alignTop="@id/SettingsDailyKcal"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="8dp"
         android:layout_marginLeft="21dp" />
     <ImageView
         android:id="@+id/SettingsKcalIcon"
@@ -66,7 +66,7 @@
         android:layout_height="@dimen/buttonHeight"
         style="@style/MainButton"
         android:text="Save" />
-    <TextView
+    <FoodDatabase.Droid.Views.Controls.MainTextView
         android:id="@+id/SettingsLoggedInAs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -81,12 +81,12 @@
         android:id="@+id/SettingsLogoutButton"
         android:layout_below="@+id/SettingsLoggedInAs"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
         style="@style/MainButton"
         android:text="Logout" />
-    <TextView
+    <FoodDatabase.Droid.Views.Controls.MainTextView
         android:id="@+id/SettingsVersionInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -94,9 +94,8 @@
         android:textColor="@color/blue"
         android:textSize="15dp"
         android:layout_alignLeft="@+id/SettingsLogoutButton"
-        android:layout_above="@+id/SettingsContact"
-        android:layout_marginBottom="2dp" />
-    <TextView
+        android:layout_above="@+id/SettingsContact" />
+    <FoodDatabase.Droid.Views.Controls.MainTextView
         android:id="@+id/SettingsContact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

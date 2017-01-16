@@ -7,6 +7,7 @@ using FoodDatabase.Core.Managers;
 using Android.Content;
 using FoodDatabase.Core.Helpers;
 using FoodDatabase.Core.Localization;
+using FoodDatabase.Droid.Views.Controls;
 
 namespace FoodDatabase.Droid.Activities
 {
@@ -20,13 +21,13 @@ namespace FoodDatabase.Droid.Activities
     {
         private bool _doLogin;
         private ProgressBar _progBar;
-        private EditText _kcalEdit;
+        private MainEditText _kcalEdit;
         private Button _saveButton;
-        private TextView _dailyKcalDescription;
-        private TextView _title;
-        private TextView _loggedInAs;
-        private TextView _versionNumber;
-        private TextView _contact;
+        private MainTextView _dailyKcalDescription;
+        private MainTextView _title;
+        private MainTextView _loggedInAs;
+        private MainTextView _versionNumber;
+        private MainTextView _contact;
         private Button _logoutButton;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -46,15 +47,16 @@ namespace FoodDatabase.Droid.Activities
         private void setupViews()
         {
             _progBar = FindViewById<ProgressBar>(Resource.Id.SettingsProgressBar);
-            _title = FindViewById<TextView>(Resource.Id.SettingsTitle);
-            _dailyKcalDescription = FindViewById<TextView>(Resource.Id.SettingsDailyKcalDescription);
-            _kcalEdit = FindViewById<EditText>(Resource.Id.SettingsDailyKcal);
+            _title = FindViewById<MainTextView>(Resource.Id.SettingsTitle);
+            _dailyKcalDescription = FindViewById<MainTextView>(Resource.Id.SettingsDailyKcalDescription);
+            _kcalEdit = FindViewById<MainEditText>(Resource.Id.SettingsDailyKcal);
             _saveButton = FindViewById<Button>(Resource.Id.SettingsSaveButton);
-            _loggedInAs = FindViewById<TextView>(Resource.Id.SettingsLoggedInAs);
+            _loggedInAs = FindViewById<MainTextView>(Resource.Id.SettingsLoggedInAs);
             _logoutButton = FindViewById<Button>(Resource.Id.SettingsLogoutButton);
-            _versionNumber = FindViewById<TextView>(Resource.Id.SettingsVersionInfo);
+            _versionNumber = FindViewById<MainTextView>(Resource.Id.SettingsVersionInfo);
             _versionNumber.Text = getVersionNumber();
-            _contact = FindViewById<TextView>(Resource.Id.SettingsContact);
+            _contact = FindViewById<MainTextView>(Resource.Id.SettingsContact);
+            _contact.MakeBold();
 
             _progBar.Visibility = Android.Views.ViewStates.Invisible;
         }
