@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddButton" xml:space="preserve">
-    <value>Hinzufügren</value>
+    <value>Hinzufügen</value>
     <comment>Details</comment>
   </data>
   <data name="Alcohol" xml:space="preserve">
@@ -209,6 +209,14 @@
     <value>Magensium</value>
     <comment>Details</comment>
   </data>
+  <data name="Magnesium" xml:space="preserve">
+    <value>Magnesium</value>
+    <comment>Details</comment>
+  </data>
+  <data name="Manganese" xml:space="preserve">
+    <value>Mangan</value>
+    <comment>Details</comment>
+  </data>
   <data name="Mangenese" xml:space="preserve">
     <value>Mangan</value>
     <comment>Details</comment>
@@ -218,7 +226,7 @@
     <comment>Settings</comment>
   </data>
   <data name="NutrionalDataFor" xml:space="preserve">
-    <value>Nährwerte für {0} {1}</value>
+    <value>Nährwerte für {0}{1}</value>
     <comment>Details</comment>
   </data>
   <data name="PasswordHint" xml:space="preserve">

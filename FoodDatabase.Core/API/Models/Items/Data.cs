@@ -102,181 +102,181 @@ namespace FoodDatabase.Core.API.Models.Items
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Proteins",
+                Name = Localization.Localization.Static.Raw("Proteins"),
                 Value = protein_gram,
                 Unit = "g"
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Fat",
+                Name = Localization.Localization.Static.Raw("Fat"),
                 Value = fat_gram,
                 Unit = "g"
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Fat (saturated)",
+                Name = Localization.Localization.Static.Raw("FatSaturated"),
                 Value = fat_sat_gram,
                 Unit = "g"
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Carbohydrates",
+                Name = Localization.Localization.Static.Raw("Carbs"),
                 Value = kh_gram,
                 Unit = "g"
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Sugar",
+                Name = Localization.Localization.Static.Raw("Sugar"),
                 Value = sugar_gram,
                 Unit = "g"
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Cholesterol",
+                Name = Localization.Localization.Static.Raw("Cholesterol"),
                 Value = cholesterol_mg,
                 Unit = "g"
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Diatery Fiber",
+                Name = Localization.Localization.Static.Raw("DiateryFiber"),
                 Value = df_gram,
                 Unit = "g"
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Water",
+                Name = Localization.Localization.Static.Raw("Water"),
                 Value = water_gram,
                 Unit = "ml"
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Alcohol",
+                Name = Localization.Localization.Static.Raw("Alcohol"),
                 Value = alcohol_gram,
                 Unit = "ml"
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Vitamine A",
+                Name = Localization.Localization.Static.Raw("VitA"),
                 Value = v_a_mg,
                 Unit = "mg",
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Vitamine B1",
+                Name = Localization.Localization.Static.Raw("VitB1"),
                 Value = v_b1_mg,
                 Unit = "mg",
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Vitamine B2",
+                Name = Localization.Localization.Static.Raw("VitB2"),
                 Value = v_b2_mg,
                 Unit = "mg",
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Vitamine B6",
+                Name = Localization.Localization.Static.Raw("VitB6"),
                 Value = v_b6_mg,
                 Unit = "mg",
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Vitamine B12",
+                Name = Localization.Localization.Static.Raw("VitB12"),
                 Value = v_b12_mg,
                 Unit = "mg",
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Vitamine C",
+                Name = Localization.Localization.Static.Raw("VitC"),
                 Value = v_c_mg,
                 Unit = "mg",
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Vitamine D",
+                Name = Localization.Localization.Static.Raw("VitD"),
                 Value = v_d_mg,
                 Unit = "mg",
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Vitamine E",
+                Name = Localization.Localization.Static.Raw("VitE"),
                 Value = v_e_mg,
                 Unit = "mg",
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Iron",
+                Name = Localization.Localization.Static.Raw("Iron"),
                 Value = m_eisen_mg,
                 Unit = "mg",
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Calcium",
+                Name = Localization.Localization.Static.Raw("Calcium"),
                 Value = m_calcium_mg,
                 Unit = "mg",
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Magnesium",
+                Name = Localization.Localization.Static.Raw("Magnesium"),
                 Value = m_magnesium_mg,
                 Unit = "mg",
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Salt",
+                Name = Localization.Localization.Static.Raw("Salt"),
                 Value = m_salt_g,
                 Unit = "mg",
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Zinc",
+                Name = Localization.Localization.Static.Raw("Zinc"),
                 Value = m_zink_mg,
                 Unit = "mg",
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Copper",
+                Name = Localization.Localization.Static.Raw("Copper"),
                 Value = m_kupfer_mg,
                 Unit = "mg",
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Sulfur",
+                Name = Localization.Localization.Static.Raw("Sulfur"),
                 Value = m_schwefel_mg,
                 Unit = "mg",
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Manganese",
+                Name = Localization.Localization.Static.Raw("Manganese"),
                 Value = m_mangan_mg,
                 Unit = "mg",
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Chlorine",
+                Name = Localization.Localization.Static.Raw("Chlorine"),
                 Value = m_chlor_mg,
                 Unit = "mg",
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Fluorine",
+                Name = Localization.Localization.Static.Raw("Fluorine"),
                 Value = m_fluor_mg,
                 Unit = "mg",
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Potassium",
+                Name = Localization.Localization.Static.Raw("Potassium"),
                 Value = m_kalium_mg,
                 Unit = "mg",
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Phosphor",
+                Name = Localization.Localization.Static.Raw("Phosphor"),
                 Value = m_phosphor_mg,
                 Unit = "mg",
             });
             list.Add(new ItemDataHolder
             {
-                Name = "Iodine",
+                Name = Localization.Localization.Static.Raw("Iodine"),
                 Value = m_iod_mg,
                 Unit = "mg",
             });

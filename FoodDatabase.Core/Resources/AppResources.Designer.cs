@@ -62,7 +62,7 @@ namespace FoodDatabase.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hinzufügren.
+        ///   Looks up a localized string similar to Hinzufügen.
         /// </summary>
         internal static string AddButton {
             get {
@@ -269,6 +269,24 @@ namespace FoodDatabase.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Magnesium.
+        /// </summary>
+        internal static string Magnesium {
+            get {
+                return ResourceManager.GetString("Magnesium", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mangan.
+        /// </summary>
+        internal static string Manganese {
+            get {
+                return ResourceManager.GetString("Manganese", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mangan.
         /// </summary>
         internal static string Mangenese {
@@ -287,7 +305,7 @@ namespace FoodDatabase.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nährwerte für {0} {1}.
+        ///   Looks up a localized string similar to Nährwerte für {0}{1}.
         /// </summary>
         internal static string NutrionalDataFor {
             get {

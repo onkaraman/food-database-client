@@ -5,6 +5,7 @@ using FoodDatabase.Core.Managers;
 using FoodDatabase.Core.Helpers;
 using FoodDatabase.Droid.Views.Adapters.Concretes;
 using UniversalImageLoader.Core;
+using FoodDatabase.Core.Localization;
 
 namespace FoodDatabase.Droid.Activities
 {
@@ -32,6 +33,7 @@ namespace FoodDatabase.Droid.Activities
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Detail);
             setupViews();
+            localize();
             detectAddButtonVisibility();
             applyData();
             assignEvents();
@@ -53,6 +55,14 @@ namespace FoodDatabase.Droid.Activities
         }
 
         /// <summary>
+        /// Will localize the UI according to the user's device settings.
+        /// </summary>
+        private void localize()
+        {
+            _addButton.Text = Localization.Static.Raw("AddButton");
+        }
+
+        /// <summary>
         /// Will hide the add button if this detail activity was called from the diary.
         /// </summary>
         private void detectAddButtonVisibility()
@@ -69,7 +79,7 @@ namespace FoodDatabase.Droid.Activities
             _name.Text = SessionManager.Static.Item.Description.name;
             _producer.Text = SessionManager.Static.Item.Description.producer;
             _group.Text = SessionManager.Static.Item.Description.group;
-            _nutritionTitle.Text = string.Format("Nutritional data for {0}{1}",
+            _nutritionTitle.Text = string.Format(Localization.Static.Raw("NutrionalDataFor"),
                                                  SessionManager.Static.Item.Data.amount,
                                                  SessionManager.Static.Item.Data.GetMeasureUnit());
             _listView.Adapter = new NutritionItemAdapter(SessionManager.Static.Item.Data.SubdataAsList(),
