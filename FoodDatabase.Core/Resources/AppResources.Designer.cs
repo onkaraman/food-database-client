@@ -404,7 +404,7 @@ namespace FoodDatabase.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Füge diese Mahlzeit deinem Tagebuch hinzu.
+        ///   Looks up a localized string similar to Füge diese Mahlzeit dem Tagebuch hinzu.
         /// </summary>
         internal static string ServingDescription {
             get {

@@ -8,6 +8,7 @@ using FoodDatabase.Core.API.Accessors;
 using FoodDatabase.Core.Managers;
 using FoodDatabase.Core.Helpers;
 using FoodDatabase.Droid.Views.Adapters.Concretes;
+using FoodDatabase.Core.Localization;
 
 namespace FoodDatabase.Droid.Activities
 {
@@ -28,13 +29,14 @@ namespace FoodDatabase.Droid.Activities
         private ListView _listView;
         private EditText _customServing;
         private TextView _servingUnit;
-        private Button _button;
+        private Button _addButton;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Servings);
             setupViews();
+            localize();
             applyData();
             assignEvents();
         }
@@ -51,7 +53,7 @@ namespace FoodDatabase.Droid.Activities
             _listView = FindViewById<ListView>(Resource.Id.ServingListView);
             _customServing = FindViewById<EditText>(Resource.Id.ServingCustomEditText);
             _servingUnit = FindViewById<TextView>(Resource.Id.ServingCustomUnit);
-            _button = FindViewById<Button>(Resource.Id.ServingAddButton);
+            _addButton = FindViewById<Button>(Resource.Id.ServingAddButton);
 
             _progBar.Visibility = ViewStates.Invisible;
         }
@@ -72,7 +74,17 @@ namespace FoodDatabase.Droid.Activities
         {
             _listView.ItemClick += servingsClick;
             _customServing.TextChanged += customServingTextChanged;
-            _button.Click += addButtonClick;
+            _addButton.Click += addButtonClick;
+        }
+
+        /// <summary>
+        /// Will localize the activity according to the user's device.
+        /// </summary>
+        private void localize()
+        {
+            _description.Text = Localization.Static.Raw("ServingDescription");
+            _servingPresetDescription.Text = Localization.Static.Raw("PresetDescription");
+            _addButton.Text = Localization.Static.Raw("AddButton");
         }
 
         /// <summary>

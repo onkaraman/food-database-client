@@ -270,7 +270,7 @@
     <comment>Serving</comment>
   </data>
   <data name="ServingDescription" xml:space="preserve">
-    <value>Füge diese Mahlzeit deinem Tagebuch hinzu</value>
+    <value>Füge diese Mahlzeit dem Tagebuch hinzu</value>
     <comment>Serving</comment>
   </data>
   <data name="SettingsTitle" xml:space="preserve">
