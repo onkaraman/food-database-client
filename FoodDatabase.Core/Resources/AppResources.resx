@@ -153,6 +153,10 @@
     <value>Kcal/Tag</value>
     <comment>Settings</comment>
   </data>
+  <data name="DiaryItemProduct" xml:space="preserve">
+    <value>{0}{1} ({2} Uhr)</value>
+    <comment>Diary</comment>
+  </data>
   <data name="DiaryTitle" xml:space="preserve">
     <value>Tagebuch</value>
     <comment>Diary</comment>

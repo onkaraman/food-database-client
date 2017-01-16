@@ -143,6 +143,15 @@ namespace FoodDatabase.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0}{1} ({2} Uhr).
+        /// </summary>
+        internal static string DiaryItemProduct {
+            get {
+                return ResourceManager.GetString("DiaryItemProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tagebuch.
         /// </summary>
         internal static string DiaryTitle {
