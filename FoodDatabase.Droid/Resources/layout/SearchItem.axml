@@ -9,7 +9,7 @@
         android:layout_height="75dp"
         android:scaleType="centerCrop"
         android:src="@drawable/defaultsearchthumbnail" />
-    <FoodDatabase.Droid.Views.Widgets.MainTextView
+    <FoodDatabase.Droid.Views.Controls.MainTextView
         android:id="@+id/SearchItemName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
         android:layout_marginLeft="8dp"
         android:textColor="@color/blue"
         android:textStyle="normal" />
-    <FoodDatabase.Droid.Views.Widgets.MainTextView
+    <FoodDatabase.Droid.Views.Controls.MainTextView
         android:id="@+id/SearchItemProducer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
         android:layout_alignLeft="@+id/SearchItemProducer"
         android:src="@drawable/kcalicon"
         android:layout_marginBottom="4dp" />
-    <FoodDatabase.Droid.Views.Widgets.MainTextView
+    <FoodDatabase.Droid.Views.Controls.MainTextView
         android:id="@+id/SearchItemKcals"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
         android:src="@drawable/proteinicon"
         android:layout_toRightOf="@+id/SearchItemKcals"
         android:layout_marginLeft="@dimen/spaceBetweenIcons" />
-    <FoodDatabase.Droid.Views.Widgets.MainTextView
+    <FoodDatabase.Droid.Views.Controls.MainTextView
         android:id="@+id/SearchItemProteins"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
         android:src="@drawable/carbohydratesicon"
         android:layout_toRightOf="@+id/SearchItemProteins"
         android:layout_marginLeft="@dimen/spaceBetweenIcons" />
-    <FoodDatabase.Droid.Views.Widgets.MainTextView
+    <FoodDatabase.Droid.Views.Controls.MainTextView
         android:id="@+id/SearchItemCHs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
         android:src="@drawable/sugaricon"
         android:layout_toRightOf="@+id/SearchItemCHs"
         android:layout_marginLeft="@dimen/spaceBetweenIcons" />
-    <FoodDatabase.Droid.Views.Widgets.MainTextView
+    <FoodDatabase.Droid.Views.Controls.MainTextView
         android:id="@+id/SearchItemSugar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -112,7 +112,7 @@
         android:src="@drawable/faticon"
         android:layout_toRightOf="@+id/SearchItemSugar"
         android:layout_marginLeft="@dimen/spaceBetweenIcons" />
-    <FoodDatabase.Droid.Views.Widgets.MainTextView
+    <FoodDatabase.Droid.Views.Controls.MainTextView
         android:id="@+id/SearchItemFat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
