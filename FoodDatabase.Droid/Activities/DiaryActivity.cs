@@ -13,6 +13,7 @@ using FoodDatabase.Core.Helpers;
 using FoodDatabase.Droid.Views.Adapters.Concretes;
 using FoodDatabase.Core.Localization;
 using HockeyApp;
+using FoodDatabase.Droid.Views.Controls;
 
 namespace FoodDatabase.Droid.Activities
 {
@@ -30,10 +31,10 @@ namespace FoodDatabase.Droid.Activities
         private Core.API.Models.Result _result;
         private ProgressBar _progBar;
         private ProgressBar _useBar;
-        private TextView _title;
-        private TextView _summary;
+        private MainTextView _title;
+        private MainTextView _summary;
+        private MainTextView _date;
         private DateTime _dateTime;
-        private TextView _date;
         private ListView _listView;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -57,10 +58,10 @@ namespace FoodDatabase.Droid.Activities
             _progBar = FindViewById<ProgressBar>(Resource.Id.DiaryProgressBar);
             _useBar = FindViewById<ProgressBar>(Resource.Id.DiaryUseBar);
             _useBar.Progress = 0;
-            _summary = FindViewById<TextView>(Resource.Id.DiarySummary);
+            _summary = FindViewById<MainTextView>(Resource.Id.DiarySummary);
             _summary.Text = "";
-            _title = FindViewById<TextView>(Resource.Id.DiaryTitle);
-            _date = FindViewById<TextView>(Resource.Id.DiaryDate);
+            _title = FindViewById<MainTextView>(Resource.Id.DiaryTitle);
+            _date = FindViewById<MainTextView>(Resource.Id.DiaryDate);
             _listView = FindViewById<ListView>(Resource.Id.DiaryListView);
             RegisterForContextMenu(_listView);
 

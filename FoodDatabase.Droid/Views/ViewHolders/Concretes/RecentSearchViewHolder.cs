@@ -1,7 +1,6 @@
-﻿using System;
-using Android.Widget;
-using FoodDatabase.Core.Persistence.Models;
+﻿using FoodDatabase.Core.Persistence.Models;
 using FoodDatabase.Droid.Views.Adapters;
+using FoodDatabase.Droid.Views.Controls;
 
 namespace FoodDatabase.Droid.Views.ViewHolders.Concretes
 {
@@ -10,7 +9,7 @@ namespace FoodDatabase.Droid.Views.ViewHolders.Concretes
     /// </summary>
     public class RecentSearchViewHolder : GeneralViewHolder
     {
-        public TextView Name { get; set; }
+        public MainTextView Name { get; set; }
 
         public void ApplyData(SimpleDBItem item)
         {

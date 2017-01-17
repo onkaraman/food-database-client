@@ -4,6 +4,7 @@ using Android.Views;
 using Android.Widget;
 using FoodDatabase.Core.API.Models.Abstracts;
 using FoodDatabase.Core.Persistence.Models;
+using FoodDatabase.Droid.Views.Controls;
 using FoodDatabase.Droid.Views.ViewHolders.Concretes;
 
 namespace FoodDatabase.Droid.Views.Adapters.Concretes
@@ -40,7 +41,7 @@ namespace FoodDatabase.Droid.Views.Adapters.Concretes
         protected override GeneralViewHolder setupView()
         {
             RecentSearchViewHolder holder = new RecentSearchViewHolder();
-            holder.Name = convertView.FindViewById<TextView>(Resource.Id.RecentSearchName);
+            holder.Name = convertView.FindViewById<MainTextView>(Resource.Id.RecentSearchName);
             return holder;
         }
     }
