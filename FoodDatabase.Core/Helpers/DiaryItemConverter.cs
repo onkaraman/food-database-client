@@ -18,8 +18,9 @@ namespace FoodDatabase.Core.Helpers
         /// </summary>
         public Item ConvertToItem(DiaryElement de)
         {
-            de.DiaryShortItem.Description.producer = string.Format("Added on {0}", de.DateInTime.ToString("dd.MM.yyyy"));
-            de.DiaryShortItem.Description.group = "In your diary";
+            de.DiaryShortItem.Description.producer = string.Format(Localization.Localization.Static.Raw("AddedOn"), 
+                                                                   de.DateInTime.ToString("dd.MM.yyyy"));
+            de.DiaryShortItem.Description.group = Localization.Localization.Static.Raw("InDiary");
 
             Item i = new Item
             {
@@ -33,7 +34,10 @@ namespace FoodDatabase.Core.Helpers
                 i.thumbsrc = PersistenceManager.Static.GetFirst(string.Format("{0}-img", de.DiaryShortItem.id)).Value;
                 i.thumbsrclarge = i.thumbsrc;
             }
-            catch { i.Description.group = "Added from other app."; }
+            catch 
+            { 
+                i.Description.group = Localization.Localization.Static.Raw("FromExternal");
+            }
 
             return i;
         }

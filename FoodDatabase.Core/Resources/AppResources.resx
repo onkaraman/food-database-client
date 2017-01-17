@@ -121,6 +121,10 @@
     <value>Hinzufügen</value>
     <comment>Details</comment>
   </data>
+  <data name="AddedOn" xml:space="preserve">
+    <value>Hinzugefügt am {0}</value>
+    <comment>Diary</comment>
+  </data>
   <data name="Alcohol" xml:space="preserve">
     <value>Alkohol</value>
     <comment>Details</comment>
@@ -176,6 +180,13 @@
   <data name="Fluorine" xml:space="preserve">
     <value>Fluor</value>
     <comment>Details</comment>
+  </data>
+  <data name="FromExternal" xml:space="preserve">
+    <value>Von einer anderen App hinzugefügt</value>
+  </data>
+  <data name="InDiary" xml:space="preserve">
+    <value>In deinem Tagebuch</value>
+    <comment>Diary</comment>
   </data>
   <data name="Iodine" xml:space="preserve">
     <value>Jod</value>

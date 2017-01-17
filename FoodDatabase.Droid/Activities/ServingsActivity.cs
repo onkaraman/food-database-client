@@ -10,6 +10,7 @@ using FoodDatabase.Core.Helpers;
 using FoodDatabase.Droid.Views.Adapters.Concretes;
 using FoodDatabase.Core.Localization;
 using FoodDatabase.Droid.Views.Controls;
+using Android.Graphics;
 
 namespace FoodDatabase.Droid.Activities
 {
@@ -57,7 +58,7 @@ namespace FoodDatabase.Droid.Activities
             _customServing = FindViewById<MainEditText>(Resource.Id.ServingCustomEditText);
             _servingUnit = FindViewById<MainTextView>(Resource.Id.ServingCustomUnit);
             _addButton = FindViewById<Button>(Resource.Id.ServingAddButton);
-
+            _addButton.Typeface = Typeface.CreateFromAsset(Assets, "fonts/segoeui.ttf");
             _progBar.Visibility = ViewStates.Invisible;
         }
 
@@ -117,7 +118,7 @@ namespace FoodDatabase.Droid.Activities
                 
                 string response = await APIAccessor.Static.DiaryAddItem(SessionManager.Static.LoginData,
                                             SessionManager.Static.Item.id.ToString(), 0, serving.id.ToString());
-                StartActivity(typeof(MainActivity));
+                StartActivity(typeof(DiaryActivity));
             }
             catch (Exception)
             {

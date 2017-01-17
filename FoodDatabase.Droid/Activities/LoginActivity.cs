@@ -10,6 +10,8 @@ using FoodDatabase.Core.Security;
 using FoodDatabase.Core.Helpers;
 using FoodDatabase.Core.Localization;
 using HockeyApp;
+using FoodDatabase.Droid.Views.Controls;
+using Android.Graphics;
 
 namespace FoodDatabase.Droid.Activities
 {
@@ -23,11 +25,11 @@ namespace FoodDatabase.Droid.Activities
     public class LoginActivity : Activity
     {
         private ProgressBar _progBar;
-        private TextView _description;
-        private EditText _username;
-        private EditText _password;
-        private Button _button;
-        private TextView _registerText;
+        private MainTextView _description;
+        private MainEditText _username;
+        private MainEditText _password;
+        private MainTextView _registerText;
+        private Button _loginButton;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -44,11 +46,12 @@ namespace FoodDatabase.Droid.Activities
         private void setupViews()
         {
             _progBar = FindViewById<ProgressBar>(Resource.Id.LoginProgressBar);
-            _description = FindViewById<TextView>(Resource.Id.LoginDescription);
-            _username = FindViewById<EditText>(Resource.Id.LoginUsername);
-            _password = FindViewById<EditText>(Resource.Id.LoginPassword);
-            _button = FindViewById<Button>(Resource.Id.LoginButton);
-            _registerText = FindViewById<TextView>(Resource.Id.LoginRegisterText);
+            _description = FindViewById<MainTextView>(Resource.Id.LoginDescription);
+            _username = FindViewById<MainEditText>(Resource.Id.LoginUsername);
+            _password = FindViewById<MainEditText>(Resource.Id.LoginPassword);
+            _loginButton = FindViewById<Button>(Resource.Id.LoginButton);
+            _loginButton.Typeface = Typeface.CreateFromAsset(Assets, "fonts/segoeui.ttf");
+            _registerText = FindViewById<MainTextView>(Resource.Id.LoginRegisterText);
 
             _progBar.Visibility = ViewStates.Invisible;
             _username.Text = "quadrigaking";
@@ -63,7 +66,7 @@ namespace FoodDatabase.Droid.Activities
             _description.Text = Localization.Static.Raw("LoginTitle");
             _username.Hint = Localization.Static.Raw("UsernameHint");
             _password.Hint = Localization.Static.Raw("PasswordHint");
-            _button.Text = Localization.Static.Raw("LoginButton");
+            _loginButton.Text = Localization.Static.Raw("LoginButton");
             _registerText.Text = Localization.Static.Raw("RegisterText");
         }
 
@@ -72,7 +75,7 @@ namespace FoodDatabase.Droid.Activities
         /// </summary>
         private void assigEvents()
         {
-            _button.Click += loginButtonClick;
+            _loginButton.Click += loginButtonClick;
             _registerText.Click += registerTextClick;
         }
 

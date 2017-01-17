@@ -10,7 +10,7 @@
         android:layout_height="8dp"
         android:indeterminate="true"
         android:layout_marginTop="-3dp" />
-    <TextView
+    <FoodDatabase.Droid.Views.Controls.MainTextView
         android:id="@+id/LoginDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         android:layout_marginTop="@dimen/headerTopMargin"
         android:textColor="@color/blue"
         android:textSize="@dimen/titleSize" />
-    <EditText
+    <FoodDatabase.Droid.Views.Controls.MainEditText
         android:id="@+id/LoginUsername"
         style="@style/MainEditText"
         android:layout_height="@dimen/buttonHeight"
@@ -30,7 +30,7 @@
         android:paddingLeft="20dp"
         android:layout_below="@+id/LoginDescription"
         android:inputType="textEmailAddress" />
-    <EditText
+    <FoodDatabase.Droid.Views.Controls.MainEditText
         android:id="@+id/LoginPassword"
         style="@style/MainEditText"
         android:layout_height="@dimen/buttonHeight"
@@ -50,7 +50,7 @@
         android:layout_height="@dimen/buttonHeight"
         style="@style/MainButton"
         android:text="Log in" />
-    <TextView
+    <FoodDatabase.Droid.Views.Controls.MainTextView
         android:id="@+id/LoginRegisterText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

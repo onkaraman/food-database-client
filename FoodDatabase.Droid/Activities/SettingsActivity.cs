@@ -8,6 +8,7 @@ using Android.Content;
 using FoodDatabase.Core.Helpers;
 using FoodDatabase.Core.Localization;
 using FoodDatabase.Droid.Views.Controls;
+using Android.Graphics;
 
 namespace FoodDatabase.Droid.Activities
 {
@@ -59,6 +60,10 @@ namespace FoodDatabase.Droid.Activities
             _contact.MakeBold();
 
             _progBar.Visibility = Android.Views.ViewStates.Invisible;
+
+            var buttonTypeFace = Typeface.CreateFromAsset(Assets, "fonts/segoeui.ttf");
+            _saveButton.Typeface = buttonTypeFace;
+            _logoutButton.Typeface = buttonTypeFace;
         }
 
         /// <summary>

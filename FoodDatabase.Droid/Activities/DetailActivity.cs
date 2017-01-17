@@ -7,6 +7,7 @@ using FoodDatabase.Droid.Views.Adapters.Concretes;
 using UniversalImageLoader.Core;
 using FoodDatabase.Core.Localization;
 using FoodDatabase.Droid.Views.Controls;
+using Android.Graphics;
 
 namespace FoodDatabase.Droid.Activities
 {
@@ -53,6 +54,7 @@ namespace FoodDatabase.Droid.Activities
             _nutritionTitle = FindViewById<MainTextView>(Resource.Id.DetailNutritionTitle);
             _listView = FindViewById<ListView>(Resource.Id.DetaiListView);
             _addButton = FindViewById<Button>(Resource.Id.DetailAddButton);
+            _addButton.Typeface = Typeface.CreateFromAsset(Assets, "fonts/segoeui.ttf");
         }
 
         /// <summary>
@@ -96,6 +98,10 @@ namespace FoodDatabase.Droid.Activities
             _addButton.Click += addButtonClick;
         }
 
+        /// <summary>
+        /// Will start the serving activity for the user to enable adding 
+        /// this food item to the diary.
+        /// </summary>
         private void addButtonClick(object sender, System.EventArgs e)
         {
             StartActivity(typeof(ServingsActivity));

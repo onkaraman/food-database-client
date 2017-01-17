@@ -62,8 +62,16 @@ namespace FoodDatabase.Droid.Views.ViewHolders.Concretes
             {
                 a.RunOnUiThread(() =>
                 {
-                    string url = PersistenceManager.Static.GetFirst(string.Format("{0}-img", item.DiaryShortItem.id)).Value;
-                    ImageLoader.Instance.DisplayImage(url, Thumbnail);
+                    try
+                    {
+                        string url = PersistenceManager.Static.GetFirst(string.Format("{0}-img", item.DiaryShortItem.id)).Value;
+                        ImageLoader.Instance.DisplayImage(url, Thumbnail);
+                    }
+                    catch (Exception ex)
+                    {
+                        MetricsManager.TrackEvent(string.Format("{0}\n{1}", ex.Message, ex.StackTrace));
+                    }
+
                 });
             }
             catch (Exception ex)

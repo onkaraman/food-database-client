@@ -71,6 +71,15 @@ namespace FoodDatabase.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hinzugefügt am {0}.
+        /// </summary>
+        internal static string AddedOn {
+            get {
+                return ResourceManager.GetString("AddedOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Alkohol.
         /// </summary>
         internal static string Alcohol {
@@ -193,6 +202,24 @@ namespace FoodDatabase.Core.Resources {
         internal static string Fluorine {
             get {
                 return ResourceManager.GetString("Fluorine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Von einer anderen App hinzugefügt.
+        /// </summary>
+        internal static string FromExternal {
+            get {
+                return ResourceManager.GetString("FromExternal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In deinem Tagebuch.
+        /// </summary>
+        internal static string InDiary {
+            get {
+                return ResourceManager.GetString("InDiary", resourceCulture);
             }
         }
         
