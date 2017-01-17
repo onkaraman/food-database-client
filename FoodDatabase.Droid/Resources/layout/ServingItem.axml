@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="55dp">
-    <TextView
+    <FoodDatabase.Droid.Views.Controls.MainTextView
         android:id="@+id/ServingItemName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -11,7 +11,7 @@
         android:textSize="@dimen/bodyTitleSize"
         android:textColor="@color/blue"
         android:layout_marginTop="4dp" />
-    <TextView
+    <FoodDatabase.Droid.Views.Controls.MainTextView
         android:id="@+id/ServingItemDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,8 +26,8 @@
         android:layout_alignTop="@+id/ServingItemKcal"
         android:src="@drawable/kcalicon"
         android:layout_marginRight="5dp"
-        android:layout_marginTop="1dp" />
-    <TextView
+        android:layout_marginTop="4dp" />
+    <FoodDatabase.Droid.Views.Controls.MainTextView
         android:id="@+id/ServingItemKcal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

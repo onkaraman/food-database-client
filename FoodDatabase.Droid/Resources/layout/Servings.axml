@@ -14,7 +14,7 @@
             android:layout_height="8dp"
             android:indeterminate="true"
             android:layout_marginTop="-3dp" />
-        <TextView
+        <FoodDatabase.Droid.Views.Controls.MainTextView
             android:id="@+id/ServingFoodName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
             android:textColor="@color/blue"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="@dimen/headerTopMargin" />
-        <TextView
+        <FoodDatabase.Droid.Views.Controls.MainTextView
             android:id="@+id/ServingDescription"
             android:textSize="19dp"
             android:text="Add this food to your diary"
@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp" />
-        <TextView
+        <FoodDatabase.Droid.Views.Controls.MainTextView
             android:id="@+id/ServingPresetDescription"
             android:textSize="18dp"
             android:text="Quickly select a preset"
@@ -51,7 +51,7 @@
             android:divider="@null"
             android:scrollbars="none"
             android:layout_marginRight="20dp" />
-        <TextView
+        <FoodDatabase.Droid.Views.Controls.MainTextView
             android:id="@+id/ServingCustomDescription"
             android:textSize="18dp"
             android:text="Select a custom amount"
@@ -60,7 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp" />
-        <EditText
+        <FoodDatabase.Droid.Views.Controls.MainEditText
             android:id="@+id/ServingCustomEditText"
             style="@style/MainEditText"
             android:layout_height="@dimen/buttonHeight"
@@ -73,7 +73,7 @@
             android:gravity="center"
             android:numeric="integer"
             android:inputType="number" />
-        <TextView
+        <FoodDatabase.Droid.Views.Controls.MainTextView
             android:id="@+id/ServingCustomUnit"
             android:textSize="18dp"
             android:text="g"

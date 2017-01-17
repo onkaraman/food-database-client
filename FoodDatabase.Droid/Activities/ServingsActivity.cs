@@ -9,6 +9,7 @@ using FoodDatabase.Core.Managers;
 using FoodDatabase.Core.Helpers;
 using FoodDatabase.Droid.Views.Adapters.Concretes;
 using FoodDatabase.Core.Localization;
+using FoodDatabase.Droid.Views.Controls;
 
 namespace FoodDatabase.Droid.Activities
 {
@@ -23,12 +24,13 @@ namespace FoodDatabase.Droid.Activities
     public class ServingsActivity : Activity
     {
         private ProgressBar _progBar;
-        private TextView _name;
-        private TextView _description;
-        private TextView _servingPresetDescription;
+        private MainTextView _name;
+        private MainTextView _description;
+        private MainTextView _servingPresetDescription;
+        private MainTextView _servingCustomDescription;
+        private MainTextView _servingUnit;
+        private MainEditText _customServing;
         private ListView _listView;
-        private EditText _customServing;
-        private TextView _servingUnit;
         private Button _addButton;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -47,12 +49,13 @@ namespace FoodDatabase.Droid.Activities
         private void setupViews()
         {
             _progBar = FindViewById<ProgressBar>(Resource.Id.ServingProgressBar);
-            _name = FindViewById<TextView>(Resource.Id.ServingFoodName);
-            _description = FindViewById<TextView>(Resource.Id.ServingDescription);
-            _servingPresetDescription = FindViewById<TextView>(Resource.Id.ServingPresetDescription);
+            _name = FindViewById<MainTextView>(Resource.Id.ServingFoodName);
+            _description = FindViewById<MainTextView>(Resource.Id.ServingDescription);
+            _servingPresetDescription = FindViewById<MainTextView>(Resource.Id.ServingPresetDescription);
+            _servingCustomDescription = FindViewById<MainTextView>(Resource.Id.ServingCustomDescription);
             _listView = FindViewById<ListView>(Resource.Id.ServingListView);
-            _customServing = FindViewById<EditText>(Resource.Id.ServingCustomEditText);
-            _servingUnit = FindViewById<TextView>(Resource.Id.ServingCustomUnit);
+            _customServing = FindViewById<MainEditText>(Resource.Id.ServingCustomEditText);
+            _servingUnit = FindViewById<MainTextView>(Resource.Id.ServingCustomUnit);
             _addButton = FindViewById<Button>(Resource.Id.ServingAddButton);
 
             _progBar.Visibility = ViewStates.Invisible;
@@ -84,6 +87,7 @@ namespace FoodDatabase.Droid.Activities
         {
             _description.Text = Localization.Static.Raw("ServingDescription");
             _servingPresetDescription.Text = Localization.Static.Raw("PresetDescription");
+            _servingCustomDescription.Text = Localization.Static.Raw("SelectCustomDescription");
             _addButton.Text = Localization.Static.Raw("AddButton");
         }
 

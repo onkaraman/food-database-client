@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Android.Content;
 using Android.Views;
 using Android.Widget;
 using FoodDatabase.Core.API.Models.Abstracts;
 using FoodDatabase.Core.API.Models.Items;
 using FoodDatabase.Core.Helpers;
+using FoodDatabase.Droid.Views.Controls;
 using FoodDatabase.Droid.Views.ViewHolders.Concretes;
 
 namespace FoodDatabase.Droid.Views.Adapters.Concretes
@@ -42,9 +42,9 @@ namespace FoodDatabase.Droid.Views.Adapters.Concretes
         protected override GeneralViewHolder setupView()
         {
             ServingItemViewHolder holder = new ServingItemViewHolder();
-            holder.Name = convertView.FindViewById<TextView>(Resource.Id.ServingItemName);
-            holder.Description = convertView.FindViewById<TextView>(Resource.Id.ServingItemDescription);
-            holder.Kcal = convertView.FindViewById<TextView>(Resource.Id.ServingItemKcal);
+            holder.Name = convertView.FindViewById<MainTextView>(Resource.Id.ServingItemName);
+            holder.Description = convertView.FindViewById<MainTextView>(Resource.Id.ServingItemDescription);
+            holder.Kcal = convertView.FindViewById<MainTextView>(Resource.Id.ServingItemKcal);
             return holder;
         }
     }

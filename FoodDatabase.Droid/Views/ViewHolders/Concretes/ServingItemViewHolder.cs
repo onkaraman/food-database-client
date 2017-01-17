@@ -1,8 +1,8 @@
 ﻿using System;
-using Android.Widget;
 using FoodDatabase.Core.API.Models.Items;
 using FoodDatabase.Core.Helpers;
 using FoodDatabase.Droid.Views.Adapters;
+using FoodDatabase.Droid.Views.Controls;
 
 namespace FoodDatabase.Droid.Views.ViewHolders.Concretes
 {
@@ -11,9 +11,9 @@ namespace FoodDatabase.Droid.Views.ViewHolders.Concretes
     /// </summary>
     public class ServingItemViewHolder : GeneralViewHolder
     {
-        public TextView Name { get; set; }
-        public TextView Description { get; set; }
-        public TextView Kcal { get; set; }
+        public MainTextView Name { get; set; }
+        public MainTextView Description { get; set; }
+        public MainTextView Kcal { get; set; }
 
         public void ApplyData(Serving s, int kcal100)
         {
