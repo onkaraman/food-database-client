@@ -2,6 +2,7 @@
 using Android.Widget;
 using FoodDatabase.Core.Helpers;
 using FoodDatabase.Droid.Views.Adapters;
+using FoodDatabase.Droid.Views.Controls;
 
 namespace FoodDatabase.Droid.Views.ViewHolders.Concretes
 {
@@ -10,8 +11,8 @@ namespace FoodDatabase.Droid.Views.ViewHolders.Concretes
     /// </summary>
     public class NutritionItemViewHolder : GeneralViewHolder
     {
-        public TextView Name { get; set; }
-        public TextView Value { get; set; }
+        public MainTextView Name { get; set; }
+        public MainTextView Value { get; set; }
 
         public void ApplyData(ItemDataHolder idh)
         {

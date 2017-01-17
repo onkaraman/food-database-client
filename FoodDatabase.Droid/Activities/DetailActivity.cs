@@ -6,6 +6,7 @@ using FoodDatabase.Core.Helpers;
 using FoodDatabase.Droid.Views.Adapters.Concretes;
 using UniversalImageLoader.Core;
 using FoodDatabase.Core.Localization;
+using FoodDatabase.Droid.Views.Controls;
 
 namespace FoodDatabase.Droid.Activities
 {
@@ -21,10 +22,10 @@ namespace FoodDatabase.Droid.Activities
     {
         private ImageView _thumbnail;
         private ImageView _thumbnailBlurred;
-        private TextView _name;
-        private TextView _producer;
-        private TextView _group;
-        private TextView _nutritionTitle;
+        private MainTextView _name;
+        private MainTextView _producer;
+        private MainTextView _group;
+        private MainTextView _nutritionTitle;
         private ListView _listView;
         private Button _addButton;
 
@@ -46,10 +47,10 @@ namespace FoodDatabase.Droid.Activities
         {
             _thumbnail = FindViewById<ImageView>(Resource.Id.DetailThumbnail);
             _thumbnailBlurred = FindViewById<ImageView>(Resource.Id.DetailThumbnailBlur);
-            _name = FindViewById<TextView>(Resource.Id.DetailName);
-            _producer = FindViewById<TextView>(Resource.Id.DetailProducer);
-            _group = FindViewById<TextView>(Resource.Id.DetailGroup);
-            _nutritionTitle = FindViewById<TextView>(Resource.Id.DetailNutritionTitle);
+            _name = FindViewById<MainTextView>(Resource.Id.DetailName);
+            _producer = FindViewById<MainTextView>(Resource.Id.DetailProducer);
+            _group = FindViewById<MainTextView>(Resource.Id.DetailGroup);
+            _nutritionTitle = FindViewById<MainTextView>(Resource.Id.DetailNutritionTitle);
             _listView = FindViewById<ListView>(Resource.Id.DetaiListView);
             _addButton = FindViewById<Button>(Resource.Id.DetailAddButton);
         }

@@ -27,12 +27,12 @@
         android:alpha="0.3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-    <TextView
+    <FoodDatabase.Droid.Views.Controls.MainTextView
         android:id="@+id/DetailName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="35dp"
         android:text="Food item title"
         android:textColor="@color/blue"
         android:textSize="@dimen/titleSize" />
@@ -47,7 +47,7 @@
         android:alpha="0.3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-    <TextView
+    <FoodDatabase.Droid.Views.Controls.MainTextView
         android:id="@+id/DetailProducer"
         android:layout_below="@+id/DetailName"
         android:layout_alignLeft="@+id/DetailName"
@@ -67,7 +67,7 @@
         android:alpha="0.3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-    <TextView
+    <FoodDatabase.Droid.Views.Controls.MainTextView
         android:id="@+id/DetailGroup"
         android:layout_below="@+id/DetailProducer"
         android:layout_alignLeft="@+id/DetailProducer"
@@ -76,7 +76,7 @@
         android:text="Food group"
         android:textSize="17dp"
         android:layout_marginTop="3dp" />
-    <TextView
+    <FoodDatabase.Droid.Views.Controls.MainTextView
         android:id="@+id/DetailNutritionTitle"
         android:layout_below="@+id/DetailThumbnailBlur"
         android:layout_alignLeft="@+id/DetailProducer"
@@ -90,7 +90,7 @@
     <ListView
         android:id="@+id/DetaiListView"
         android:layout_below="@+id/DetailNutritionTitle"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="7dp"
         android:layout_width="match_parent"
         android:divider="@null"
         android:scrollbars="none"

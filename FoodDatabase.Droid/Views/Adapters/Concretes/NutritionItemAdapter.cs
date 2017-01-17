@@ -4,6 +4,7 @@ using Android.Views;
 using Android.Widget;
 using FoodDatabase.Core.API.Models.Abstracts;
 using FoodDatabase.Core.Helpers;
+using FoodDatabase.Droid.Views.Controls;
 using FoodDatabase.Droid.Views.ViewHolders.Concretes;
 
 namespace FoodDatabase.Droid.Views.Adapters.Concretes
@@ -40,8 +41,8 @@ namespace FoodDatabase.Droid.Views.Adapters.Concretes
         protected override GeneralViewHolder setupView()
         {
             NutritionItemViewHolder holder = new NutritionItemViewHolder();
-            holder.Name = convertView.FindViewById<TextView>(Resource.Id.NutritionItemName);
-            holder.Value = convertView.FindViewById<TextView>(Resource.Id.NutritionItemValue);
+            holder.Name = convertView.FindViewById<MainTextView>(Resource.Id.NutritionItemName);
+            holder.Value = convertView.FindViewById<MainTextView>(Resource.Id.NutritionItemValue);
             return holder;
         }
     }
