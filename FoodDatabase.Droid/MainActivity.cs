@@ -166,9 +166,10 @@ namespace FoodDatabase.Droid
                 SessionManager.Static.FromServing = false;
                 StartActivity(typeof(DetailActivity));
             }
-            catch
+            catch (Exception ex)
             {
                 search(_recentSearches[e.Position].Value);
+                MetricsManager.TrackEvent(string.Format("{0}\n{1}", ex.Message, ex.StackTrace));
             }
         }
 
@@ -186,23 +187,30 @@ namespace FoodDatabase.Droid
 
             ThreadPool.QueueUserWorkItem(async o =>
             {
-                string response = await APIAccessor.Static.Search(query);
-                var result = APIParser.Static.Parse(response);
-
-                for (int i = 1; i <= 10; i += 1)
+                try
                 {
-                    response = await APIAccessor.Static.Search(query, (i * 10).ToString());
-                    result.Items.AddRange(APIParser.Static.Parse(response).Items);
+                    string response = await APIAccessor.Static.Search(query);
+                    var result = APIParser.Static.Parse(response);
+
+                    for (int i = 1; i <= 10; i += 1)
+                    {
+                        response = await APIAccessor.Static.Search(query, (i * 10).ToString());
+                        result.Items.AddRange(APIParser.Static.Parse(response).Items);
+                    }
+
+                    _items = result.Items;
+
+                    RunOnUiThread(() =>
+                    {
+                        _listView.RequestFocus();
+                        _listView.Adapter = new SearchItemAdapter(result.Items, this);
+                        _progBar.Visibility = ViewStates.Invisible;
+                    });
                 }
-
-                _items = result.Items;
-
-                RunOnUiThread(() =>
+                catch(Exception ex)
                 {
-                    _listView.RequestFocus();
-                    _listView.Adapter = new SearchItemAdapter(result.Items, this);
-                    _progBar.Visibility = ViewStates.Invisible;
-                });
+                    MetricsManager.TrackEvent(string.Format("{0}\n{1}", ex.Message, ex.StackTrace));
+                }
             });
         }
 

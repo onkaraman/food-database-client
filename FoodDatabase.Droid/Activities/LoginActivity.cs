@@ -54,8 +54,6 @@ namespace FoodDatabase.Droid.Activities
             _registerText = FindViewById<MainTextView>(Resource.Id.LoginRegisterText);
 
             _progBar.Visibility = ViewStates.Invisible;
-            _username.Text = "quadrigaking";
-            _password.Text = "jonny0011";
         }
 
         /// <summary>
