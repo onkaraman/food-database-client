@@ -42,11 +42,12 @@
         android:tint="@color/blue" />
     <ProgressBar
         android:id="@+id/DiaryUseBar"
-        android:layout_width="@dimen/buttonWidth"
-        android:layout_height="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
         android:layout_below="@+id/DiaryTitle"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
+        android:layout_marginLeft="20dp"
         android:scaleY="7"
         android:progress="50"
         android:max="100"
@@ -65,10 +66,11 @@
     <ListView
         android:id="@+id/DiaryListView"
         android:layout_height="match_parent"
-        android:layout_width="@dimen/buttonWidth"
+        android:layout_width="match_parent"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/DiarySummary"
         android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
         android:divider="@null"
         android:dividerHeight="0dp"
         android:layout_marginBottom="20dp" />
