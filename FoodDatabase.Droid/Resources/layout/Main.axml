@@ -18,13 +18,14 @@
     <FoodDatabase.Droid.Views.Controls.MainEditText
         android:id="@+id/MainEditText"
         android:layout_height="@dimen/buttonHeight"
-        android:layout_width="@dimen/buttonWidth"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         style="@style/MainEditText"
         android:imeOptions="actionSearch"
         android:hint="Search"
-        android:paddingLeft="43dp" />
+        android:paddingLeft="43dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent" />
     <ImageView
         android:id="@+id/MainMenuIcon"
         android:layout_alignTop="@+id/MainEditText"
@@ -53,7 +54,7 @@
         android:layout_marginRight="6dp" />
     <ListView
         android:id="@+id/MainListView"
-        android:layout_width="@dimen/buttonWidth"
+        android:layout_width="wrap_content"
         android:layout_below="@+id/MainEditText"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
@@ -61,5 +62,6 @@
         android:layout_marginBottom="12dp"
         android:scrollbars="none"
         android:dividerHeight="0dp"
-        android:divider="@null" />
+        android:divider="@null"
+        android:layout_marginLeft="20dp" />
 </RelativeLayout>

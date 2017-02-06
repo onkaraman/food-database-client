@@ -102,10 +102,11 @@
     <Button
         android:id="@+id/DetailAddButton"
         android:layout_centerHorizontal="true"
-        android:layout_width="@dimen/buttonWidth"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/buttonHeight"
         style="@style/MainButton"
         android:text="Add"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="25dp" />
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="20dp" />
 </RelativeLayout>
