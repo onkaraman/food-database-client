@@ -154,7 +154,9 @@ namespace FoodDatabase.Droid.Activities
                 PersistenceManager.Static.AddAndPersist(string.Format("{0}-img", SessionManager.Static.Item.id),
                                         SessionManager.Static.Item.thumbsrc);
                 
-                string response = await APIAccessor.Static.DiaryAddItem(SessionManager.Static.LoginData, "1", 100);
+                string response = await APIAccessor.Static.DiaryAddItem(SessionManager.Static.LoginData, 
+                                                                        SessionManager.Static.Item.id.ToString(), 
+                                                                        int.Parse(_customServing.Text));
                 StartActivity(typeof(MainActivity));
             }
             else
